@@ -1,0 +1,58 @@
+.container {
+  background: url(../images/base-cta.jpg);
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+}
+
+.left {
+  width: 32%;
+  background-color: rgba(149, 218, 189, 0.9);
+  background-image: url(../images/tex-noise.png);
+  background-repeat: repeat;
+}
+
+.right {
+  width: 68%;
+  background-color: rgba(97, 173, 141, 0.9);
+  background-image: url(../images/tex-noise.png);
+  background-repeat: repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header {
+  width: 526px;
+  color: #ffffff;
+  font-size: 30px;
+  text-align: right;
+  font-weight: 300;
+  margin-bottom: 16px;
+}
+
+.buttons {
+  text-align: right;
+}
+
+a.button {
+  box-sizing: border-box;
+  text-align: center;
+  display: inline-block;
+  background: #ffffff;
+  color: #5eae8c;
+  text-transform: uppercase;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 10px 30px 8px;
+  border-radius: 48px;
+  font-size: 16px;
+  letter-spacing: 1px;
+  width: 170px;
+}
+
+a.button:last-of-type {
+  margin-left: 16px;
+}
