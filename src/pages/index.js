@@ -1,10 +1,12 @@
 import React from "react"
 import { Helmet } from "react-helmet"
+import { Link } from "gatsby"
 
 import Layout from "../components/layout"
 import Header from "../components/header"
 import Block from "../components/block"
 import Button from "../components/button"
+import Footer from "../components/footer"
 
 import hero from "../images/home-hero.jpg"
 import zigzag from "../images/tex-zebra.png"
@@ -87,6 +89,7 @@ const IndexPage = () => (
             </div>
           </div>
         </Block>
+        <Footer></Footer>
       </>
     </Layout>
   </>

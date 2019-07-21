@@ -1,0 +1,34 @@
+.container {
+  padding: 60px 0;
+  background: #303944;
+}
+
+.wrapper {
+  width: 360px;
+  margin: 0 auto;
+  color: #d4dae4;
+  text-transform: uppercase;
+  font-size: 12px;
+  letter-spacing: 1px;
+  font-weight: 600;
+}
+
+.paragraph {
+  margin-bottom: 4px;
+}
+
+.linksWrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.link {
+  color: #d4dae4;
+  text-decoration: none;
+  border-bottom: 1px solid #515b70;
+  transition: border-bottom 0.2s;
+}
+
+.link:hover {
+  border-bottom: 1px solid #d4dae4;
+}
