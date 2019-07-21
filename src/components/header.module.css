@@ -2,8 +2,6 @@
   width: 100%;
   background: #ffffff;
   height: 182px;
-  font-weight: 600;
-  text-transform: uppercase;
 }
 
 .wrapper {
@@ -16,7 +14,14 @@
 }
 
 .link {
+  outline: none;
+  display: inline;
+  border: 0;
+  text-transform: uppercase;
+  font-weight: 500;
+  cursor: pointer;
   color: #3a3f48;
+  font-family: "Metropolis", sans-serif;
   text-decoration: none;
   padding: 0 2px 1px;
   font-size: 16px;

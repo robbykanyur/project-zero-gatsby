@@ -44,6 +44,7 @@ const IndexPage = () => (
             </div>
           </div>
         </Block>
+        <a id="about" name="about"></a>
         <Block>
           <div className={indexStyles.everyPerson}>
             <h2 className="is-1 is-centered is-serif">
@@ -174,7 +175,7 @@ const IndexPage = () => (
                 </p>
               </div>
               <div className={indexStyles.quoteAttrib}>
-                <p>&ndash; Caleb Fitzpatrick, Director</p>
+                <p>Caleb Fitzpatrick, Executive Director</p>
               </div>
             </div>
           </div>
