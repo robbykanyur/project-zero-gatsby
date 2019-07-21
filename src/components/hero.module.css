@@ -1,0 +1,17 @@
+.hero {
+  background: #000;
+  height: 500px;
+  background-image: url(../images/placeholder.png);
+  background-size: cover;
+  background-position: center;
+}
+
+.hero h1 {
+  font-weight: 800;
+  text-align: center;
+  text-transform: uppercase;
+  color: #ffffff;
+  font-size: 80px;
+  letter-spacing: 4px;
+  margin-top: 63px;
+}

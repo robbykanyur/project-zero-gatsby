@@ -1,6 +1,5 @@
 .container {
   width: 100%;
-  background: #ffffff;
   height: 182px;
 }
 
@@ -14,11 +13,12 @@
 }
 
 .link {
+  background: none;
   outline: none;
   display: inline;
   border: 0;
   text-transform: uppercase;
-  font-weight: 500;
+  font-weight: 600;
   cursor: pointer;
   color: #3a3f48;
   font-family: "Metropolis", sans-serif;
@@ -33,11 +33,8 @@
 }
 
 .logo {
-  background: url(../images/base-logo-new.png);
-  background-size: cover;
   display: block;
-  height: 0;
-  padding-top: 124px;
+  height: 124px;
   width: 118px;
   overflow: hidden;
 }

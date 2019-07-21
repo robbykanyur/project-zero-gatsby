@@ -7,6 +7,7 @@ const Block = props => (
     style={{
       backgroundColor: props.backgroundColor,
       backgroundImage: "url(" + props.backgroundImage + ")",
+      paddingTop: props.containerPaddingTop,
       paddingBottom: props.containerPaddingBottom,
       marginBottom: props.containerMarginBottom,
     }}

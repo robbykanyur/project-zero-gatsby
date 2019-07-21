@@ -3,7 +3,8 @@
   background-size: cover;
   background-position: center;
   width: 100%;
-  min-height: 100vh;
+  height: 100vh;
+  max-height: 800px;
   display: flex;
 }
 
@@ -52,16 +53,17 @@ a.button {
   letter-spacing: 1px;
   width: 170px;
   transition: all 0.2s;
-}
-
-a.button:hover {
   margin-right: 3px;
 }
 
+a.button:hover {
+  margin-right: 0px;
+}
+
 a.button:last-of-type {
-  margin-left: 16px;
+  margin-left: 19px;
 }
 
 a.button:last-of-type:hover {
-  margin-left: 13px;
+  margin-left: 22px;
 }

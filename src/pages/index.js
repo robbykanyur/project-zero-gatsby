@@ -17,6 +17,7 @@ import polaroid from "../images/home-polaroid.png"
 import squares from "../images/home-squares.png"
 import paint from "../images/tex-wall.png"
 import caleb from "../images/profile-caleb.jpg"
+import logo from "../images/base-logo-new.png"
 
 const IndexPage = () => (
   <>
@@ -26,7 +27,7 @@ const IndexPage = () => (
 
     <Layout>
       <>
-        <Header></Header>
+        <Header logoSrc={logo} />
         <Block backgroundImage={hero}>
           <div className="animated fadeInUp">
             <div className={indexStyles.hero}>

@@ -1,8 +1,6 @@
 import React from "react"
 import ctaStyles from "./cta.module.css"
 
-import Button from "./button"
-
 const Cta = props => (
   <div className={ctaStyles.container}>
     <div className={ctaStyles.left}></div>
@@ -15,7 +13,11 @@ const Cta = props => (
           <a href={props.linkOneHref} className={ctaStyles.button}>
             {props.linkOneText}
           </a>
-          <a href={props.linkTwoHref} className={ctaStyles.button}>
+          <a
+            href={props.linkTwoHref}
+            className={ctaStyles.button}
+            style={{ display: props.displaySecondButton }}
+          >
             {props.linkTwoText}
           </a>
         </div>

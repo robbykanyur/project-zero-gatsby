@@ -3751,6 +3751,12 @@ p.is-subtitle {
   margin-bottom: 26px;
 }
 
+p.is-1 {
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
 .is-centered {
   margin-left: auto;
   margin-right: auto;
@@ -3778,6 +3784,10 @@ strong {
   font-weight: 600;
 }
 
+.is-2 {
+  color: #303944;
+}
+
 .is-serif.is-2 {
   font-style: italic;
   font-size: 30px;
@@ -3787,4 +3797,37 @@ strong {
 
 p:last-child {
   margin-bottom: 0;
+}
+
+form.formControl {
+  margin: 0 auto;
+  width: 375px;
+  box-sizing: border-box;
+}
+
+.control input {
+  box-sizing: border-box;
+  width: 100%;
+  appearance: none;
+  outline: none;
+  border: 0;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 16px;
+  padding: 10px;
+  border-bottom: 1px solid #cfd3d9;
+  margin-bottom: 28px;
+  font-family: "Metropolis", sans-serif;
+  transition: all 0.2s;
+  color: #5dae8c;
+}
+
+.control input::placeholder {
+  color: #cfd3d9;
+}
+
+.control input:focus {
+  border-bottom: 1px solid #5eae8c;
 }

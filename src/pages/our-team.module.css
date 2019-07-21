@@ -1,0 +1,81 @@
+.lead p {
+  width: 880px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.biosContainer {
+  padding: 45px 0;
+  background: #f2f2f2;
+  border-top: 5px solid #ededed;
+  border-bottom: 5px solid #ededed;
+}
+
+.biosWrapper {
+  width: 830px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+.biosWrapper:first-of-type {
+  margin-bottom: 24px;
+}
+
+.biosWrapper:last-of-type {
+  width: 515px;
+  justify-content: space-between;
+}
+
+.bioItem {
+  width: 210px;
+  text-align: center;
+  position: relative;
+  font-family: "PT Serif", serif;
+  font-style: italic;
+}
+
+.bioPhoto {
+  width: 150px;
+  left: 30px;
+  position: relative;
+}
+
+.bioPhoto img {
+  border-radius: 50%;
+  position: relative;
+  z-index: 4000;
+  margin-bottom: 8px;
+}
+
+.bioPhoto::after {
+  content: "";
+  background: #607baf;
+  width: 150px;
+  height: 150px;
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  border-radius: 50%;
+  z-index: 3000;
+}
+
+.bioName {
+  color: #303944;
+  font-size: 26px;
+  line-height: 1.1;
+}
+
+.bioPosition {
+  color: #a4a8ac;
+  font-size: 18px;
+}
+
+.captureWrapper {
+  width: 596px;
+  margin: 0 auto;
+}
+
+.captureForm {
+  margin-top: 44px;
+}

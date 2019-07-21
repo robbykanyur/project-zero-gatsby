@@ -10,7 +10,11 @@
   position: relative;
 }
 
-a.button {
+button.button {
+  background: none;
+  outline: none;
+  display: block;
+  cursor: pointer;
   box-sizing: border-box;
   text-align: center;
   display: inline-block;
@@ -20,6 +24,7 @@ a.button {
   font-weight: 600;
   text-decoration: none;
   padding: 10px 30px 8px;
+  border: 0;
   border-radius: 48px;
   font-size: 16px;
   letter-spacing: 1px;
@@ -29,6 +34,6 @@ a.button {
   transition: top 0.2s;
 }
 
-a.button:hover {
+button.button:hover {
   top: 0px;
 }
