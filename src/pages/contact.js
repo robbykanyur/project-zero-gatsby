@@ -12,6 +12,7 @@ import Block from "../components/block"
 import Button from "../components/button"
 
 import heroPhoto from "../images/contact-hero.jpg"
+import squares from "../images/contact-square.png"
 
 const ContactPage = () => (
   <>
@@ -43,6 +44,29 @@ const ContactPage = () => (
                 <Button type="submit" text="Send Message" width="195px" />
               </div>
             </form>
+          </div>
+        </Block>
+        <Block containerPaddingTop="0" containerPaddingBottom="0">
+          <div className={contactStyles.detailsContainer}>
+            <div className={contactStyles.detailsWrapper}>
+              <div className={contactStyles.detailsLeft}>
+                <h3>Project Zero</h3>
+                <p>
+                  101 Colonnade St. #302
+                  <br />
+                  Lynchburg, VA 24502
+                </p>
+                <hr />
+                <p>
+                  contact@projectzerolyh.org
+                  <br />
+                  (555) 555-5555
+                </p>
+              </div>
+              <div className={contactStyles.detailsRight}>
+                <img src={squares} width="100%" alt="Buildings in Lynchburg" />
+              </div>
+            </div>
           </div>
         </Block>
         <Cta

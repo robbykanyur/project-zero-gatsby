@@ -6,3 +6,44 @@
 .captureForm {
   margin-top: 44px;
 }
+
+.detailsContainer {
+  padding: 45px 0;
+  background: #f2f2f2;
+  border-top: 5px solid #ededed;
+  border-bottom: 5px solid #ededed;
+}
+
+.detailsWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.detailsLeft {
+  margin-right: 64px;
+  text-align: right;
+  width: 255px;
+  font-family: "PT Serif", serif;
+}
+
+.detailsLeft hr {
+  border: 0;
+  border-bottom: 1px solid #d4dae4;
+}
+
+.detailsLeft h3 {
+  color: black;
+  font-weight: 700;
+  font-size: 28px;
+}
+
+.detailsLeft p {
+  font-size: 16px;
+  line-height: 1.5;
+  font-style: italic;
+}
+
+.detailsRight {
+  width: 171px;
+}
