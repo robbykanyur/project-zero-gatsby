@@ -1,7 +1,5 @@
 import React from "react"
 import { Helmet } from "react-helmet"
-import { Link } from "gatsby"
-
 import teamStyles from "./our-team.module.css"
 
 import Layout from "../components/layout"
@@ -106,7 +104,11 @@ const OurTeamPage = () => (
                     <input type="email" placeholder="Email Address" />
                   </div>
                   <div className="control">
-                    <Button type="submit" text="Yes, I'm In" width="154px" />
+                    <Button
+                      link="/thank-you-serve"
+                      text="Yes, I'm In"
+                      width="155px"
+                    />
                   </div>
                 </form>
               </div>

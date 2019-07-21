@@ -1,6 +1,5 @@
 import React from "react"
 import { Helmet } from "react-helmet"
-import { Link } from "gatsby"
 
 import indexStyles from "./index.module.css"
 
@@ -45,7 +44,7 @@ const IndexPage = () => (
             </div>
           </div>
         </Block>
-        <a id="about" name="about"></a>
+        <div id="about" name="about"></div>
         <Block>
           <div className={indexStyles.everyPerson}>
             <h2 className="is-1 is-centered is-serif">

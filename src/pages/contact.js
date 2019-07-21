@@ -1,6 +1,5 @@
 import React from "react"
 import { Helmet } from "react-helmet"
-import { Link } from "gatsby"
 
 import contactStyles from "./contact.module.css"
 
@@ -41,7 +40,11 @@ const ContactPage = () => (
                 <textarea placeholder="Your Message"></textarea>
               </div>
               <div className="control">
-                <Button type="submit" text="Send Message" width="195px" />
+                <Button
+                  link="/thank-you-contact"
+                  text="Send Message"
+                  width="201px"
+                />
               </div>
             </form>
           </div>

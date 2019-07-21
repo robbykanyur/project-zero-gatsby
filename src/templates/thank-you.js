@@ -1,12 +1,11 @@
 import React from "react"
 import { Helmet } from "react-helmet"
-import { graphql, Link } from "gatsby"
+import { graphql } from "gatsby"
 
 import thankYouStyles from "./thank-you.module.css"
 
 import Layout from "../components/layout"
 import Hero from "../components/hero"
-import Cta from "../components/cta"
 import Footer from "../components/footer"
 import Block from "../components/block"
 import Button from "../components/button"
@@ -26,7 +25,7 @@ const thankYouPage = ({ data }) => {
           <Block>
             <div className={thankYouStyles.lead}>
               <div dangerouslySetInnerHTML={{ __html: content.html }} />
-              <Button width="162px" link="/" text="Home Page" />
+              <Button width="167px" link="/" text="Home Page" />
             </div>
           </Block>
           <Footer></Footer>

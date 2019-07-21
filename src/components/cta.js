@@ -1,5 +1,6 @@
 import React from "react"
 import ctaStyles from "./cta.module.css"
+import { Link } from "gatsby"
 
 const Cta = props => (
   <div className={ctaStyles.container}>
@@ -10,20 +11,20 @@ const Cta = props => (
           {props.textContent}
         </h2>
         <div className={ctaStyles.buttons}>
-          <a
-            href={props.linkOneHref}
+          <Link
+            to={props.linkOneHref}
             className={ctaStyles.button}
             style={{ width: props.linkOneWidth }}
           >
             {props.linkOneText}
-          </a>
-          <a
-            href={props.linkTwoHref}
+          </Link>
+          <Link
+            to={props.linkTwoHref}
             className={ctaStyles.button}
             style={{ display: props.displaySecondButton }}
           >
             {props.linkTwoText}
-          </a>
+          </Link>
         </div>
       </div>
     </div>

@@ -1,6 +1,5 @@
 import React from "react"
 import { Helmet } from "react-helmet"
-import { Link } from "gatsby"
 
 import donateStyles from "./donate.module.css"
 
@@ -9,7 +8,6 @@ import Hero from "../components/hero"
 import Cta from "../components/cta"
 import Footer from "../components/footer"
 import Block from "../components/block"
-import Button from "../components/button"
 import Donation from "../components/donation"
 
 import heroPhoto from "../images/donation-hero.jpg"

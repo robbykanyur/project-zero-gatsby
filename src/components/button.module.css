@@ -10,7 +10,7 @@
   position: relative;
 }
 
-button.button {
+.button {
   background: none;
   outline: none;
   display: block;
@@ -34,6 +34,6 @@ button.button {
   transition: top 0.2s;
 }
 
-button.button:hover {
+.button:hover {
   top: 0px;
 }

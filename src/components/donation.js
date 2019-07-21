@@ -1,4 +1,5 @@
 import React, { Component } from "react"
+import { navigate } from "@reach/router"
 import donationStyles from "./donation.module.css"
 
 class Donation extends Component {
@@ -28,6 +29,7 @@ class Donation extends Component {
     this.setState(state => ({
       progress: 50,
     }))
+    navigate("/thank-you-donation")
   }
 
   setRecurring(e, value) {
