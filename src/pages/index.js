@@ -16,6 +16,7 @@ import zigzag from "../images/tex-zebra.png"
 import polaroid from "../images/home-polaroid.png"
 import squares from "../images/home-squares.png"
 import paint from "../images/tex-wall.png"
+import caleb from "../images/profile-caleb.jpg"
 
 const IndexPage = () => (
   <>
@@ -156,6 +157,25 @@ const IndexPage = () => (
             <div className={indexStyles.problemFootnotes}>
               <p>*9.6% higher than the national average</p>
               <p>**In the city of Lynchburg and surrounding counties</p>
+            </div>
+          </div>
+        </Block>
+        <Block>
+          <div className={indexStyles.quote}>
+            <div className={indexStyles.quoteWrapper}>
+              <div className={indexStyles.quotePhoto}>
+                <img src={caleb} width="100%" alt="Caleb Fitzpatrick" />
+              </div>
+              <div className={indexStyles.quoteText}>
+                <p>
+                  &ldquo;Ending homelessness in this city is a much more
+                  attainable goal than most people realize. With your help, we
+                  can accomplish this.&rdquo;
+                </p>
+              </div>
+              <div className={indexStyles.quoteAttrib}>
+                <p>&ndash; Caleb Fitzpatrick, Director</p>
+              </div>
             </div>
           </div>
         </Block>
