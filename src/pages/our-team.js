@@ -38,9 +38,9 @@ const OurTeamPage = () => (
             <div className={teamStyles.biosWrapper}>
               <div className={teamStyles.bioItem}>
                 <div className={teamStyles.bioPhoto}>
-                  <img src={caleb} width="100%" alt="Caleb Fitzpatrick" />
+                  <img src={cal} width="100%" alt="Cal Best" />
                 </div>
-                <div className={teamStyles.bioName}>Caleb Fitzpatrick</div>
+                <div className={teamStyles.bioName}>Cal Best</div>
                 <div className={teamStyles.bioPosition}>Executive Director</div>
               </div>
               <div className={teamStyles.bioItem}>
@@ -49,35 +49,6 @@ const OurTeamPage = () => (
                 </div>
                 <div className={teamStyles.bioName}>Tessa Wienholt</div>
                 <div className={teamStyles.bioPosition}>Associate Director</div>
-              </div>
-              <div className={teamStyles.bioItem}>
-                <div className={teamStyles.bioPhoto}>
-                  <img src={cal} width="100%" alt="Cal Best" />
-                </div>
-                <div className={teamStyles.bioName}>Cal Best</div>
-                <div className={teamStyles.bioPosition}>
-                  Assistant Director, Finance
-                </div>
-              </div>
-            </div>
-            <div className={teamStyles.biosWrapper}>
-              <div className={teamStyles.bioItem}>
-                <div className={teamStyles.bioPhoto}>
-                  <img src={madi} width="100%" alt="Madi Cowell" />
-                </div>
-                <div className={teamStyles.bioName}>Madi Cowell</div>
-                <div className={teamStyles.bioPosition}>
-                  Furnishings Coordinator
-                </div>
-              </div>
-              <div className={teamStyles.bioItem}>
-                <div className={teamStyles.bioPhoto}>
-                  <img src={tyler} width="100%" alt="Tyler Mowery" />
-                </div>
-                <div className={teamStyles.bioName}>Tyler Mowery</div>
-                <div className={teamStyles.bioPosition}>
-                  Housing Coordinator
-                </div>
               </div>
             </div>
           </div>

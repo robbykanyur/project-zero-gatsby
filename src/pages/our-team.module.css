@@ -19,7 +19,7 @@
 }
 
 .biosWrapper:first-of-type {
-  margin-bottom: 24px;
+  margin-bottom: 0;
 }
 
 .biosWrapper:last-of-type {

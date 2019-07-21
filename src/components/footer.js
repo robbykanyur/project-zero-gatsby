@@ -9,7 +9,7 @@ const Footer = ({ children }) => (
         101 Colonnade St. #302 // Lynchburg, VA 24502
       </p>
       <div className={footerStyles.linksWrapper}>
-        <Link className={footerStyles.link} to="/about">
+        <Link className={footerStyles.link} to="/">
           About
         </Link>
         <Link className={footerStyles.link} to="/our-team">

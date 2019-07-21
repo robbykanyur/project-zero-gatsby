@@ -60,11 +60,7 @@ const ContactPage = () => (
                   Lynchburg, VA 24502
                 </p>
                 <hr />
-                <p>
-                  contact@projectzerolyh.org
-                  <br />
-                  (555) 555-5555
-                </p>
+                <p>cal@projectzerolyh.org</p>
               </div>
               <div className={contactStyles.detailsRight}>
                 <img src={squares} width="100%" alt="Buildings in Lynchburg" />

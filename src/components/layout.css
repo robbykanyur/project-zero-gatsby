@@ -3763,13 +3763,13 @@ p.is-1 {
   text-align: center;
 }
 
+.is-serif {
+  font-family: "PTS", serif;
+}
+
 .is-centered-text {
   width: 100%;
   text-align: center;
-}
-
-.is-serif {
-  font-family: "PT Serif", serif;
 }
 
 .is-serif.is-1 {
