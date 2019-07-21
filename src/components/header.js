@@ -46,7 +46,7 @@ class Header extends Component {
           </div>
           <div className={headerStyles.item}>
             <Link
-              href="/"
+              link="/"
               className={headerStyles.logo}
               style={{
                 backgroundImage: this.props.logoSrc,

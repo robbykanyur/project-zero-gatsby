@@ -1,0 +1,8 @@
+.lead {
+  width: 680px;
+  margin: 0 auto;
+}
+
+.lead p:last-child {
+  margin-bottom: 16px;
+}
