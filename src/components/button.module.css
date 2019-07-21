@@ -1,0 +1,11 @@
+a.button {
+  display: inline-block;
+  background: #5eae8c;
+  color: #ffffff;
+  text-transform: uppercase;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 10px 30px 8px;
+  border-radius: 48px;
+  font-size: 16px;
+}

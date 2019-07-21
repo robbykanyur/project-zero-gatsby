@@ -1,0 +1,45 @@
+.container {
+  width: 100%;
+  background: #ffffff;
+  height: 182px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.wrapper {
+  width: 950px;
+  margin: 0 auto;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.item {
+  margin-right: 120px;
+}
+
+.link {
+  color: #3a3f48;
+  text-decoration: none;
+  padding: 0 2px 1px;
+  font-size: 16px;
+}
+
+.link:hover {
+  border-bottom: 2px solid #3a3f48;
+}
+
+.item:last-child {
+  margin-right: 0;
+}
+
+.logo {
+  background: url(../images/base-logo-new.png);
+  background-size: cover;
+  display: block;
+  height: 0;
+  padding-top: 124px;
+  width: 118px;
+  overflow: hidden;
+}

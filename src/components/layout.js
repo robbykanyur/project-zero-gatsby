@@ -1,8 +1,7 @@
 import React from "react"
 import { useStaticQuery, Link } from "gatsby"
 
-import './reset.css'
-import './base.css'
+import "./layout.css"
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -15,11 +14,7 @@ const Layout = ({ children }) => {
     }
   `)
 
-  return (
-    <div>
-      { children }
-    </div>
-  )
+  return <div>{children}</div>
 }
 
 export default Layout
