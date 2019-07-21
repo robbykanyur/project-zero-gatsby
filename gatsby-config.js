@@ -11,6 +11,18 @@ module.exports = {
         path: `${__dirname}/src`,
       },
     },
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `Project Zero`,
+        short_name: `Project Zero`,
+        start_url: `/`,
+        background_color: `#617cad`,
+        theme_color: `#617cad`,
+        display: `standalone`,
+        icon: `src/images/zero-icon.png`,
+      },
+    },
     `gatsby-plugin-react-helmet`,
     `gatsby-transformer-remark`,
   ],

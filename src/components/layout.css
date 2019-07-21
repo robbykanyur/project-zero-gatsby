@@ -3734,7 +3734,7 @@ table {
 body {
   background: #ffffff;
   color: #3a3f48;
-  font-family: "Metropolis", sans-serif;
+  font-family: "METRO", sans-serif;
   line-height: 1.5;
   font-size: 20px;
 }
@@ -3742,7 +3742,7 @@ body {
 .is-1 {
   font-size: 32px;
   line-height: 1.3;
-  font-weight: 700;
+  font-weight: 600;
   margin-bottom: 18px;
 }
 
@@ -3820,7 +3820,7 @@ form.formControl {
   padding: 10px;
   border-bottom: 1px solid #cfd3d9;
   margin-bottom: 28px;
-  font-family: "Metropolis", sans-serif;
+  font-family: "METRO", sans-serif;
   transition: all 0.2s;
   color: #5dae8c;
 }
@@ -3847,3 +3847,76 @@ hr {
   width: 40%;
   margin: 36px auto;
 }
+
+@font-face {
+  font-family: 'METRO';
+  src: url('../fonts/Metropolis-Light.woff2') format('woff2'),
+      url('../fonts/Metropolis-Light.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'PTS';
+  src: url('../fonts/PTSerif-Italic.woff2') format('woff2'),
+      url('../fonts/PTSerif-Italic.woff') format('woff');
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'METRO';
+  src: url('../fonts/Metropolis-RegularItalic.woff2') format('woff2'),
+      url('../fonts/Metropolis-RegularItalic.woff') format('woff');
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'PTS';
+  src: url('../fonts/PTSerif-BoldItalic.woff2') format('woff2'),
+      url('../fonts/PTSerif-BoldItalic.woff') format('woff');
+  font-weight: 700;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'METRO';
+  src: url('../fonts/Metropolis-ExtraBold.woff2') format('woff2'),
+      url('../fonts/Metropolis-ExtraBold.woff') format('woff');
+  font-weight: 800;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'METRO';
+  src: url('../fonts/Metropolis-Regular.woff2') format('woff2'),
+      url('../fonts/Metropolis-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'PTS';
+  src: url('../fonts/PTSerif-Bold.woff2') format('woff2'),
+      url('../fonts/PTSerif-Bold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'METRO';
+  src: url('../fonts/Metropolis-SemiBold.woff2') format('woff2'),
+      url('../fonts/Metropolis-SemiBold.woff') format('woff');
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'PTS';
+  src: url('../fonts/PTSerif-Regular.woff2') format('woff2'),
+      url('../fonts/PTSerif-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+

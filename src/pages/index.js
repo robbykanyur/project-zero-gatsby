@@ -16,7 +16,7 @@ import polaroid from "../images/home-polaroid.png"
 import squares from "../images/home-squares.png"
 import paint from "../images/tex-wall.png"
 import caleb from "../images/profile-caleb.jpg"
-import logo from "../images/base-logo-new.png"
+import logo from "../images/base-logo.png"
 
 const IndexPage = () => (
   <>

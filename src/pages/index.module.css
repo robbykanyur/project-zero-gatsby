@@ -140,7 +140,7 @@
 }
 
 .quoteText {
-  font-family: "PT Serif", serif;
+  font-family: "PTS", serif;
   font-size: 30px;
   font-style: italic;
   color: #303944;
@@ -151,7 +151,7 @@
 
 .quoteAttrib {
   text-align: center;
-  font-family: "PT Serif", serif;
+  font-family: "PTS", serif;
   color: #acb0b4;
   font-style: italic;
   font-size: 20px;
