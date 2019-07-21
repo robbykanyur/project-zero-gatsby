@@ -15,6 +15,7 @@ import hero from "../images/home-hero.jpg"
 import zigzag from "../images/tex-zebra.png"
 import polaroid from "../images/home-polaroid.png"
 import squares from "../images/home-squares.png"
+import paint from "../images/tex-wall.png"
 
 const IndexPage = () => (
   <>
@@ -115,6 +116,46 @@ const IndexPage = () => (
                 />
                 <div className={indexStyles.costLine}></div>
               </div>
+            </div>
+          </div>
+        </Block>
+        <Block
+          backgroundColor="#3F4F63"
+          pattern={paint}
+          tileOpacity="0.5"
+          containerPaddingBottom="0"
+        >
+          <div className={indexStyles.problem}>
+            <h2>The Problem</h2>
+            <div className={indexStyles.problemRow}>
+              <div className={indexStyles.problemItem}>
+                <h3 className={indexStyles.problemItemValue}>23.1%</h3>
+                <p className={indexStyles.problemItemDescription}>
+                  poverty rate*
+                </p>
+              </div>
+              <div className={indexStyles.problemItem}>
+                <h3 className={indexStyles.problemItemValue}>112</h3>
+                <p className={indexStyles.problemItemDescription}>
+                  homeless individuals
+                </p>
+              </div>
+              <div className={indexStyles.problemItem}>
+                <h3 className={indexStyles.problemItemValue}>~300</h3>
+                <p className={indexStyles.problemItemDescription}>
+                  religious organizations**
+                </p>
+              </div>
+              <div className={indexStyles.problemItem}>
+                <h3 className={indexStyles.problemItemValue}>$39,589</h3>
+                <p className={indexStyles.problemItemDescription}>
+                  median household income
+                </p>
+              </div>
+            </div>
+            <div className={indexStyles.problemFootnotes}>
+              <p>*9.6% higher than the national average</p>
+              <p>**In the city of Lynchburg and surrounding counties</p>
             </div>
           </div>
         </Block>
