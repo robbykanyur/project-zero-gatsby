@@ -30,6 +30,8 @@
 .detailsLeft hr {
   border: 0;
   border-bottom: 1px solid #d4dae4;
+  width: 100%;
+  margin: 12px auto;
 }
 
 .detailsLeft h3 {

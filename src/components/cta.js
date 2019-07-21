@@ -6,11 +6,15 @@ const Cta = props => (
     <div className={ctaStyles.left}></div>
     <div className={ctaStyles.right}>
       <div className={ctaStyles.contentWrapper}>
-        <h2 className={ctaStyles.header}>
-          Join us in eradicating homelessness in Lynchburg by the year 2020.
+        <h2 className={ctaStyles.header} style={{ width: props.contentWidth }}>
+          {props.textContent}
         </h2>
         <div className={ctaStyles.buttons}>
-          <a href={props.linkOneHref} className={ctaStyles.button}>
+          <a
+            href={props.linkOneHref}
+            className={ctaStyles.button}
+            style={{ width: props.linkOneWidth }}
+          >
             {props.linkOneText}
           </a>
           <a

@@ -114,9 +114,10 @@ const OurTeamPage = () => (
           </div>
         </Block>
         <Cta
-          displaySecondButton="none"
           linkOneText="Donate"
           linkOneHref="/donate"
+          displaySecondButton="none"
+          textContent="Join us in eradicating homelessness in Lynchburg by the year 2020."
         />
         <Footer></Footer>
       </>

@@ -44,10 +44,11 @@ const ServePage = () => (
           </div>
         </Block>
         <Cta
+          contentWidth="400px"
           linkOneText="Donate"
           linkOneHref="/donate"
-          linkTwoText="Serve"
-          linkOneHref="/serve"
+          displaySecondButton="none"
+          textContent="You can also support Project Zero financially."
         />
         <Footer></Footer>
       </>

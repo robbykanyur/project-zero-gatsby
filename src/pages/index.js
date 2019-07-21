@@ -182,11 +182,12 @@ const IndexPage = () => (
           </div>
         </Block>
         <Cta
-          linkOneHref="/donate"
-          linkTwoHref="/serve"
           linkOneText="Donate"
+          linkOneHref="/donate"
           linkTwoText="Serve"
-        ></Cta>
+          linkTwoHref="/serve"
+          textContent="Join us in eradicating homelessness in Lynchburg by the year 2020."
+        />
         <Footer></Footer>
       </>
     </Layout>

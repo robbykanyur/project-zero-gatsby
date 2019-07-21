@@ -73,7 +73,8 @@ const ContactPage = () => (
           linkOneText="Donate"
           linkOneHref="/donate"
           linkTwoText="Serve"
-          linkOneHref="/serve"
+          linkTwoHref="/serve"
+          textContent="Join us in eradicating homelessness in Lynchburg by the year 2020."
         />
         <Footer></Footer>
       </>

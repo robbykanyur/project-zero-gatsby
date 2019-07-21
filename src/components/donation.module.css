@@ -1,0 +1,128 @@
+.card {
+  width: 800px;
+  height: 500px;
+  margin: 0 auto 0;
+  background: url(../images/donation-bg.png);
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-shadow: 8px 8px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+}
+
+.interaction {
+  width: 664px;
+  background: #f4f5f6;
+  margin: 0 auto;
+}
+
+.monthlySelector {
+  width: 100%;
+  display: flex;
+  height: 56px;
+}
+
+.selection,
+.selectionRight {
+  box-sizing: border-box;
+  cursor: pointer;
+  width: 50%;
+  height: 100%;
+  color: #5ead8d;
+  background: transparent;
+  font-weight: 600;
+  background: #c1e3d5;
+  text-align: center;
+  padding-top: 16px;
+  position: relative;
+  z-index: 6000;
+  overflow: hidden;
+}
+
+.selection::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 101%;
+  height: 101%;
+  background: #5ead8d;
+  z-index: -1;
+  clip-path: polygon(100% 0, 100% 0, 100% 100%, 100% 100%);
+  transition: all 0.6s ease-in-out;
+}
+
+.selectionRight::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: #5ead8d;
+  z-index: -1;
+  clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
+  transition: all 0.6s ease-in-out;
+}
+
+.selectorActive,
+.selectorActiveRight {
+  color: white;
+}
+
+.selectorActive::before,
+.selectorActiveRight::before {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+}
+
+.chooseAmount {
+  padding: 36px 0;
+}
+
+.amountRow {
+  margin: 0 auto 16px;
+  width: 88%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.amountRow:last-of-type {
+  margin-bottom: 0;
+}
+
+.button {
+  box-sizing: border-box;
+  text-align: center;
+  display: inline-block;
+  background: #5ead8d;
+  color: white;
+  text-transform: uppercase;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 10px 10px 8px;
+  border-radius: 48px;
+  font-size: 16px;
+  letter-spacing: 1px;
+  width: 170px;
+  transition: all 0.2s;
+  margin: 0;
+}
+
+.progressBar {
+  background: #c1e3d5;
+  height: 8px;
+  width: 100%;
+  position: relative;
+  z-index: 5000;
+}
+
+.progressIndicator {
+  background: #5ead8d;
+  width: 0;
+  height: 8px;
+  position: relative;
+  z-index: 6000;
+  transition: width 0.7s ease-in-out;
+}

@@ -3839,3 +3839,11 @@ form.formControl {
 .control textarea:focus {
   border-bottom: 1px solid #5eae8c;
 }
+
+hr {
+  border: 0;
+  border-bottom: 5px solid #d4dae4;
+  opacity: 0.5;
+  width: 40%;
+  margin: 36px auto;
+}
