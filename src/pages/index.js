@@ -2,6 +2,8 @@ import React from "react"
 import { Helmet } from "react-helmet"
 import { Link } from "gatsby"
 
+import indexStyles from "./index.module.css"
+
 import Layout from "../components/layout"
 import Header from "../components/header"
 import Block from "../components/block"
@@ -12,6 +14,7 @@ import Footer from "../components/footer"
 import hero from "../images/home-hero.jpg"
 import zigzag from "../images/tex-zebra.png"
 import polaroid from "../images/home-polaroid.png"
+import squares from "../images/home-squares.png"
 
 const IndexPage = () => (
   <>
@@ -87,6 +90,41 @@ const IndexPage = () => (
                 width="100%"
                 alt="Homeless neighbors in Lynchburg"
               />
+            </div>
+          </div>
+        </Block>
+        <Block>
+          <div className={indexStyles.costContainer}>
+            <div className={indexStyles.costWrapper}>
+              <div className={indexStyles.costLeft}>
+                <p>
+                  It only costs{" "}
+                  <span className={indexStyles.costHighlight}>
+                    $550 per month
+                    <br />
+                  </span>{" "}
+                  to provide{" "}
+                  <span className={indexStyles.costHighlight}>
+                    housing, clothing,
+                    <br /> food,
+                  </span>{" "}
+                  and{" "}
+                  <span className={indexStyles.costHighlight}>
+                    healthcare
+                  </span>{" "}
+                  for a <br />
+                  homeless neighbor.
+                </p>
+              </div>
+              <div className={indexStyles.costRight}>
+                <img
+                  className={indexStyles.costSquares}
+                  src={squares}
+                  width="100%"
+                  alt="Homeless neighbors sleeping on the streets of Lynchburg"
+                />
+                <div className={indexStyles.costLine}></div>
+              </div>
             </div>
           </div>
         </Block>
