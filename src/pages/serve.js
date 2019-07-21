@@ -37,7 +37,11 @@ const ServePage = () => (
                 <input type="email" placeholder="Email Address" />
               </div>
               <div className="control">
-                <Button type="submit" text="Count Me In" width="195px" />
+                <Button
+                  link="/thank-you-serve"
+                  text="Count Me In"
+                  width="195px"
+                />
               </div>
             </form>
           </div>
