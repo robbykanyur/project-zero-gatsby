@@ -24,7 +24,10 @@ class Header extends Component {
             <button
               className={headerStyles.link}
               onClick={this.handleClick}
-              style={{ color: this.props.linkColor }}
+              style={{
+                color: this.props.linkColor,
+                borderColor: this.props.linkColor,
+              }}
             >
               About
             </button>
@@ -33,25 +36,34 @@ class Header extends Component {
             <Link
               to="/our-team/"
               className={headerStyles.link}
-              style={{ color: this.props.linkColor }}
+              style={{
+                color: this.props.linkColor,
+                borderColor: this.props.linkColor,
+              }}
             >
               Our Team
             </Link>
           </div>
           <div className={headerStyles.item}>
-            <a
+            <Link
               href="/"
               className={headerStyles.logo}
-              style={{ backgroundImage: this.props.logoSrc }}
+              style={{
+                backgroundImage: this.props.logoSrc,
+                borderColor: this.props.linkColor,
+              }}
             >
               <img src={this.props.logoSrc} width="100%" alt="Project Zero" />
-            </a>
+            </Link>
           </div>
           <div className={headerStyles.item}>
             <Link
               to="/contact/"
               className={headerStyles.link}
-              style={{ color: this.props.linkColor }}
+              style={{
+                color: this.props.linkColor,
+                borderColor: this.props.linkColor,
+              }}
             >
               Contact
             </Link>
@@ -60,7 +72,10 @@ class Header extends Component {
             <Link
               to="/donate/"
               className={headerStyles.link}
-              style={{ color: this.props.linkColor }}
+              style={{
+                color: this.props.linkColor,
+                borderColor: this.props.linkColor,
+              }}
             >
               Donate
             </Link>

@@ -26,10 +26,12 @@
   padding: 0 2px 1px;
   font-size: 16px;
   letter-spacing: 0.5px;
+  border-bottom: 2px solid #3a3f48;
+  border-style: hidden;
 }
 
 .link:hover {
-  border-bottom: 2px solid #3a3f48;
+  border-style: solid;
 }
 
 .logo {

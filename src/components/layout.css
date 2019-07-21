@@ -3805,7 +3805,8 @@ form.formControl {
   box-sizing: border-box;
 }
 
-.control input {
+.control input,
+.control textarea {
   box-sizing: border-box;
   width: 100%;
   appearance: none;
@@ -3824,10 +3825,17 @@ form.formControl {
   color: #5dae8c;
 }
 
-.control input::placeholder {
+.control textarea {
+  height: 160px;
+  line-height: 1.6;
+}
+
+.control input::placeholder,
+.control textarea::placeholder {
   color: #cfd3d9;
 }
 
-.control input:focus {
+.control input:focus,
+.control textarea:focus {
   border-bottom: 1px solid #5eae8c;
 }

@@ -11,6 +11,7 @@ import Footer from "../components/footer"
 import Block from "../components/block"
 import Button from "../components/button"
 
+import heroPhoto from "../images/team-hero.jpg"
 import caleb from "../images/profile-caleb.jpg"
 import tessa from "../images/profile-tessa.jpg"
 import cal from "../images/profile-cal.jpg"
@@ -24,7 +25,7 @@ const OurTeamPage = () => (
     </Helmet>
     <Layout>
       <>
-        <Hero title="Our Team"></Hero>
+        <Hero title="Our Team" photo={heroPhoto}></Hero>
         <Block>
           <div className={teamStyles.lead}>
             <p className="is-1">
