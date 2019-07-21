@@ -1,4 +1,18 @@
+.container {
+  width: 100%;
+  height: 50px;
+  position: relative;
+}
+
+.wrapper {
+  margin: 0 auto;
+  display: block;
+  position: relative;
+}
+
 a.button {
+  box-sizing: border-box;
+  text-align: center;
   display: inline-block;
   background: #5eae8c;
   color: #ffffff;
@@ -8,4 +22,13 @@ a.button {
   padding: 10px 30px 8px;
   border-radius: 48px;
   font-size: 16px;
+  letter-spacing: 1px;
+  position: absolute;
+  top: 2px;
+  left: 0;
+  transition: top 0.2s;
+}
+
+a.button:hover {
+  top: 0px;
 }

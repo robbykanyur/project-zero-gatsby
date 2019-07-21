@@ -4,9 +4,22 @@ import blockStyles from "./block.module.css"
 const Block = props => (
   <div
     className={blockStyles.container}
-    style={{ backgroundImage: "url(" + props.backgroundImage + ")" }}
+    style={{
+      backgroundColor: props.backgroundColor,
+      backgroundImage: "url(" + props.backgroundImage + ")",
+      paddingBottom: props.containerPaddingBottom,
+      marginBottom: props.containerMarginBottom,
+    }}
   >
     <div className={blockStyles.wrapper}>{props.children}</div>
+    <div
+      className={blockStyles.tile}
+      style={{
+        backgroundColor: props.backgroundColor,
+        backgroundImage: "url(" + props.pattern + ")",
+        opacity: props.tileOpacity,
+      }}
+    ></div>
   </div>
 )
 

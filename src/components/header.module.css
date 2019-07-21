@@ -7,16 +7,12 @@
 }
 
 .wrapper {
-  width: 950px;
+  width: 960px;
   margin: 0 auto;
   height: 100%;
   display: flex;
   align-items: center;
-  justify-content: center;
-}
-
-.item {
-  margin-right: 120px;
+  justify-content: space-evenly;
 }
 
 .link {
@@ -24,14 +20,11 @@
   text-decoration: none;
   padding: 0 2px 1px;
   font-size: 16px;
+  letter-spacing: 0.5px;
 }
 
 .link:hover {
   border-bottom: 2px solid #3a3f48;
-}
-
-.item:last-child {
-  margin-right: 0;
 }
 
 .logo {
