@@ -1,11 +1,11 @@
 .card {
+  position: relative;
   width: 800px;
   height: 500px;
   margin: 0 auto 0;
   background: url(../images/donation-bg.png);
   background-size: cover;
-  background-position: center;
-  display: flex;
+  background-position: center; display: flex;
   flex-direction: column;
   justify-content: center;
   box-shadow: 8px 8px rgba(0, 0, 0, 0.15);
@@ -112,17 +112,69 @@
 
 .progressBar {
   background: #c1e3d5;
-  height: 8px;
+  height: 16px;
   width: 100%;
-  position: relative;
+  position: absolute;
+  bottom: 0;
   z-index: 5000;
 }
 
 .progressIndicator {
   background: #5ead8d;
   width: 0;
-  height: 8px;
-  position: relative;
+  height: 100%;
   z-index: 6000;
   transition: width 0.7s ease-in-out;
+}
+
+.innerCard {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  float: left;
+  transition: all 0.3s ease-in-out;
+  left: 100%;
+}
+
+.detailLink {
+  color: #b7b7b7;
+  font-family: 'PTS', serif;
+  font-size: 14px;
+  margin: 4px auto 0;
+}
+
+.detailLink:hover {
+  color: #898989;
+}
+
+.innerCardActive {
+  left: 0;
+}
+
+.innerCardCompleted {
+  left: -100%;
+}
+
+.bigNumber {
+  margin: 0 auto;
+}
+
+.bigNumber input {
+  text-align: center;
+  background: transparent;
+  font-size: 32px;
+  font-weight: 800;
+  border-bottom-width: 3px;
+  margin: 16px 0 16px;
+}
+
+.bigNumber input:focus {
+  border-bottom-width: 3px;
+}
+
+.customAmountNext {
+  margin: 0 auto;
 }

@@ -2,25 +2,58 @@ import React, { Component } from "react"
 import { navigate } from "@reach/router"
 import donationStyles from "./donation.module.css"
 
+import SelectAmountCard from "./selectAmountCard.js"
+import CustomAmountCard from "./customAmountCard.js"
+
 class Donation extends Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
     this.state = {
       recurring: true,
       amount: 0,
       progress: 33,
-      headerText: "Will you make your donation monthly?",
+      selectAmountActive: true,
+      selectAmountCompleted: false,
+      customAmountActive: false,
+      customAmountCompleted: false,
+      creditCardActive: false,
+      creditCardCompleted: false,
+      successActive: false,
+      successCompleted: false,
+      failureCompleted: false,
     }
     this.setAmount = this.setAmount.bind(this)
     this.setRecurring = this.setRecurring.bind(this)
     this.handleCustom = this.handleCustom.bind(this)
+    this.goBack = this.goBack.bind(this)
+    this.handleCustomAmountSubmit = this.handleCustomAmountSubmit.bind(this)
+  }
+
+  handleCustomAmountSubmit(e, value) {
+    e.preventDefault()
+    const stripped = parseInt(parseFloat(value.replace(/[^.\d]/g,'')) * 100)
+    this.setState(state => ({
+      amount: stripped,
+      progress: 75,
+      customAmountCompleted: true,
+    }))
   }
 
   setAmount(e, value) {
     e.preventDefault()
     this.setState(state => ({
       amount: value,
+      selectAmountCompleted: true,
       progress: 66,
+    }))
+  }
+
+  goBack(e, currentCard, newCard, progress) {
+    e.preventDefault()
+    this.setState(state => ({
+      [currentCard]: false,
+      [newCard]: false,
+      progress: progress
     }))
   }
 
@@ -28,8 +61,9 @@ class Donation extends Component {
     e.preventDefault()
     this.setState(state => ({
       progress: 50,
+      selectAmountCompleted: true,
+      customAmountActive: true
     }))
-    navigate("/thank-you-donation")
   }
 
   setRecurring(e, value) {
@@ -42,89 +76,22 @@ class Donation extends Component {
   render() {
     return (
       <div className={donationStyles.card}>
-        <div className={donationStyles.title}>
-          <p className="is-2 is-serif is-centered">{this.state.headerText}</p>
-        </div>
-        <div className={donationStyles.interaction}>
-          <div className={donationStyles.monthlySelector}>
-            <div
-              className={
-                donationStyles.selection +
-                (this.state.recurring
-                  ? " " + donationStyles.selectorActive
-                  : "")
-              }
-              onClick={e => this.setRecurring(e, true)}
-            >
-              Yes, count me in!
+        <SelectAmountCard recurring={this.state.recurring} setAmount={this.setAmount} handleCustom={this.handleCustom}
+          setRecurring={this.setRecurring}
+          active={this.state.selectAmountActive ? donationStyles.innerCardActive : ''} 
+          completed={this.state.selectAmountCompleted ? donationStyles.innerCardCompleted : ''}/>
+
+        <CustomAmountCard setAmount={this.setAmount} handleCustom={this.handleCustom} goBack={this.goBack}
+          handleCustomAmountSubmit={this.handleCustomAmountSubmit} 
+          active={this.state.customAmountActive ? donationStyles.innerCardActive : ''} 
+          completed={this.state.customAmountCompleted ? donationStyles.innerCardCompleted : ''}/>
+
+        <div className={donationStyles.progressBar}>
+              <div
+                className={donationStyles.progressIndicator}
+                style={{ width: this.state.progress + "%" }}
+              ></div>
             </div>
-            <div
-              className={
-                donationStyles.selectionRight +
-                (this.state.recurring
-                  ? ""
-                  : " " + donationStyles.selectorActiveRight)
-              }
-              onClick={e => this.setRecurring(e, false)}
-            >
-              No, not this time.
-            </div>
-          </div>
-          <div className={donationStyles.chooseAmount}>
-            <div className={donationStyles.amountRow}>
-              <a
-                href="/"
-                className={donationStyles.button}
-                onClick={e => this.setAmount(e, 1000)}
-              >
-                Donate $10
-              </a>
-              <a
-                href="/"
-                className={donationStyles.button}
-                onClick={e => this.setAmount(e, 2500)}
-              >
-                Donate $25
-              </a>
-              <a
-                href="/"
-                className={donationStyles.button}
-                onClick={e => this.setAmount(e, 5000)}
-              >
-                Donate $50
-              </a>
-            </div>
-            <div className={donationStyles.amountRow}>
-              <a
-                href="/"
-                className={donationStyles.button}
-                onClick={e => this.setAmount(e, 7500)}
-              >
-                Donate $75
-              </a>
-              <a
-                href="/"
-                className={donationStyles.button}
-                onClick={e => this.setAmount(e, 10000)}
-              >
-                Donate $100
-              </a>
-              <a
-                href="/"
-                className={donationStyles.button}
-                onClick={e => this.handleCustom(e)}
-              >
-                Enter Amount
-              </a>
-            </div>
-          </div>
-          <div className={donationStyles.progressBar}>
-            <div
-              className={donationStyles.progressIndicator}
-              style={{ width: this.state.progress + "%" }}
-            ></div>
-          </div>
-        </div>
       </div>
     )
   }
