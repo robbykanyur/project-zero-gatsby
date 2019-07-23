@@ -2,10 +2,6 @@ import React, { Component } from "react"
 import donationStyles from "./donation.module.css"
 
 class SelectAmountCard extends Component {
-  constructor(props) {
-    super(props)
-  }
-
   render() {
     return (
       <div

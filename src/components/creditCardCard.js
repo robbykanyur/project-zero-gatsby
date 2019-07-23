@@ -47,7 +47,7 @@ class CreditCardCard extends Component {
           </div>
           <div className={"control " + donationStyles.stripeControl}>
             <StripeProvider stripe={this.state.stripe}>
-              <Elements fonts={[{ cssSrc: "/fonts.css" }]}>
+              <Elements>
                 <StripeCard />
               </Elements>
             </StripeProvider>

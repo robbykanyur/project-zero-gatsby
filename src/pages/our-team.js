@@ -10,11 +10,8 @@ import Block from "../components/block"
 import Button from "../components/button"
 
 import heroPhoto from "../images/team-hero.jpg"
-import caleb from "../images/profile-caleb.jpg"
 import tessa from "../images/profile-tessa.jpg"
 import cal from "../images/profile-cal.jpg"
-import madi from "../images/profile-madi.jpg"
-import tyler from "../images/profile-tyler.jpg"
 
 const OurTeamPage = () => (
   <>

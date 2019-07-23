@@ -3813,8 +3813,8 @@ form.formControl {
   appearance: none;
   outline: none;
   border: 0;
-  font-weight: 600;
-  letter-spacing: 2px;
+  font-weight: 700;
+  letter-spacing: 3px;
   text-align: center;
   text-transform: uppercase;
   font-size: 16px;
@@ -3822,7 +3822,7 @@ form.formControl {
   padding-top: 0;
   border-bottom: 1px solid #cfd3d9;
   margin-bottom: 28px;
-  font-family: "METRO", sans-serif;
+  font-family: "Courier New", monospace;
   transition: all 0.2s;
   color: #5dae8c;
 }

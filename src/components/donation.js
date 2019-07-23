@@ -5,6 +5,7 @@ import SelectAmountCard from "./selectAmountCard.js"
 import CustomAmountCard from "./customAmountCard.js"
 import CreditCardCard from "./creditCardCard.js"
 import LoadingCard from "./loadingCard.js"
+import ResultCard from "./resultCard.js"
 
 class Donation extends Component {
   constructor(props) {
@@ -33,12 +34,12 @@ class Donation extends Component {
       creditCardActive: false,
       creditCardCompleted: false,
       successActive: false,
-      successCompleted: false,
-      failureCompleted: false,
+      resultCardActive: false,
       loadingCardActive: false,
       loadingCardCompleted: false,
       paymentName: null,
       paymentEmail: null,
+      paymentSuccessful: null,
     }
   }
 
@@ -114,6 +115,8 @@ class Donation extends Component {
       this.setState(state => ({
         loadingCardCompleted: true,
         progress: 100,
+        paymentSuccessful: true,
+        resultCardActive: true,
       }))
     })
   }
@@ -193,6 +196,14 @@ class Donation extends Component {
               ? donationStyles.innerCardCompleted
               : ""
           }
+        />
+
+        <ResultCard
+          active={
+            this.state.resultCardActive ? donationStyles.innerCardActive : ""
+          }
+          paymentSuccessful={this.state.paymentSuccessful}
+          startOver={this.startOver}
         />
 
         <div className={donationStyles.progressBar}>
