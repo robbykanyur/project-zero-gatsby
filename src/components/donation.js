@@ -4,6 +4,7 @@ import donationStyles from "./donation.module.css"
 import SelectAmountCard from "./selectAmountCard.js"
 import CustomAmountCard from "./customAmountCard.js"
 import CreditCardCard from "./creditCardCard.js"
+import LoadingCard from "./loadingCard.js"
 
 class Donation extends Component {
   constructor(props) {
@@ -24,7 +25,7 @@ class Donation extends Component {
     return {
       recurring: true,
       amount: 0,
-      progress: 33,
+      progress: 25,
       selectAmountActive: true,
       selectAmountCompleted: false,
       customAmountActive: false,
@@ -34,13 +35,13 @@ class Donation extends Component {
       successActive: false,
       successCompleted: false,
       failureCompleted: false,
+      loadingActive: false,
+      loadingCompleted: false,
       paymentName: null,
       paymentEmail: null,
-      // testing styles
-      selectAmountCompleted: true,
-      creditCardActive: true,
-      amount: 100,
-      progress: 66,
+      /* for testing only */
+      selectAmountActive: false,
+      loadingActive: true,
     }
   }
 
@@ -66,7 +67,7 @@ class Donation extends Component {
       amount: value,
       selectAmountCompleted: true,
       creditCardActive: true,
-      progress: 66,
+      progress: 50,
     }))
   }
 
@@ -82,7 +83,7 @@ class Donation extends Component {
   handleCustom(e) {
     e.preventDefault()
     this.setState(state => ({
-      progress: 50,
+      progress: 40,
       selectAmountCompleted: true,
       customAmountActive: true,
     }))
@@ -97,9 +98,15 @@ class Donation extends Component {
 
   handleCreditCardSubmit(e) {
     e.preventDefault()
+    var incrementProgress = null
+    if (this.state.customAmountActive) {
+      incrementProgress = 60
+    } else {
+      incrementProgress = 75
+    }
     this.setState(state => ({
       creditCardCompleted: true,
-      progress: 100,
+      progress: incrementProgress,
     }))
   }
 
@@ -155,6 +162,7 @@ class Donation extends Component {
           active={
             this.state.creditCardActive ? donationStyles.innerCardActive : ""
           }
+          recurring={this.state.recurring}
           handlePaymentEmailChange={this.handlePaymentEmailChange}
           handlePaymentNameChange={this.handlePaymentNameChange}
           completed={
@@ -163,6 +171,8 @@ class Donation extends Component {
               : ""
           }
         />
+
+        <LoadingCard />
 
         <div className={donationStyles.progressBar}>
           <div

@@ -52,7 +52,7 @@ class CustomAmountCard extends Component {
             />
           </div>
         </div>
-        <div className={donationStyles.customAmountNext}>
+        <div className={donationStyles.controlNext}>
           <a
             href="/"
             className={donationStyles.button}

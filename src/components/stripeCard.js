@@ -9,7 +9,7 @@ class StripeCard extends React.Component {
         letterSpacing: "2px",
         textTransform: "uppercase",
         fontSize: "16px",
-        fontFamily: "METRO",
+        fontFamily: "METRO, 'courier new'",
         color: "#5dae8c",
         "::placeholder": {
           color: "#cfd3d9",

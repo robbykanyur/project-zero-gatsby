@@ -62,7 +62,8 @@ class CreditCardCard extends Component {
             onClick={e => this.props.handleCreditCardSubmit(e)}
           >
             Confirm $
-            {parseFloat(Math.round(this.props.amount) / 100).toFixed(2)} Payment
+            {parseFloat(Math.round(this.props.amount) / 100).toFixed(2)}{" "}
+            {this.props.recurring ? "Subscription" : "Payment"}
           </a>
         </div>
         <a
@@ -70,7 +71,7 @@ class CreditCardCard extends Component {
           className={donationStyles.detailLink}
           onClick={e => this.props.startOver(e)}
         >
-          Change Payment Details
+          Start Over
         </a>
       </div>
     )
