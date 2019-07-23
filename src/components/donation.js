@@ -35,13 +35,10 @@ class Donation extends Component {
       successActive: false,
       successCompleted: false,
       failureCompleted: false,
-      loadingActive: false,
-      loadingCompleted: false,
+      loadingCardActive: false,
+      loadingCardCompleted: false,
       paymentName: null,
       paymentEmail: null,
-      /* for testing only */
-      selectAmountActive: false,
-      loadingActive: true,
     }
   }
 
@@ -55,7 +52,7 @@ class Donation extends Component {
     const stripped = parseInt(parseFloat(value.replace(/[^.\d]/g, "")) * 100)
     this.setState(state => ({
       amount: stripped,
-      progress: 75,
+      progress: 60,
       customAmountCompleted: true,
       creditCardActive: true,
     }))
@@ -100,14 +97,29 @@ class Donation extends Component {
     e.preventDefault()
     var incrementProgress = null
     if (this.state.customAmountActive) {
-      incrementProgress = 60
+      incrementProgress = 80
     } else {
       incrementProgress = 75
     }
     this.setState(state => ({
       creditCardCompleted: true,
+      loadingCardActive: true,
       progress: incrementProgress,
     }))
+    this.simulateStripeResponse()
+  }
+
+  simulateStripeResponse() {
+    this.sleep(2000).then(() => {
+      this.setState(state => ({
+        loadingCardCompleted: true,
+        progress: 100,
+      }))
+    })
+  }
+
+  sleep = ms => {
+    return new Promise(resolve => setTimeout(resolve, ms))
   }
 
   handlePaymentNameChange(e) {
@@ -172,7 +184,16 @@ class Donation extends Component {
           }
         />
 
-        <LoadingCard />
+        <LoadingCard
+          active={
+            this.state.loadingCardActive ? donationStyles.innerCardActive : ""
+          }
+          completed={
+            this.state.loadingCardCompleted
+              ? donationStyles.innerCardCompleted
+              : ""
+          }
+        />
 
         <div className={donationStyles.progressBar}>
           <div

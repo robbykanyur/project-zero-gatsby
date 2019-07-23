@@ -1,12 +1,25 @@
 import React, { Component } from "react"
+import donationStyles from "./donation.module.css"
 import Loading from "./loading"
 
 class LoadingCard extends Component {
   render() {
     return (
-      <div class="is-centered">
-        <Loading />
-      </div>
+      <>
+        <div
+          className={
+            donationStyles.innerCard +
+            " " +
+            this.props.active +
+            " " +
+            this.props.completed
+          }
+        >
+          <div class="is-centered">
+            <Loading />
+          </div>
+        </div>
+      </>
     )
   }
 }
