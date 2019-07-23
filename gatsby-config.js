@@ -23,6 +23,7 @@ module.exports = {
         icon: `src/images/zero-icon.png`,
       },
     },
+    `gatsby-plugin-stripe`,
     `gatsby-plugin-react-helmet`,
     `gatsby-transformer-remark`,
   ],

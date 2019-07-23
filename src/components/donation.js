@@ -1,14 +1,27 @@
 import React, { Component } from "react"
-import { navigate } from "@reach/router"
 import donationStyles from "./donation.module.css"
 
 import SelectAmountCard from "./selectAmountCard.js"
 import CustomAmountCard from "./customAmountCard.js"
+import CreditCardCard from "./creditCardCard.js"
 
 class Donation extends Component {
   constructor(props) {
     super(props)
-    this.state = {
+    this.state = this.initialState
+    this.setAmount = this.setAmount.bind(this)
+    this.setRecurring = this.setRecurring.bind(this)
+    this.handleCustom = this.handleCustom.bind(this)
+    this.goBack = this.goBack.bind(this)
+    this.handleCustomAmountSubmit = this.handleCustomAmountSubmit.bind(this)
+    this.startOver = this.startOver.bind(this)
+    this.handleCreditCardSubmit = this.handleCreditCardSubmit.bind(this)
+    this.handlePaymentNameChange = this.handlePaymentNameChange.bind(this)
+    this.handlePaymentEmailChange = this.handlePaymentEmailChange.bind(this)
+  }
+
+  get initialState() {
+    return {
       recurring: true,
       amount: 0,
       progress: 33,
@@ -21,21 +34,29 @@ class Donation extends Component {
       successActive: false,
       successCompleted: false,
       failureCompleted: false,
+      paymentName: null,
+      paymentEmail: null,
+      // testing styles
+      selectAmountCompleted: true,
+      creditCardActive: true,
+      amount: 100,
+      progress: 66,
     }
-    this.setAmount = this.setAmount.bind(this)
-    this.setRecurring = this.setRecurring.bind(this)
-    this.handleCustom = this.handleCustom.bind(this)
-    this.goBack = this.goBack.bind(this)
-    this.handleCustomAmountSubmit = this.handleCustomAmountSubmit.bind(this)
+  }
+
+  startOver(e) {
+    e.preventDefault()
+    this.setState(this.initialState)
   }
 
   handleCustomAmountSubmit(e, value) {
     e.preventDefault()
-    const stripped = parseInt(parseFloat(value.replace(/[^.\d]/g,'')) * 100)
+    const stripped = parseInt(parseFloat(value.replace(/[^.\d]/g, "")) * 100)
     this.setState(state => ({
       amount: stripped,
       progress: 75,
       customAmountCompleted: true,
+      creditCardActive: true,
     }))
   }
 
@@ -44,6 +65,7 @@ class Donation extends Component {
     this.setState(state => ({
       amount: value,
       selectAmountCompleted: true,
+      creditCardActive: true,
       progress: 66,
     }))
   }
@@ -53,7 +75,7 @@ class Donation extends Component {
     this.setState(state => ({
       [currentCard]: false,
       [newCard]: false,
-      progress: progress
+      progress: progress,
     }))
   }
 
@@ -62,7 +84,7 @@ class Donation extends Component {
     this.setState(state => ({
       progress: 50,
       selectAmountCompleted: true,
-      customAmountActive: true
+      customAmountActive: true,
     }))
   }
 
@@ -73,25 +95,81 @@ class Donation extends Component {
     }))
   }
 
+  handleCreditCardSubmit(e) {
+    e.preventDefault()
+    this.setState(state => ({
+      creditCardCompleted: true,
+      progress: 100,
+    }))
+  }
+
+  handlePaymentNameChange(e) {
+    this.setState({
+      paymentName: e.target.value,
+    })
+  }
+
+  handlePaymentEmailChange(e) {
+    this.setState({
+      paymentEmail: e.target.value,
+    })
+  }
+
   render() {
     return (
       <div className={donationStyles.card}>
-        <SelectAmountCard recurring={this.state.recurring} setAmount={this.setAmount} handleCustom={this.handleCustom}
+        <SelectAmountCard
+          recurring={this.state.recurring}
+          setAmount={this.setAmount}
+          handleCustom={this.handleCustom}
           setRecurring={this.setRecurring}
-          active={this.state.selectAmountActive ? donationStyles.innerCardActive : ''} 
-          completed={this.state.selectAmountCompleted ? donationStyles.innerCardCompleted : ''}/>
+          active={
+            this.state.selectAmountActive ? donationStyles.innerCardActive : ""
+          }
+          completed={
+            this.state.selectAmountCompleted
+              ? donationStyles.innerCardCompleted
+              : ""
+          }
+        />
 
-        <CustomAmountCard setAmount={this.setAmount} handleCustom={this.handleCustom} goBack={this.goBack}
-          handleCustomAmountSubmit={this.handleCustomAmountSubmit} 
-          active={this.state.customAmountActive ? donationStyles.innerCardActive : ''} 
-          completed={this.state.customAmountCompleted ? donationStyles.innerCardCompleted : ''}/>
+        <CustomAmountCard
+          setAmount={this.setAmount}
+          handleCustom={this.handleCustom}
+          goBack={this.goBack}
+          handleCustomAmountSubmit={this.handleCustomAmountSubmit}
+          active={
+            this.state.customAmountActive ? donationStyles.innerCardActive : ""
+          }
+          completed={
+            this.state.customAmountCompleted
+              ? donationStyles.innerCardCompleted
+              : ""
+          }
+        />
+
+        <CreditCardCard
+          startOver={this.startOver}
+          handleCreditCardSubmit={this.handleCreditCardSubmit}
+          amount={this.state.amount}
+          active={
+            this.state.creditCardActive ? donationStyles.innerCardActive : ""
+          }
+          handlePaymentEmailChange={this.handlePaymentEmailChange}
+          handlePaymentNameChange={this.handlePaymentNameChange}
+          completed={
+            this.state.creditCardCompleted
+              ? donationStyles.innerCardCompleted
+              : ""
+          }
+        />
 
         <div className={donationStyles.progressBar}>
-              <div
-                className={donationStyles.progressIndicator}
-                style={{ width: this.state.progress + "%" }}
-              ></div>
-            </div>
+          <div
+            className={donationStyles.progressIndicator}
+            style={{ width: this.state.progress + "%" }}
+          ></div>
+        </div>
       </div>
     )
   }
