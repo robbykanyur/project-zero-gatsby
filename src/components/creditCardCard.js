@@ -8,10 +8,17 @@ class CreditCardCard extends Component {
   constructor(props) {
     super(props)
     this.state = { stripe: null }
+    this.handleKeyPress = this.handleKeyPress.bind(this)
   }
 
   componentDidMount() {
     this.setState({ stripe: window.Stripe("pk_test_ko6lndOpwsQBw0m8DRkpBHvF") })
+  }
+
+  handleKeyPress(e) {
+    if (e.key === "Enter") {
+      this.props.handleCreditCardSubmit(e, this.state.inputAmount)
+    }
   }
 
   render() {
@@ -30,7 +37,7 @@ class CreditCardCard extends Component {
             Please enter your payment information:
           </p>
         </div>
-        <form className="formControl">
+        <form className="formControl" onKeyPress={this.handleKeyPress}>
           <div className="control">
             <input
               type="text"

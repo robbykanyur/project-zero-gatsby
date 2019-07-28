@@ -40,6 +40,7 @@ class Donation extends Component {
       paymentName: null,
       paymentEmail: null,
       paymentSuccessful: null,
+      enterButtonAction: null,
     }
   }
 
@@ -51,7 +52,7 @@ class Donation extends Component {
   handleCustomAmountSubmit(e, value) {
     e.preventDefault()
     const stripped = parseInt(parseFloat(value.replace(/[^.\d]/g, "")) * 100)
-    this.setState(state => ({
+    this.setState((state, props) => ({
       amount: stripped,
       progress: 60,
       customAmountCompleted: true,
@@ -61,7 +62,7 @@ class Donation extends Component {
 
   setAmount(e, value) {
     e.preventDefault()
-    this.setState(state => ({
+    this.setState((state, props) => ({
       amount: value,
       selectAmountCompleted: true,
       creditCardActive: true,
@@ -71,7 +72,7 @@ class Donation extends Component {
 
   goBack(e, currentCard, newCard, progress) {
     e.preventDefault()
-    this.setState(state => ({
+    this.setState((state, props) => ({
       [currentCard]: false,
       [newCard]: false,
       progress: progress,
@@ -80,7 +81,7 @@ class Donation extends Component {
 
   handleCustom(e) {
     e.preventDefault()
-    this.setState(state => ({
+    this.setState((state, props) => ({
       progress: 40,
       selectAmountCompleted: true,
       customAmountActive: true,
@@ -89,7 +90,7 @@ class Donation extends Component {
 
   setRecurring(e, value) {
     e.preventDefault()
-    this.setState(state => ({
+    this.setState((state, props) => ({
       recurring: value,
     }))
   }
@@ -102,7 +103,7 @@ class Donation extends Component {
     } else {
       incrementProgress = 75
     }
-    this.setState(state => ({
+    this.setState((state, props) => ({
       creditCardCompleted: true,
       loadingCardActive: true,
       progress: incrementProgress,
@@ -112,7 +113,7 @@ class Donation extends Component {
 
   simulateStripeResponse() {
     this.sleep(2000).then(() => {
-      this.setState(state => ({
+      this.setState((state, props) => ({
         loadingCardCompleted: true,
         progress: 100,
         paymentSuccessful: true,

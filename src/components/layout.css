@@ -3842,6 +3842,10 @@ form.formControl {
   border-bottom: 1px solid #5eae8c;
 }
 
+.captcha {
+  display: none;
+}
+
 hr {
   border: 0;
   border-bottom: 5px solid #d4dae4;

@@ -39,6 +39,9 @@ const ContactPage = () => (
               <div className="control">
                 <textarea placeholder="Your Message"></textarea>
               </div>
+              <div className="captcha">
+                <input type="checkbox" /> Check this box if you are a human.
+              </div>
               <div className="control">
                 <Button
                   link="/thank-you-contact"
@@ -73,7 +76,7 @@ const ContactPage = () => (
           linkOneHref="/donate"
           linkTwoText="Serve"
           linkTwoHref="/serve"
-          textContent="Join us in eradicating homelessness in Lynchburg by the year 2020."
+          textContent="Help us eradicate homelessness in Lynchburg."
         />
         <Footer></Footer>
       </>

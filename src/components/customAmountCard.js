@@ -10,6 +10,13 @@ class CustomAmountCard extends Component {
       inputAmount: 0,
     }
     this.handleAmountChange = this.handleAmountChange.bind(this)
+    this.handleKeyPress = this.handleKeyPress.bind(this)
+  }
+
+  handleKeyPress(e) {
+    if (e.key === "Enter") {
+      this.props.handleCustomAmountSubmit(e, this.state.inputAmount)
+    }
   }
 
   handleAmountChange(e) {
@@ -40,8 +47,12 @@ class CustomAmountCard extends Component {
           </p>
         </div>
         <div className={donationStyles.bigNumber}>
-          <div class="control">
+          <div className="control">
             <MaskedInput
+              ref={i => {
+                this.customAmountInput = i
+              }}
+              id="customAmount"
               name="customAmount"
               type="text"
               mask={currencyMask}
@@ -49,6 +60,7 @@ class CustomAmountCard extends Component {
               onChange={e => {
                 this.handleAmountChange(e)
               }}
+              onKeyPress={this.handleKeyPress}
             />
           </div>
         </div>
