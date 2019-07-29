@@ -18,14 +18,7 @@ class Modal extends Component {
         onKeyDown={this.props.handleKeyPress}
         onClick={this.props.handleClick}
       >
-        <Donation />
-        <a
-          href="/"
-          className={modalStyles.close}
-          onClick={this.props.toggleModal}
-        >
-          Close Window
-        </a>
+        <Donation location="modal" toggleModal={this.props.toggleModal} />
       </div>
     )
   }

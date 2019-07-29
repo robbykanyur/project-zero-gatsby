@@ -32,6 +32,7 @@ class Cta extends Component {
     this.setState({
       modalActive: !this.state.modalActive,
     })
+    this.forceUpdate()
   }
 
   render() {

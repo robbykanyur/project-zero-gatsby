@@ -2,6 +2,17 @@ import React from "react"
 import donationStyles from "./donation.module.css"
 
 class ResultCard extends React.Component {
+  toggleModalAndStartOver(e) {
+    this.props.toggleModal(e)
+    this.sleep(500).then(() => {
+      this.props.startOver(e)
+    })
+  }
+
+  sleep = ms => {
+    return new Promise(resolve => setTimeout(resolve, ms))
+  }
+
   render() {
     if (this.props.paymentSuccessful === true) {
       return (
@@ -11,17 +22,23 @@ class ResultCard extends React.Component {
               <h2 className="is-serif is-1">
                 Thank you for your contribution!
               </h2>
-              <p className="is-2">Will you help us spread the word?</p>
-              <div className={donationStyles.shareButton}>
-                <a
-                  href="http://facebook.com/"
-                  rel="noopener noreferrer"
-                  target="_blank"
-                  className={donationStyles.button}
-                >
-                  Share on Facebook
-                </a>
-              </div>
+              <p className="is-2">
+                A receipt will be emailed to{" "}
+                <strong>{this.props.paymentEmail}</strong>.
+              </p>
+              {this.props.location === "modal" ? (
+                <div className={donationStyles.shareButton}>
+                  <a
+                    href="/"
+                    className={donationStyles.button}
+                    onClick={e => this.toggleModalAndStartOver(e)}
+                  >
+                    Back To Website
+                  </a>
+                </div>
+              ) : (
+                ""
+              )}
             </div>
           </div>
         </>

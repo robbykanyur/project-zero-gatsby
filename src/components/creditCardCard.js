@@ -21,6 +21,10 @@ class CreditCardCard extends Component {
     }
   }
 
+  handleCCSubmit(e) {
+    this.props.handleCreditCardSubmit(e)
+  }
+
   render() {
     return (
       <div
@@ -40,6 +44,7 @@ class CreditCardCard extends Component {
         <form className="formControl" onKeyPress={this.handleKeyPress}>
           <div className="control">
             <input
+              ref={el => (this.nameInput = el)}
               type="text"
               placeholder="Your name"
               onChange={e => this.props.handlePaymentNameChange(e)}
@@ -47,6 +52,7 @@ class CreditCardCard extends Component {
           </div>
           <div className="control">
             <input
+              ref={el => (this.emailInput = el)}
               type="text"
               placeholder="Email address"
               onChange={e => this.props.handlePaymentEmailChange(e)}
@@ -66,7 +72,7 @@ class CreditCardCard extends Component {
             className={
               donationStyles.button + " " + donationStyles.confirmButton
             }
-            onClick={e => this.props.handleCreditCardSubmit(e)}
+            onClick={e => this.handleCCSubmit(e)}
           >
             Confirm $
             {parseFloat(Math.round(this.props.amount) / 100).toFixed(2)}{" "}

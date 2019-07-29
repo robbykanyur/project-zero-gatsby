@@ -205,6 +205,10 @@ class Donation extends Component {
           }
           paymentSuccessful={this.state.paymentSuccessful}
           startOver={this.startOver}
+          paymentEmail={this.state.paymentEmail}
+          location={this.props.location}
+          toggleModal={this.props.toggleModal}
+          startOver={this.startOver}
         />
 
         <div className={donationStyles.progressBar}>
