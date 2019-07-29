@@ -15,7 +15,7 @@ class LoadingCard extends Component {
             this.props.completed
           }
         >
-          <div class="is-centered">
+          <div className="is-centered">
             <Loading />
           </div>
         </div>

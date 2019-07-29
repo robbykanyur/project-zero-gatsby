@@ -9,7 +9,6 @@ import Block from "../components/block"
 import Button from "../components/button"
 import Cta from "../components/cta"
 import Footer from "../components/footer"
-import Modal from "../components/modal"
 
 import hero from "../images/home-hero.jpg"
 import zigzag from "../images/tex-zebra.png"
@@ -20,30 +19,6 @@ import caleb from "../images/profile-caleb.jpg"
 import logo from "../images/base-logo.png"
 
 class IndexPage extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      modalActive: false,
-    }
-  }
-
-  handleKeyPress(e) {
-    console.log(e.keyCode)
-    if (e.keyCode === 27) {
-      this.setState({
-        active: false,
-      })
-    }
-  }
-
-  componentDidMount() {
-    document.addEventListener("keydown", this.handleKeyPress, false)
-  }
-
-  componentWillUnmount() {
-    document.addEventListener("keydown", this.handleKeyPress, false)
-  }
-
   render() {
     return (
       <>
@@ -202,7 +177,7 @@ class IndexPage extends Component {
                     </p>
                   </div>
                   <div className={indexStyles.quoteAttrib}>
-                    <p>Caleb Fitzpatrick, Executive Director</p>
+                    <p>Caleb Fitzpatrick, Co-Founder</p>
                   </div>
                 </div>
               </div>
@@ -210,13 +185,12 @@ class IndexPage extends Component {
             <Cta
               linkOneText="Donate"
               linkOneHref="/donate"
-              launchModal={true}
+              toggleModal={true}
               linkTwoText="Serve"
               linkTwoHref="/serve"
               textContent="Help us eradicate homelessness in Lynchburg."
             />
             <Footer></Footer>
-            <Modal active={this.state.modalActive} />
           </>
         </Layout>
       </>

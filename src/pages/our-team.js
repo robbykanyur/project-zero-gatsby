@@ -123,6 +123,7 @@ class OurTeamPage extends React.Component {
               linkOneText="Donate"
               linkOneHref="/donate"
               displaySecondButton="none"
+              toggleModal={this.toggleModal}
               textContent="Help us eradicate homelessness in Lynchburg."
             />
             <Footer></Footer>
