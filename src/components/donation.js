@@ -20,6 +20,7 @@ class Donation extends Component {
     this.handleCreditCardSubmit = this.handleCreditCardSubmit.bind(this)
     this.handlePaymentNameChange = this.handlePaymentNameChange.bind(this)
     this.handlePaymentEmailChange = this.handlePaymentEmailChange.bind(this)
+    this.handleStripeResponse = this.handleStripeResponse.bind(this)
   }
 
   get initialState() {
@@ -41,6 +42,7 @@ class Donation extends Component {
       paymentEmail: null,
       paymentSuccessful: null,
       enterButtonAction: null,
+      paymentFailureReason: null,
     }
   }
 
@@ -108,18 +110,16 @@ class Donation extends Component {
       loadingCardActive: true,
       progress: incrementProgress,
     }))
-    this.simulateStripeResponse()
   }
 
-  simulateStripeResponse() {
-    this.sleep(2000).then(() => {
-      this.setState((state, props) => ({
-        loadingCardCompleted: true,
-        progress: 100,
-        paymentSuccessful: true,
-        resultCardActive: true,
-      }))
-    })
+  handleStripeResponse(ok, response) {
+    this.setState((state, props) => ({
+      loadingCardCompleted: true,
+      progress: 100,
+      paymentSuccessful: ok,
+      resultCardActive: true,
+    }))
+    console.log(response.json())
   }
 
   sleep = ms => {
@@ -174,6 +174,7 @@ class Donation extends Component {
         <CreditCardCard
           startOver={this.startOver}
           handleCreditCardSubmit={this.handleCreditCardSubmit}
+          handleStripeResponse={this.handleStripeResponse}
           amount={this.state.amount}
           active={
             this.state.creditCardActive ? donationStyles.innerCardActive : ""
@@ -186,6 +187,8 @@ class Donation extends Component {
               ? donationStyles.innerCardCompleted
               : ""
           }
+          customerEmail={this.state.paymentEmail}
+          customerName={this.state.paymentName}
         />
 
         <LoadingCard
@@ -208,7 +211,6 @@ class Donation extends Component {
           paymentEmail={this.state.paymentEmail}
           location={this.props.location}
           toggleModal={this.props.toggleModal}
-          startOver={this.startOver}
         />
 
         <div className={donationStyles.progressBar}>

@@ -1,5 +1,6 @@
 import React from "react"
 import donationStyles from "./donation.module.css"
+import { Link } from "gatsby"
 
 class ResultCard extends React.Component {
   toggleModalAndStartOver(e) {
@@ -37,7 +38,11 @@ class ResultCard extends React.Component {
                   </a>
                 </div>
               ) : (
-                ""
+                <div className={donationStyles.shareButton}>
+                  <Link to="/" className={donationStyles.button}>
+                    Home Page
+                  </Link>
+                </div>
               )}
             </div>
           </div>

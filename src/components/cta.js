@@ -56,7 +56,7 @@ class Cta extends Component {
                   onClick={
                     this.props.toggleModal === true
                       ? e => this.toggleModal(e)
-                      : ""
+                      : void 0
                   }
                 >
                   {this.props.linkOneText}
@@ -72,12 +72,16 @@ class Cta extends Component {
             </div>
           </div>
         </div>
-        <Modal
-          active={this.state.modalActive}
-          handleKeyPress={this.handleKeyPress}
-          toggleModal={this.toggleModal}
-          handleClick={this.handleClick}
-        />
+        {!this.props.noDonationForm ? (
+          <Modal
+            active={this.state.modalActive}
+            handleKeyPress={this.handleKeyPress}
+            toggleModal={this.toggleModal}
+            handleClick={this.handleClick}
+          />
+        ) : (
+          ""
+        )}
       </>
     )
   }

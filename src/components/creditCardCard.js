@@ -7,12 +7,7 @@ import StripeCard from "./stripeCard.js"
 class CreditCardCard extends Component {
   constructor(props) {
     super(props)
-    this.state = { stripe: null }
     this.handleKeyPress = this.handleKeyPress.bind(this)
-  }
-
-  componentDidMount() {
-    this.setState({ stripe: window.Stripe("pk_test_ko6lndOpwsQBw0m8DRkpBHvF") })
   }
 
   handleKeyPress(e) {
@@ -21,7 +16,7 @@ class CreditCardCard extends Component {
     }
   }
 
-  handleCCSubmit(e) {
+  ccProceed(e) {
     this.props.handleCreditCardSubmit(e)
   }
 
@@ -41,44 +36,21 @@ class CreditCardCard extends Component {
             Please enter your payment information:
           </p>
         </div>
-        <form className="formControl" onKeyPress={this.handleKeyPress}>
-          <div className="control">
-            <input
-              ref={el => (this.nameInput = el)}
-              type="text"
-              placeholder="Your name"
-              onChange={e => this.props.handlePaymentNameChange(e)}
+        <StripeProvider apiKey="pk_test_ko6lndOpwsQBw0m8DRkpBHvF">
+          <Elements>
+            <StripeCard
+              ccProceed={this.ccProceed}
+              customerEmail={this.props.customerEmail}
+              customerName={this.props.customerName}
+              recurring={this.props.recurring}
+              amount={this.props.amount}
+              handlePaymentNameChange={this.props.handlePaymentNameChange}
+              handlePaymentEmailChange={this.props.handlePaymentEmailChange}
+              handleCreditCardSubmit={this.props.handleCreditCardSubmit}
+              handleStripeResponse={this.props.handleStripeResponse}
             />
-          </div>
-          <div className="control">
-            <input
-              ref={el => (this.emailInput = el)}
-              type="text"
-              placeholder="Email address"
-              onChange={e => this.props.handlePaymentEmailChange(e)}
-            />
-          </div>
-          <div className={"control " + donationStyles.stripeControl}>
-            <StripeProvider stripe={this.state.stripe}>
-              <Elements>
-                <StripeCard />
-              </Elements>
-            </StripeProvider>
-          </div>
-        </form>
-        <div className={donationStyles.controlNext}>
-          <a
-            href="/"
-            className={
-              donationStyles.button + " " + donationStyles.confirmButton
-            }
-            onClick={e => this.handleCCSubmit(e)}
-          >
-            Confirm $
-            {parseFloat(Math.round(this.props.amount) / 100).toFixed(2)}{" "}
-            {this.props.recurring ? "Subscription" : "Payment"}
-          </a>
-        </div>
+          </Elements>
+        </StripeProvider>
         <a
           href="/"
           className={donationStyles.detailLink}

@@ -40,7 +40,7 @@ class SelectAmountCard extends Component {
               }
               onClick={e => this.props.setRecurring(e, false)}
             >
-              No, not this time.
+              No, not now.
             </div>
           </div>
           <div className={donationStyles.chooseAmount}>

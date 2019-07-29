@@ -36,10 +36,12 @@ const DonatePage = () => (
           <Donation />
         </Block>
         <Cta
+          noDonationForm={true}
           contentWidth="440px"
           linkOneText="Join the Team"
           linkOneHref="/serve"
           linkOneWidth="210px"
+          linkTwoHref="/"
           displaySecondButton="none"
           textContent="You can also support Project Zero by donating your time."
         />
