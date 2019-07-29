@@ -24,6 +24,7 @@ class ContactPage extends Component {
       inputPhone: null,
       inputMessage: null,
       captcha: null,
+      errors: [],
     }
   }
 
@@ -57,12 +58,12 @@ class ContactPage extends Component {
     })
   }
 
-  handleFormSuccess() {
-    navigate("/thank-you-contact")
-  }
-
-  handleFormFailure() {
-    console.log("failure")
+  handleFormResponse(response, body) {
+    if (response.ok) {
+      navigate("/thank-you-contact")
+    } else {
+      this.setState({ errors: body.errors })
+    }
   }
 
   async handleFormSubmit(e) {
@@ -80,12 +81,8 @@ class ContactPage extends Component {
         formCaptcha: this.state.captcha,
       }),
     })
-
-    if (response.ok) {
-      this.handleFormSuccess()
-    } else {
-      this.handleFormFailure()
-    }
+    let body = await response.json()
+    this.handleFormResponse(response, body)
   }
 
   render() {
@@ -104,6 +101,9 @@ class ContactPage extends Component {
       /\d/,
       /\d/,
     ]
+    const formErrors = this.state.errors.map((error, key) => (
+      <li key={error.id}>{error.message}</li>
+    ))
     return (
       <>
         <Helmet>
@@ -148,7 +148,7 @@ class ContactPage extends Component {
                       onChange={e => this.handlePhoneChange(e)}
                     />
                   </div>
-                  <div className="control">
+                  <div className="control last-input">
                     <textarea
                       placeholder="Your Message"
                       onChange={e => this.handleMessageChange(e)}
@@ -161,6 +161,7 @@ class ContactPage extends Component {
                     />{" "}
                     Check this box if you are a human.
                   </div>
+                  <div className="formErrors">{formErrors}</div>
                   <div className="control">
                     <Button
                       link="/"

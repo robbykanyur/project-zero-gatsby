@@ -3827,6 +3827,11 @@ form.formControl {
   color: #5dae8c;
 }
 
+.control.last-input textarea,
+.control.last-input input{
+  margin-bottom: 12px;
+}
+
 .control textarea {
   height: 160px;
   line-height: 1.6;
@@ -3852,4 +3857,17 @@ hr {
   opacity: 0.5;
   width: 40%;
   margin: 36px auto;
+}
+
+.formErrors li {
+  list-style-type: none;
+  text-align: center;
+  font-style: italic;
+  font-size: 16px;
+  margin-bottom: 8px;
+  color: #e74c3c;
+}
+
+.formErrors li:last-child {
+  margin-bottom: 16px;
 }
