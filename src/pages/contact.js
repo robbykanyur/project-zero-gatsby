@@ -2,6 +2,7 @@ import React, { Component } from "react"
 import { Helmet } from "react-helmet"
 import MaskedInput from "react-text-mask"
 import { navigate } from "gatsby"
+import * as Constants from "../components/constants"
 
 import contactStyles from "./contact.module.css"
 
@@ -68,7 +69,7 @@ class ContactPage extends Component {
 
   async handleFormSubmit(e) {
     await e.preventDefault()
-    let response = await fetch("http://localhost:3000/api/v1/form", {
+    let response = await fetch(Constants.API + "form", {
       method: "POST",
       mode: "cors",
       headers: { "Content-Type": "application/json" },
@@ -148,7 +149,7 @@ class ContactPage extends Component {
                       onChange={e => this.handlePhoneChange(e)}
                     />
                   </div>
-                  <div className="control last-input">
+                  <div className="control">
                     <textarea
                       placeholder="Your Message"
                       onChange={e => this.handleMessageChange(e)}

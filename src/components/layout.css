@@ -3827,11 +3827,6 @@ form.formControl {
   color: #5dae8c;
 }
 
-.control.last-input textarea,
-.control.last-input input{
-  margin-bottom: 12px;
-}
-
 .control textarea {
   height: 160px;
   line-height: 1.6;

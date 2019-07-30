@@ -1,5 +1,6 @@
 import React, { Component } from "react"
 import donationStyles from "./donation.module.css"
+import * as Constants from "./constants"
 
 import SelectAmountCard from "./selectAmountCard.js"
 import CustomAmountCard from "./customAmountCard.js"
@@ -56,17 +57,14 @@ class Donation extends Component {
 
   async handleCustomAmountSubmit(e, value) {
     await e.preventDefault()
-    let response = await fetch(
-      "http://localhost:3000/api/v1/validate/customAmount",
-      {
-        method: "POST",
-        mode: "cors",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          customAmount: value,
-        }),
-      }
-    )
+    let response = await fetch(Constants.API + "validate/customAmount", {
+      method: "POST",
+      mode: "cors",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        customAmount: value,
+      }),
+    })
     let body = await response.json()
     this.handleCustomAmountResponse(response, body, value)
   }

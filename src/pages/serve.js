@@ -2,6 +2,7 @@ import React from "react"
 import { Helmet } from "react-helmet"
 import MaskedInput from "react-text-mask"
 import { navigate } from "gatsby"
+import * as Constants from "../components/constants"
 
 import serveStyles from "./serve.module.css"
 
@@ -60,7 +61,7 @@ class ServePage extends React.Component {
 
   async handleFormSubmit(e) {
     await e.preventDefault()
-    let response = await fetch("http://localhost:3000/api/v1/form", {
+    let response = await fetch(Constants.API + "form", {
       method: "POST",
       mode: "cors",
       headers: { "Content-Type": "application/json" },

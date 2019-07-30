@@ -1,6 +1,7 @@
 import React from "react"
 import { CardElement, injectStripe } from "react-stripe-elements"
 import donationStyles from "./donation.module.css"
+import * as Constants from "./constants"
 
 class StripeCard extends React.Component {
   constructor(props) {
@@ -14,7 +15,7 @@ class StripeCard extends React.Component {
   async submitToStripe() {
     this.props.handleCreditCardSubmit()
     let { token } = await this.props.stripe.createToken({ name: "Name" })
-    let response = await fetch("http://localhost:3000/api/v1/charge", {
+    let response = await fetch(Constants.API + "charge", {
       method: "POST",
       mode: "cors",
       headers: { "Content-Type": "application/json" },
@@ -36,7 +37,7 @@ class StripeCard extends React.Component {
 
   async validateForm() {
     let response = await fetch(
-      "http://localhost:3000/api/v1/validate/paymentInformation",
+      "https://zero-api.elllipse.com/api/v1/validate/paymentInformation",
       {
         method: "POST",
         mode: "cors",
