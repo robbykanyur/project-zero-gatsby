@@ -31,6 +31,10 @@ class CustomAmountCard extends Component {
       suffix: ".00",
     })
 
+    const formErrors = this.props.errors.map((error, key) => (
+      <li key={error.id}>{error.message}</li>
+    ))
+
     return (
       <div
         className={
@@ -48,22 +52,25 @@ class CustomAmountCard extends Component {
         </div>
         <div className={donationStyles.bigNumber}>
           <div className="control">
-            <MaskedInput
-              ref={i => {
-                this.customAmountInput = i
-              }}
-              id="customAmount"
-              name="customAmount"
-              type="text"
-              mask={currencyMask}
-              placeholder="$100.00"
-              onChange={e => {
-                this.handleAmountChange(e)
-              }}
-              onKeyPress={this.handleKeyPress}
-            />
+            <form id="customAmountForm">
+              <MaskedInput
+                ref={i => {
+                  this.customAmountInput = i
+                }}
+                id="customAmount"
+                name="customAmount"
+                type="text"
+                mask={currencyMask}
+                placeholder="$100.00"
+                onChange={e => {
+                  this.handleAmountChange(e)
+                }}
+                onKeyPress={this.handleKeyPress}
+              />
+            </form>
           </div>
         </div>
+        <div className="formErrors">{formErrors}</div>
         <div className={donationStyles.controlNext}>
           <a
             href="/"

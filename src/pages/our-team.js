@@ -24,6 +24,7 @@ class OurTeamPage extends React.Component {
       inputEmail: null,
       inputPhone: null,
       captcha: null,
+      errors: [],
     }
   }
 
@@ -51,12 +52,12 @@ class OurTeamPage extends React.Component {
     })
   }
 
-  handleFormSuccess() {
-    navigate("/thank-you-serve")
-  }
-
-  handleFormFailure() {
-    console.log("failure")
+  handleFormResponse(response, body) {
+    if (response.ok) {
+      navigate("/thank-you-contact")
+    } else {
+      this.setState({ errors: body.errors })
+    }
   }
 
   async handleFormSubmit(e) {
@@ -70,14 +71,12 @@ class OurTeamPage extends React.Component {
         formName: this.state.inputName,
         formEmail: this.state.inputEmail,
         formPhone: this.state.inputPhone,
+        formMessage: this.state.inputMessage,
         formCaptcha: this.state.captcha,
       }),
     })
-    if (response.ok) {
-      this.handleFormSuccess()
-    } else {
-      this.handleFormFailure()
-    }
+    let body = await response.json()
+    this.handleFormResponse(response, body)
   }
 
   render() {
@@ -96,6 +95,9 @@ class OurTeamPage extends React.Component {
       /\d/,
       /\d/,
     ]
+    const formErrors = this.state.errors.map((error, key) => (
+      <li key={error.id}>{error.message}</li>
+    ))
     return (
       <>
         <Helmet>
@@ -183,6 +185,7 @@ class OurTeamPage extends React.Component {
                         />{" "}
                         Check this box if you are a human.
                       </div>
+                      <div className="formErrors">{formErrors}</div>
                       <div className="control">
                         <Button
                           link="/thank-you-serve"

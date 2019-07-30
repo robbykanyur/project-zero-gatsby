@@ -54,7 +54,6 @@ class ResultCard extends React.Component {
           <div className={donationStyles.innerCard + " " + this.props.active}>
             <div className={donationStyles.socialShare + " is-centered"}>
               <h2 className="is-serif is-1">Your payment was unsuccessful.</h2>
-              <p className="is-2">Something went wrong.</p>
               <div className={donationStyles.shareButton}>
                 <a
                   href="/"

@@ -26,7 +26,7 @@ class Donation extends Component {
   get initialState() {
     return {
       recurring: true,
-      amount: 0,
+      amount: null,
       progress: 25,
       selectAmountActive: true,
       selectAmountCompleted: false,
@@ -43,16 +43,43 @@ class Donation extends Component {
       paymentSuccessful: null,
       enterButtonAction: null,
       paymentFailureReason: null,
+      customAmountErrors: [],
     }
   }
 
   startOver(e) {
     e.preventDefault()
     this.setState(this.initialState)
+    document.getElementById("customAmountForm").reset()
+    document.getElementById("paymentInformationForm").reset()
   }
 
-  handleCustomAmountSubmit(e, value) {
-    e.preventDefault()
+  async handleCustomAmountSubmit(e, value) {
+    await e.preventDefault()
+    let response = await fetch(
+      "http://localhost:3000/api/v1/validate/customAmount",
+      {
+        method: "POST",
+        mode: "cors",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          customAmount: value,
+        }),
+      }
+    )
+    let body = await response.json()
+    this.handleCustomAmountResponse(response, body, value)
+  }
+
+  handleCustomAmountResponse(response, body, value) {
+    if (response.ok) {
+      this.handleCustomAmountSuccess(body, value)
+    } else {
+      this.setState({ customAmountErrors: body.errors })
+    }
+  }
+
+  handleCustomAmountSuccess(body, value) {
     const stripped = parseInt(parseFloat(value.replace(/[^.\d]/g, "")) * 100)
     this.setState((state, props) => ({
       amount: stripped,
@@ -97,8 +124,7 @@ class Donation extends Component {
     }))
   }
 
-  handleCreditCardSubmit(e) {
-    e.preventDefault()
+  handleCreditCardSubmit() {
     var incrementProgress = null
     if (this.state.customAmountActive) {
       incrementProgress = 80
@@ -169,6 +195,7 @@ class Donation extends Component {
               ? donationStyles.innerCardCompleted
               : ""
           }
+          errors={this.state.customAmountErrors}
         />
 
         <CreditCardCard

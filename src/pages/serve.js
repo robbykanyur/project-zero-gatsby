@@ -22,6 +22,7 @@ class ServePage extends React.Component {
       inputEmail: null,
       inputPhone: null,
       captcha: null,
+      errors: [],
     }
   }
 
@@ -49,12 +50,12 @@ class ServePage extends React.Component {
     })
   }
 
-  handleFormSuccess() {
-    navigate("/thank-you-serve")
-  }
-
-  handleFormFailure() {
-    console.log("failure")
+  handleFormResponse(response, body) {
+    if (response.ok) {
+      navigate("/thank-you-contact")
+    } else {
+      this.setState({ errors: body.errors })
+    }
   }
 
   async handleFormSubmit(e) {
@@ -71,11 +72,8 @@ class ServePage extends React.Component {
         formCaptcha: this.state.captcha,
       }),
     })
-    if (response.ok) {
-      this.handleFormSuccess()
-    } else {
-      this.handleFormFailure()
-    }
+    let body = await response.json()
+    this.handleFormResponse(response, body)
   }
 
   render() {
@@ -94,6 +92,9 @@ class ServePage extends React.Component {
       /\d/,
       /\d/,
     ]
+    const formErrors = this.state.errors.map((error, key) => (
+      <li key={error.id}>{error.message}</li>
+    ))
     return (
       <>
         <Helmet>
@@ -146,6 +147,7 @@ class ServePage extends React.Component {
                     />{" "}
                     Check this box if you are a human.
                   </div>
+                  <div className="formErrors">{formErrors}</div>
                   <div className="control">
                     <Button
                       link="/thank-you-serve"

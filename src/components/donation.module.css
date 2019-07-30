@@ -40,17 +40,6 @@
   position: relative;
   z-index: 6000;
   overflow: hidden;
-  animation: color-change 0.6s;
-  animation-direction: alternate;
-}
-
-@keyframes color-change {
-  0% {
-    color: #5ead8d;
-  }
-  100% {
-    color: #fff;
-  }
 }
 
 .selection::before {
