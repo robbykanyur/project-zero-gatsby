@@ -7,7 +7,14 @@ import StripeCard from "./stripeCard.js"
 class CreditCardCard extends Component {
   constructor(props) {
     super(props)
+    this.state = {
+      stripe: null,
+    }
     this.handleKeyPress = this.handleKeyPress.bind(this)
+  }
+
+  componentDidMount() {
+    this.setState({ stripe: window.Stripe("pk_test_ko6lndOpwsQBw0m8DRkpBHvF") })
   }
 
   handleKeyPress(e) {
@@ -36,7 +43,7 @@ class CreditCardCard extends Component {
             Please enter your payment information:
           </p>
         </div>
-        <StripeProvider apiKey="pk_test_ko6lndOpwsQBw0m8DRkpBHvF">
+        <StripeProvider stripe={this.state.stripe}>
           <Elements>
             <StripeCard
               ccProceed={this.ccProceed}
