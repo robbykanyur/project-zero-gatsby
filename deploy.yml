@@ -1,0 +1,60 @@
+---
+- hosts: zero
+  remote_user: deploy
+
+  tasks:
+    - name: pull api from git
+      git:
+        repo: git@github.com:robertkanyur/project-zero-flask.git
+        dest: /home/deploy/api
+        update: yes
+        version: master
+    - name: pull gatsby from git
+      git:
+        repo: git@github.com:robertkanyur/project-zero-gatsby.git
+        dest: /home/deploy/gatsby
+        update: yes
+        version: master
+    - name: copy requirements to worker folder
+      copy:
+        src: /home/deploy/api/requirements.txt
+        dest: /home/deploy/rq-worker/requirements.txt
+        remote_src: yes
+    - name: rebuild api image if necessary
+      docker_image:
+        name: api
+        path: /home/deploy/api
+    - name: rebuild worker image if necessary
+      docker_image:
+        name: rq-worker
+        path: /home/deploy/rq-worker
+    - name: api containers down
+      docker_service:
+        project_src: /home/deploy/api
+        state: absent
+    - name: proxy containers down
+      docker_service:
+        project_src: /home/deploy/proxy
+        state: absent
+    - name: ensure docker network is present
+      docker_network:
+        name: zero_net
+    - name: api containers up
+      docker_service:
+        project_src: /home/deploy/api
+        state: present
+    - name: wait for flask to start listening
+      wait_for:
+        port: 5000
+    - name: proxy containers up
+      docker_service:
+        project_src: /home/deploy/proxy
+    - name: check web server is responding
+      uri:
+        url: https://zero.elllipse.com
+        status_code: 200
+      retries: 12
+      delay: 5
+      register: response
+      until: response.status == 200
+      changed_when: False
