@@ -10,8 +10,6 @@ const Layout = ({ children }) => (
   <>
     <Helmet>
       />
-      <meta name="twitter:title" content="Project Zero" />
-      <meta name="twitter:image" content={openGraph} />
       <meta name="og:type" content="website" />
       <meta name="og:title" content="Project Zero" />
       <meta property="og:image" content={openGraph} />
