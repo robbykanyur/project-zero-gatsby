@@ -149,5 +149,9 @@
   line-height: 1.4;
 }
 
+.quoteAttrib {
+  text-align: center;
+}
+
 @media only screen and (max-width: 960px) {
 }
