@@ -200,6 +200,7 @@ class ContactPage extends Component {
             <Cta
               linkOneText="Donate"
               linkOneHref="/donate"
+              toggleModal={true}
               linkTwoText="Serve"
               linkTwoHref="/serve"
               textContent="Help us eradicate homelessness in Lynchburg."

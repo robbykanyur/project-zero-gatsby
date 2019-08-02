@@ -166,6 +166,7 @@ class ServePage extends React.Component {
             <Cta
               contentWidth="400px"
               linkOneText="Donate"
+              toggleModal={true}
               linkOneHref="/donate"
               displaySecondButton="none"
               textContent="You can also support Project Zero financially."

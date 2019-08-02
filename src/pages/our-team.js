@@ -203,8 +203,8 @@ class OurTeamPage extends React.Component {
             <Cta
               linkOneText="Donate"
               linkOneHref="/donate"
+              toggleModal={true}
               displaySecondButton="none"
-              toggleModal={this.toggleModal}
               textContent="Help us eradicate homelessness in Lynchburg."
             />
             <Footer></Footer>
