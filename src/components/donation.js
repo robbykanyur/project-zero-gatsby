@@ -143,7 +143,6 @@ class Donation extends Component {
       paymentSuccessful: ok,
       resultCardActive: true,
     }))
-    console.log(response.json())
   }
 
   sleep = ms => {
