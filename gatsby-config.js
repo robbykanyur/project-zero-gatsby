@@ -23,6 +23,14 @@ module.exports = {
         icon: `src/images/zero-icon.png`,
       },
     },
+    {
+      resolve: `gatsby-source-prismic-graphql`,
+      options: {
+        repositoryName: `projectzero`,
+        path: "/preview",
+        previews: true,
+      },
+    },
     `gatsby-plugin-stripe`,
     `gatsby-plugin-react-helmet`,
     `gatsby-transformer-remark`,
