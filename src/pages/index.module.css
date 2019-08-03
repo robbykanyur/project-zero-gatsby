@@ -2,15 +2,16 @@
   width: 837px;
 }
 
-.hero p {
+.wrapLead {
   width: 596px;
+  margin-bottom: 22px;
 }
 
 .everyPerson h1 {
   width: 506px;
 }
 
-.everyPerson p {
+.wrapEveryPerson {
   width: 596px;
 }
 
@@ -18,7 +19,7 @@
   width: 670px;
 }
 
-.coordinated p {
+.wrapCoordinated {
   width: 490px;
 }
 

@@ -28,6 +28,8 @@
       docker_image:
         name: rq-worker
         path: /home/deploy/rq-worker
+    - name: rebuild gatsby bundle
+      shell: /home/deploy/build
     - name: api containers down
       docker_service:
         project_src: /home/deploy/api
