@@ -1,4 +1,4 @@
-const { registerLinkResolver } = require('gatsby-source-prismic-graphql');
-const { linkResolver } = require('./src/utils/linkResolver');
-
-registerLinkResolver(linkResolver);
+const linkResolver = (doc) => {
+    if(doc.type === 'page_home') return '/contact';
+    return '/thanks-donations'
+}

@@ -27,8 +27,8 @@ module.exports = {
       resolve: `gatsby-source-prismic-graphql`,
       options: {
         repositoryName: `projectzero`,
-        path: "/preview",
-        previews: true,
+	path: '/preview',
+	previews: true
       },
     },
     `gatsby-plugin-stripe`,
