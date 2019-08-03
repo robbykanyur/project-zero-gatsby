@@ -1,3 +1,4 @@
+require('dotenv').config()
 module.exports = {
   siteMetadata: {
     title: `Project Zero`,
@@ -27,8 +28,9 @@ module.exports = {
       resolve: `gatsby-source-prismic-graphql`,
       options: {
         repositoryName: `projectzero`,
-	path: '/preview',
-	previews: true
+        accessToken: process.env.PRISMIC,
+        path: '/preview',
+        previews: true
       },
     },
     `gatsby-plugin-stripe`,
