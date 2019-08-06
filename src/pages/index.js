@@ -1,7 +1,8 @@
 import React from "react"
-import { useStaticQuery, graphql } from "gatsby"
+import { StaticQuery, graphql } from "gatsby"
 import { Helmet } from "react-helmet"
 import { RichText } from "prismic-reactjs"
+import { withPreview } from "gatsby-source-prismic-graphql"
 
 import indexStyles from "./index.module.css"
 
@@ -19,48 +20,49 @@ import squares from "../images/home-squares.png"
 import paint from "../images/tex-wall.png"
 import logo from "../images/base-logo.png"
 
-const IndexPage = () => {
-  const d = useStaticQuery(graphql`
-    {
-      prismic {
-        allPage_homes {
-          edges {
-            node {
-              cost_per_month
-              cta_text
-              intro_heading
-              intro_paragraph
-              lead_button
-              lead_heading
-              lead_paragraph
-              mission_heading
-              mission_paragraph
-              page_title
-              problem_description_1
-              problem_description_2
-              problem_description_3
-              problem_description_4
-              problem_footnotes
-              problem_value_1
-              problem_value_2
-              problem_value_3
-              problem_value_4
-              quote_attrib
-              quote_image
-              quote_text
+const query = graphql`
+  {
+    prismic {
+      allPage_homes {
+        edges {
+          node {
+            cost_per_month
+            cta_text
+            intro_heading
+            intro_paragraph
+            lead_button
+            lead_heading
+            lead_paragraph
+            mission_heading
+            mission_paragraph
+            page_title
+            problem_description_1
+            problem_description_2
+            problem_description_3
+            problem_description_4
+            problem_footnotes
+            problem_value_1
+            problem_value_2
+            problem_value_3
+            problem_value_4
+            quote_attrib
+            quote_image
+            quote_text
+            _meta {
+              type
             }
           }
         }
       }
     }
-  `)
-  const data = d.prismic.allPage_homes.edges.slice(0, 1).pop().node
-  if (!data) return null
+  }
+`
 
+const renderIndexPage = data => {
   return (
     <>
       <Helmet>
-        <title>{data.page_title}</title>
+        <title>{data.prismic.allPage_homes.edges.slice(0, 1).pop().node.page_title}</title>
       </Helmet>
 
       <Layout>
@@ -69,16 +71,16 @@ const IndexPage = () => {
           <Block backgroundImage={hero}>
             <div className="animated fadeInUp">
               <div className={indexStyles.hero}>
-                <h1 className="is-1 is-centered">{data.lead_heading}</h1>
+                <h1 className="is-1 is-centered">{data.prismic.allPage_homes.edges.slice(0, 1).pop().node.lead_heading}</h1>
                 <div
                   className={indexStyles.wrapLead + " is-centered is-subtitle"}
                 >
-                  {RichText.render(data.lead_paragraph)}
+                  {RichText.render(data.prismic.allPage_homes.edges.slice(0, 1).pop().node.lead_paragraph)}
                 </div>
                 <div className="is-centered-text">
                   <Button
                     link="/donate"
-                    text={data.lead_button}
+                    text={data.prismic.allPage_homes.edges.slice(0, 1).pop().node.lead_button}
                     width="193px"
                   />
                 </div>
@@ -89,14 +91,14 @@ const IndexPage = () => {
           <Block>
             <div className={indexStyles.everyPerson}>
               <h2 className="is-1 is-centered is-serif">
-                {data.intro_heading}
+                {data.prismic.allPage_homes.edges.slice(0, 1).pop().node.intro_heading}
               </h2>
               <div
                 className={
                   indexStyles.wrapEveryPerson + " is-centered is-subtitle"
                 }
               >
-                {RichText.render(data.intro_paragraph)}
+                {RichText.render(data.prismic.allPage_homes.edges.slice(0, 1).pop().node.intro_paragraph)}
               </div>
             </div>
           </Block>
@@ -108,14 +110,14 @@ const IndexPage = () => {
           >
             <div className={indexStyles.coordinated}>
               <h2 className="is-2 is-centered is-serif">
-                {data.mission_heading}
+                {data.prismic.allPage_homes.edges.slice(0, 1).pop().node.mission_heading}
               </h2>
               <div
                 className={
                   indexStyles.wrapCoordinated + " is-centered is-subtitle"
                 }
               >
-                {RichText.render(data.mission_paragraph)}
+                {RichText.render(data.prismic.allPage_homes.edges.slice(0, 1).pop().node.mission_paragraph)}
               </div>
               <div className={indexStyles.polaroid}>
                 <div className={indexStyles.polaroidContainer}>
@@ -137,7 +139,7 @@ const IndexPage = () => {
                   <p>
                     It only costs{" "}
                     <span className={indexStyles.costHighlight}>
-                      {data.cost_per_month} per month
+                      {data.prismic.allPage_homes.edges.slice(0, 1).pop().node.cost_per_month} per month
                       <br />
                     </span>{" "}
                     to provide{" "}
@@ -176,39 +178,39 @@ const IndexPage = () => {
               <div className={indexStyles.problemRow}>
                 <div className={indexStyles.problemItem}>
                   <h3 className={indexStyles.problemItemValue}>
-                    {data.problem_value_1}
+                    {data.prismic.allPage_homes.edges.slice(0, 1).pop().node.problem_value_1}
                   </h3>
                   <p className={indexStyles.problemItemDescription}>
-                    {data.problem_description_1}
+                    {data.prismic.allPage_homes.edges.slice(0, 1).pop().node.problem_description_1}
                   </p>
                 </div>
                 <div className={indexStyles.problemItem}>
                   <h3 className={indexStyles.problemItemValue}>
-                    {data.problem_value_2}
+                    {data.prismic.allPage_homes.edges.slice(0, 1).pop().node.problem_value_2}
                   </h3>
                   <p className={indexStyles.problemItemDescription}>
-                    {data.problem_description_2}
+                    {data.prismic.allPage_homes.edges.slice(0, 1).pop().node.problem_description_2}
                   </p>
                 </div>
                 <div className={indexStyles.problemItem}>
                   <h3 className={indexStyles.problemItemValue}>
-                    {data.problem_value_3}
+                    {data.prismic.allPage_homes.edges.slice(0, 1).pop().node.problem_value_3}
                   </h3>
                   <p className={indexStyles.problemItemDescription}>
-                    {data.problem_description_3}
+                    {data.prismic.allPage_homes.edges.slice(0, 1).pop().node.problem_description_3}
                   </p>
                 </div>
                 <div className={indexStyles.problemItem}>
                   <h3 className={indexStyles.problemItemValue}>
-                    {data.problem_value_4}
+                    {data.prismic.allPage_homes.edges.slice(0, 1).pop().node.problem_value_4}
                   </h3>
                   <p className={indexStyles.problemItemDescription}>
-                    {data.problem_description_4}
+                    {data.prismic.allPage_homes.edges.slice(0, 1).pop().node.problem_description_4}
                   </p>
                 </div>
               </div>
               <div className={indexStyles.problemFootnotes}>
-                {RichText.render(data.problem_footnotes)}
+                {RichText.render(data.prismic.allPage_homes.edges.slice(0, 1).pop().node.problem_footnotes)}
               </div>
             </div>
           </Block>
@@ -217,16 +219,16 @@ const IndexPage = () => {
               <div className={indexStyles.quoteWrapper}>
                 <div className={indexStyles.quotePhoto}>
                   <img
-                    src={data.quote_image.url}
+                    src={data.prismic.allPage_homes.edges.slice(0, 1).pop().node.quote_image.url}
                     width="100%"
-                    alt={data.quote_image.alt}
+                    alt={data.prismic.allPage_homes.edges.slice(0, 1).pop().node.quote_image.alt}
                   />
                 </div>
                 <div className={indexStyles.quoteText}>
-                  <p>{data.quote_text}</p>
+                  <p>{data.prismic.allPage_homes.edges.slice(0, 1).pop().node.quote_text}</p>
                 </div>
                 <div className={indexStyles.quoteAttrib}>
-                  {data.quote_attrib}
+                  {data.prismic.allPage_homes.edges.slice(0, 1).pop().node.quote_attrib}
                 </div>
               </div>
             </div>
@@ -237,11 +239,19 @@ const IndexPage = () => {
             toggleModal={true}
             linkTwoText="Serve"
             linkTwoHref="/serve"
-            textContent={data.cta_text}
+            textContent={data.prismic.allPage_homes.edges.slice(0, 1).pop().node.cta_text}
           />
-          <Footer></Footer>
         </>
+        <Footer />
       </Layout>
+    </>
+  )
+}
+
+export const IndexPage = () => {
+  return (
+    <>
+      <StaticQuery query={query} render={withPreview(renderIndexPage, query)} />
     </>
   )
 }
