@@ -114,7 +114,7 @@ class ContactPage extends Component {
           <>
             <Hero title="Contact" photo={heroPhoto}></Hero>
             <Block>
-              <div className={contactStyles.lead}>
+              <div className={contactStyles.lead + " is-1"}>
                 <p className="is-1 is-centered-text">
                   Do you have questions about how you can help? Reach out to us.
                   We would love to hear from you!

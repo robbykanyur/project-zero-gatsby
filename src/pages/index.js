@@ -18,7 +18,7 @@ import zigzag from "../images/tex-zebra.png"
 import polaroid from "../images/home-polaroid.png"
 import squares from "../images/home-squares.png"
 import paint from "../images/tex-wall.png"
-import logo from "../images/base-logo.png"
+import logo from "../images/base-logo-new.png"
 
 const query = graphql`
   {
@@ -62,7 +62,9 @@ const renderIndexPage = data => {
   return (
     <>
       <Helmet>
-        <title>{data.prismic.allPage_homes.edges.slice(0, 1).pop().node.page_title}</title>
+        <title>
+          {data.prismic.allPage_homes.edges.slice(0, 1).pop().node.page_title}
+        </title>
       </Helmet>
 
       <Layout>
@@ -71,16 +73,27 @@ const renderIndexPage = data => {
           <Block backgroundImage={hero}>
             <div className="animated fadeInUp">
               <div className={indexStyles.hero}>
-                <h1 className="is-1 is-centered">{data.prismic.allPage_homes.edges.slice(0, 1).pop().node.lead_heading}</h1>
+                <h1 className="is-1 is-centered">
+                  {
+                    data.prismic.allPage_homes.edges.slice(0, 1).pop().node
+                      .lead_heading
+                  }
+                </h1>
                 <div
                   className={indexStyles.wrapLead + " is-centered is-subtitle"}
                 >
-                  {RichText.render(data.prismic.allPage_homes.edges.slice(0, 1).pop().node.lead_paragraph)}
+                  {RichText.render(
+                    data.prismic.allPage_homes.edges.slice(0, 1).pop().node
+                      .lead_paragraph
+                  )}
                 </div>
                 <div className="is-centered-text">
                   <Button
                     link="/donate"
-                    text={data.prismic.allPage_homes.edges.slice(0, 1).pop().node.lead_button}
+                    text={
+                      data.prismic.allPage_homes.edges.slice(0, 1).pop().node
+                        .lead_button
+                    }
                     width="193px"
                   />
                 </div>
@@ -91,14 +104,20 @@ const renderIndexPage = data => {
           <Block>
             <div className={indexStyles.everyPerson}>
               <h2 className="is-1 is-centered is-serif">
-                {data.prismic.allPage_homes.edges.slice(0, 1).pop().node.intro_heading}
+                {
+                  data.prismic.allPage_homes.edges.slice(0, 1).pop().node
+                    .intro_heading
+                }
               </h2>
               <div
                 className={
                   indexStyles.wrapEveryPerson + " is-centered is-subtitle"
                 }
               >
-                {RichText.render(data.prismic.allPage_homes.edges.slice(0, 1).pop().node.intro_paragraph)}
+                {RichText.render(
+                  data.prismic.allPage_homes.edges.slice(0, 1).pop().node
+                    .intro_paragraph
+                )}
               </div>
             </div>
           </Block>
@@ -110,14 +129,20 @@ const renderIndexPage = data => {
           >
             <div className={indexStyles.coordinated}>
               <h2 className="is-2 is-centered is-serif">
-                {data.prismic.allPage_homes.edges.slice(0, 1).pop().node.mission_heading}
+                {
+                  data.prismic.allPage_homes.edges.slice(0, 1).pop().node
+                    .mission_heading
+                }
               </h2>
               <div
                 className={
                   indexStyles.wrapCoordinated + " is-centered is-subtitle"
                 }
               >
-                {RichText.render(data.prismic.allPage_homes.edges.slice(0, 1).pop().node.mission_paragraph)}
+                {RichText.render(
+                  data.prismic.allPage_homes.edges.slice(0, 1).pop().node
+                    .mission_paragraph
+                )}
               </div>
               <div className={indexStyles.polaroid}>
                 <div className={indexStyles.polaroidContainer}>
@@ -139,7 +164,11 @@ const renderIndexPage = data => {
                   <p>
                     It only costs{" "}
                     <span className={indexStyles.costHighlight}>
-                      {data.prismic.allPage_homes.edges.slice(0, 1).pop().node.cost_per_month} per month
+                      {
+                        data.prismic.allPage_homes.edges.slice(0, 1).pop().node
+                          .cost_per_month
+                      }{" "}
+                      per month
                       <br />
                     </span>{" "}
                     to provide{" "}
@@ -178,39 +207,66 @@ const renderIndexPage = data => {
               <div className={indexStyles.problemRow}>
                 <div className={indexStyles.problemItem}>
                   <h3 className={indexStyles.problemItemValue}>
-                    {data.prismic.allPage_homes.edges.slice(0, 1).pop().node.problem_value_1}
+                    {
+                      data.prismic.allPage_homes.edges.slice(0, 1).pop().node
+                        .problem_value_1
+                    }
                   </h3>
                   <p className={indexStyles.problemItemDescription}>
-                    {data.prismic.allPage_homes.edges.slice(0, 1).pop().node.problem_description_1}
+                    {
+                      data.prismic.allPage_homes.edges.slice(0, 1).pop().node
+                        .problem_description_1
+                    }
                   </p>
                 </div>
                 <div className={indexStyles.problemItem}>
                   <h3 className={indexStyles.problemItemValue}>
-                    {data.prismic.allPage_homes.edges.slice(0, 1).pop().node.problem_value_2}
+                    {
+                      data.prismic.allPage_homes.edges.slice(0, 1).pop().node
+                        .problem_value_2
+                    }
                   </h3>
                   <p className={indexStyles.problemItemDescription}>
-                    {data.prismic.allPage_homes.edges.slice(0, 1).pop().node.problem_description_2}
+                    {
+                      data.prismic.allPage_homes.edges.slice(0, 1).pop().node
+                        .problem_description_2
+                    }
                   </p>
                 </div>
                 <div className={indexStyles.problemItem}>
                   <h3 className={indexStyles.problemItemValue}>
-                    {data.prismic.allPage_homes.edges.slice(0, 1).pop().node.problem_value_3}
+                    {
+                      data.prismic.allPage_homes.edges.slice(0, 1).pop().node
+                        .problem_value_3
+                    }
                   </h3>
                   <p className={indexStyles.problemItemDescription}>
-                    {data.prismic.allPage_homes.edges.slice(0, 1).pop().node.problem_description_3}
+                    {
+                      data.prismic.allPage_homes.edges.slice(0, 1).pop().node
+                        .problem_description_3
+                    }
                   </p>
                 </div>
                 <div className={indexStyles.problemItem}>
                   <h3 className={indexStyles.problemItemValue}>
-                    {data.prismic.allPage_homes.edges.slice(0, 1).pop().node.problem_value_4}
+                    {
+                      data.prismic.allPage_homes.edges.slice(0, 1).pop().node
+                        .problem_value_4
+                    }
                   </h3>
                   <p className={indexStyles.problemItemDescription}>
-                    {data.prismic.allPage_homes.edges.slice(0, 1).pop().node.problem_description_4}
+                    {
+                      data.prismic.allPage_homes.edges.slice(0, 1).pop().node
+                        .problem_description_4
+                    }
                   </p>
                 </div>
               </div>
               <div className={indexStyles.problemFootnotes}>
-                {RichText.render(data.prismic.allPage_homes.edges.slice(0, 1).pop().node.problem_footnotes)}
+                {RichText.render(
+                  data.prismic.allPage_homes.edges.slice(0, 1).pop().node
+                    .problem_footnotes
+                )}
               </div>
             </div>
           </Block>
@@ -219,16 +275,30 @@ const renderIndexPage = data => {
               <div className={indexStyles.quoteWrapper}>
                 <div className={indexStyles.quotePhoto}>
                   <img
-                    src={data.prismic.allPage_homes.edges.slice(0, 1).pop().node.quote_image.url}
+                    src={
+                      data.prismic.allPage_homes.edges.slice(0, 1).pop().node
+                        .quote_image.url
+                    }
                     width="100%"
-                    alt={data.prismic.allPage_homes.edges.slice(0, 1).pop().node.quote_image.alt}
+                    alt={
+                      data.prismic.allPage_homes.edges.slice(0, 1).pop().node
+                        .quote_image.alt
+                    }
                   />
                 </div>
                 <div className={indexStyles.quoteText}>
-                  <p>{data.prismic.allPage_homes.edges.slice(0, 1).pop().node.quote_text}</p>
+                  <p>
+                    {
+                      data.prismic.allPage_homes.edges.slice(0, 1).pop().node
+                        .quote_text
+                    }
+                  </p>
                 </div>
                 <div className={indexStyles.quoteAttrib}>
-                  {data.prismic.allPage_homes.edges.slice(0, 1).pop().node.quote_attrib}
+                  {
+                    data.prismic.allPage_homes.edges.slice(0, 1).pop().node
+                      .quote_attrib
+                  }
                 </div>
               </div>
             </div>
@@ -239,7 +309,9 @@ const renderIndexPage = data => {
             toggleModal={true}
             linkTwoText="Serve"
             linkTwoHref="/serve"
-            textContent={data.prismic.allPage_homes.edges.slice(0, 1).pop().node.cta_text}
+            textContent={
+              data.prismic.allPage_homes.edges.slice(0, 1).pop().node.cta_text
+            }
           />
         </>
         <Footer />

@@ -138,6 +138,10 @@ body {
   margin-bottom: 18px;
 }
 
+.is-1:last-child {
+  margin-bottom: 0;
+}
+
 .is-subtitle p {
   color: #303944;
   margin-bottom: 26px;

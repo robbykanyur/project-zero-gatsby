@@ -2,7 +2,7 @@ import React from "react"
 import heroStyles from "./hero.module.css"
 import Header from "./header"
 
-import alt from "../images/base-logo-alt.png"
+import alt from "../images/base-logo-alt-new.png"
 
 const Hero = props => (
   <div className={heroStyles.container}>

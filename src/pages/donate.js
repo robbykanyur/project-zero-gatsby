@@ -21,7 +21,7 @@ const DonatePage = () => (
       <>
         <Hero title="Make a Donation" photo={heroPhoto}></Hero>
         <Block>
-          <div className={donateStyles.lead}>
+          <div className={donateStyles.lead + " is-1"}>
             <p className="is-1 is-centered-text">
               Per individual, the cost of obtaining housing, clothing, food, and
               healthcare is approximately $550 per month.

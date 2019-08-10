@@ -1,8 +1,10 @@
 import React from "react"
 import { Helmet } from "react-helmet"
 import MaskedInput from "react-text-mask"
-import { navigate } from "gatsby"
+import { StaticQuery, navigate, graphql } from "gatsby"
 import * as Constants from "../components/constants"
+import { RichText } from "prismic-reactjs"
+import { withPreview } from "gatsby-source-prismic-graphql"
 
 import teamStyles from "./our-team.module.css"
 
@@ -14,8 +16,6 @@ import Block from "../components/block"
 import Button from "../components/button"
 
 import heroPhoto from "../images/team-hero.jpg"
-import tessa from "../images/profile-tessa.jpg"
-import cal from "../images/profile-cal.jpg"
 
 class OurTeamPage extends React.Component {
   constructor(props) {
@@ -100,119 +100,173 @@ class OurTeamPage extends React.Component {
       <li key={error.id}>{error.message}</li>
     ))
     return (
-      <>
-        <Helmet>
-          <title>Our Team - Project Zero</title>
-        </Helmet>
-        <Layout>
-          <>
-            <Hero title="Our Team" photo={heroPhoto}></Hero>
-            <Block>
-              <div className={teamStyles.lead}>
-                <p className="is-1">
-                  Our team is made up of young people who came to Lynchburg for
-                  an education and fell in love with the city and its people.
-                  With that love came a responsibility to care for our neighbors
-                  in need.
-                </p>
-              </div>
-            </Block>
-            <Block containerPaddingTop="0" containerPaddingBottom="0">
-              <div className={teamStyles.biosContainer}>
-                <div className={teamStyles.biosWrapper}>
-                  <div className={teamStyles.bioItem}>
-                    <div className={teamStyles.bioPhoto}>
-                      <img src={cal} width="100%" alt="Cal Best" />
+      <StaticQuery
+        query={query}
+        render={withPreview(
+          data => (
+            <>
+              <Helmet>
+                <title>
+                  {
+                    data.prismic.allPage_teams.edges.slice(0, 1).pop().node
+                      .page_title
+                  }
+                </title>
+              </Helmet>
+              <Layout>
+                <>
+                  <Hero
+                    title={
+                      data.prismic.allPage_teams.edges.slice(0, 1).pop().node
+                        .hero_text
+                    }
+                    photo={heroPhoto}
+                  ></Hero>
+                  <Block>
+                    <div className={teamStyles.lead}>
+                      <div className="is-1">
+                        {RichText.render(
+                          data.prismic.allPage_teams.edges.slice(0, 1).pop()
+                            .node.lead_paragraph
+                        )}
+                      </div>
                     </div>
-                    <div className={teamStyles.bioName}>Cal Best</div>
-                    <div className={teamStyles.bioPosition}>
-                      Executive Director
+                  </Block>
+                  <Block containerPaddingTop="0" containerPaddingBottom="0">
+                    <div className={teamStyles.biosContainer}>
+                      <div className={teamStyles.biosWrapper}>
+                        {data.prismic.allPage_teams.edges
+                          .slice(0, 1)
+                          .pop()
+                          .node.body[0].fields.map(function(bio, index) {
+                            console.log(bio)
+                            return (
+                              <div className={teamStyles.bioItem}>
+                                <div className={teamStyles.bioPhoto}>
+                                  <img
+                                    src={bio.person_photo.url}
+                                    alt={bio.person_photo.alt}
+                                    width="100%"
+                                  />
+                                </div>
+                                <div className={teamStyles.bioName}>
+                                  {bio.person_name}
+                                </div>
+                                <div className={teamStyles.bioPosition}>
+                                  {bio.person_title}
+                                </div>
+                              </div>
+                            )
+                          })}
+                      </div>
                     </div>
-                  </div>
-                  <div className={teamStyles.bioItem}>
-                    <div className={teamStyles.bioPhoto}>
-                      <img src={tessa} width="100%" alt="Tessa Wienholt" />
+                  </Block>
+                  <Block>
+                    <div className={teamStyles.captureContainer}>
+                      <div className={teamStyles.captureWrapper}>
+                        <h2 className="is-serif is-1 is-centered">Join us.</h2>
+                        <p className="is-2 is-centered">
+                          Do you have a passion for bridging the gap between our
+                          community's resources and its residents? We would love
+                          to have you join the Project Zero movement.
+                        </p>
+                        <div className={teamStyles.captureForm}>
+                          <form
+                            className="formControl"
+                            id="teamCapture"
+                            name="teamCapture"
+                          >
+                            <div className="control">
+                              <input
+                                type="text"
+                                placeholder="Your Name"
+                                onChange={e => this.handleNameChange(e)}
+                              />
+                            </div>
+                            <div className="control">
+                              <input
+                                type="email"
+                                placeholder="Email Address"
+                                onChange={e => this.handleEmailChange(e)}
+                              />
+                            </div>
+                            <div className="control">
+                              <MaskedInput
+                                type="phone"
+                                placeholder="Phone Number"
+                                mask={mask}
+                                placeholderChar="&nbsp;"
+                                onChange={e => this.handlePhoneChange(e)}
+                              />
+                            </div>
+                            <div className="captcha">
+                              <input
+                                type="checkbox"
+                                onChange={e => this.handleCaptchaChange(e)}
+                              />{" "}
+                              Check this box if you are a human.
+                            </div>
+                            <div className="formErrors">{formErrors}</div>
+                            <div className="control">
+                              <Button
+                                link="/thank-you-serve"
+                                text="Yes, I'm In"
+                                width="155px"
+                                onClick={e => this.handleFormSubmit(e)}
+                              />
+                            </div>
+                          </form>
+                        </div>
+                      </div>
                     </div>
-                    <div className={teamStyles.bioName}>Tessa Wienholt</div>
-                    <div className={teamStyles.bioPosition}>
-                      Associate Director
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </Block>
-            <Block>
-              <div className={teamStyles.captureContainer}>
-                <div className={teamStyles.captureWrapper}>
-                  <h2 className="is-serif is-1 is-centered">Join us.</h2>
-                  <p className="is-2 is-centered">
-                    Do you have a passion for bridging the gap between our
-                    community's resources and its residents? We would love to
-                    have you join the Project Zero movement.
-                  </p>
-                  <div className={teamStyles.captureForm}>
-                    <form
-                      className="formControl"
-                      id="teamCapture"
-                      name="teamCapture"
-                    >
-                      <div className="control">
-                        <input
-                          type="text"
-                          placeholder="Your Name"
-                          onChange={e => this.handleNameChange(e)}
-                        />
-                      </div>
-                      <div className="control">
-                        <input
-                          type="email"
-                          placeholder="Email Address"
-                          onChange={e => this.handleEmailChange(e)}
-                        />
-                      </div>
-                      <div className="control">
-                        <MaskedInput
-                          type="phone"
-                          placeholder="Phone Number"
-                          mask={mask}
-                          placeholderChar="&nbsp;"
-                          onChange={e => this.handlePhoneChange(e)}
-                        />
-                      </div>
-                      <div className="captcha">
-                        <input
-                          type="checkbox"
-                          onChange={e => this.handleCaptchaChange(e)}
-                        />{" "}
-                        Check this box if you are a human.
-                      </div>
-                      <div className="formErrors">{formErrors}</div>
-                      <div className="control">
-                        <Button
-                          link="/thank-you-serve"
-                          text="Yes, I'm In"
-                          width="155px"
-                          onClick={e => this.handleFormSubmit(e)}
-                        />
-                      </div>
-                    </form>
-                  </div>
-                </div>
-              </div>
-            </Block>
-            <Cta
-              linkOneText="Donate"
-              linkOneHref="/donate"
-              toggleModal={true}
-              displaySecondButton="none"
-              textContent="Help us eradicate homelessness in Lynchburg."
-            />
-            <Footer></Footer>
-          </>
-        </Layout>
-      </>
+                  </Block>
+                  <Cta
+                    linkOneText="Donate"
+                    linkOneHref="/donate"
+                    toggleModal={true}
+                    displaySecondButton="none"
+                    textContent="Help us eradicate homelessness in Lynchburg."
+                  />
+                  <Footer></Footer>
+                </>
+              </Layout>
+            </>
+          ),
+          query
+        )}
+      />
     )
   }
 }
 
 export default OurTeamPage
+
+export const query = graphql`
+  {
+    prismic {
+      allPage_teams {
+        edges {
+          node {
+            page_title
+            lead_paragraph
+            hero_text
+            form_paragraph
+            form_header
+            cta_text
+            body {
+              ... on PRISMIC_Page_teamBodyTeam_member {
+                type
+                label
+                fields {
+                  person_name
+                  person_photo
+                  person_title
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+`

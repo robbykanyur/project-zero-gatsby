@@ -105,7 +105,7 @@ class ServePage extends React.Component {
           <>
             <Hero title="Donate Time" photo={heroPhoto}></Hero>
             <Block>
-              <div className={serveStyles.lead}>
+              <div className={serveStyles.lead + " is-1"}>
                 <p className="is-1 is-centered-text">
                   Ready to help &ldquo;on the ground?&rdquo; Reach out and learn
                   how you can go beyond a financial donation and care for your
