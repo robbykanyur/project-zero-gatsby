@@ -164,11 +164,17 @@ class OurTeamPage extends React.Component {
                   <Block>
                     <div className={teamStyles.captureContainer}>
                       <div className={teamStyles.captureWrapper}>
-                        <h2 className="is-serif is-1 is-centered">Join us.</h2>
+                        <h2 className="is-serif is-1 is-centered">
+                          {
+                            data.prismic.allPage_teams.edges.slice(0, 1).pop()
+                              .node.form_header
+                          }
+                        </h2>
                         <p className="is-2 is-centered">
-                          Do you have a passion for bridging the gap between our
-                          community's resources and its residents? We would love
-                          to have you join the Project Zero movement.
+                          {RichText.render(
+                            data.prismic.allPage_teams.edges.slice(0, 1).pop()
+                              .node.form_paragraph
+                          )}
                         </p>
                         <div className={teamStyles.captureForm}>
                           <form
@@ -225,7 +231,10 @@ class OurTeamPage extends React.Component {
                     linkOneHref="/donate"
                     toggleModal={true}
                     displaySecondButton="none"
-                    textContent="Help us eradicate homelessness in Lynchburg."
+                    textContent={
+                      data.prismic.allPage_teams.edges.slice(0, 1).pop().node
+                        .cta_text
+                    }
                   />
                   <Footer></Footer>
                 </>

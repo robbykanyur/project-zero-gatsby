@@ -2,3 +2,7 @@
   width: 700px;
   margin: 0 auto 44px;
 }
+
+.lead p {
+  margin-bottom: 24px;
+}

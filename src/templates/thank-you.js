@@ -24,7 +24,10 @@ const thankYouPage = ({ data }) => {
           <Hero title="Thank You!" photo={heroPhoto}></Hero>
           <Block>
             <div className={thankYouStyles.lead}>
-              <div dangerouslySetInnerHTML={{ __html: content.html }} />
+              <div
+                className="is-1"
+                dangerouslySetInnerHTML={{ __html: content.html }}
+              />
               <Button width="167px" link="/" text="Home Page" />
             </div>
           </Block>

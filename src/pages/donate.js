@@ -1,5 +1,8 @@
 import React from "react"
 import { Helmet } from "react-helmet"
+import { StaticQuery, graphql } from "gatsby"
+import { RichText } from "prismic-reactjs"
+import { withPreview } from "gatsby-source-prismic-graphql"
 
 import donateStyles from "./donate.module.css"
 
@@ -12,25 +15,28 @@ import Donation from "../components/donation"
 
 import heroPhoto from "../images/donation-hero.jpg"
 
-const DonatePage = () => (
+const renderDonatePage = data => (
   <>
     <Helmet>
-      <title>Make a Donation - Project Zero</title>
+      <title>
+        {data.prismic.allPage_donates.edges.slice(0, 1).pop().node.page_title}
+      </title>
     </Helmet>
     <Layout>
       <>
-        <Hero title="Make a Donation" photo={heroPhoto}></Hero>
+        <Hero
+          title={
+            data.prismic.allPage_donates.edges.slice(0, 1).pop().node
+              .header_text
+          }
+          photo={heroPhoto}
+        ></Hero>
         <Block>
-          <div className={donateStyles.lead + " is-1"}>
-            <p className="is-1 is-centered-text">
-              Per individual, the cost of obtaining housing, clothing, food, and
-              healthcare is approximately $550 per month.
-            </p>
-            <p className="is-1 is-centered-text">
-              As a community with a GDP of more than $8 billion per year,
-              raising this amount for every homeless person in Lynchburg is{" "}
-              <strong>realistic and achievable with your help.</strong>
-            </p>
+          <div className={donateStyles.lead + " is-1 is-centered-text"}>
+            {RichText.render(
+              data.prismic.allPage_donates.edges.slice(0, 1).pop().node
+                .lead_paragraph
+            )}
             <hr />
           </div>
           <Donation />
@@ -43,7 +49,9 @@ const DonatePage = () => (
           linkOneWidth="210px"
           linkTwoHref="/"
           displaySecondButton="none"
-          textContent="You can also support Project Zero by donating your time."
+          textContent={
+            data.prismic.allPage_donates.edges.slice(0, 1).pop().node.cta_text
+          }
         />
         <Footer></Footer>
       </>
@@ -51,4 +59,32 @@ const DonatePage = () => (
   </>
 )
 
+export const DonatePage = () => {
+  return (
+    <>
+      <StaticQuery
+        query={query}
+        render={withPreview(renderDonatePage, query)}
+      />
+    </>
+  )
+}
+
 export default DonatePage
+
+export const query = graphql`
+  {
+    prismic {
+      allPage_donates {
+        edges {
+          node {
+            cta_text
+            header_text
+            lead_paragraph
+            page_title
+          }
+        }
+      }
+    }
+  }
+`

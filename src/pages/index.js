@@ -20,44 +20,6 @@ import squares from "../images/home-squares.png"
 import paint from "../images/tex-wall.png"
 import logo from "../images/base-logo-new.png"
 
-const query = graphql`
-  {
-    prismic {
-      allPage_homes {
-        edges {
-          node {
-            cost_per_month
-            cta_text
-            intro_heading
-            intro_paragraph
-            lead_button
-            lead_heading
-            lead_paragraph
-            mission_heading
-            mission_paragraph
-            page_title
-            problem_description_1
-            problem_description_2
-            problem_description_3
-            problem_description_4
-            problem_footnotes
-            problem_value_1
-            problem_value_2
-            problem_value_3
-            problem_value_4
-            quote_attrib
-            quote_image
-            quote_text
-            _meta {
-              type
-            }
-          }
-        }
-      }
-    }
-  }
-`
-
 const renderIndexPage = data => {
   return (
     <>
@@ -329,3 +291,41 @@ export const IndexPage = () => {
 }
 
 export default IndexPage
+
+export const query = graphql`
+  {
+    prismic {
+      allPage_homes {
+        edges {
+          node {
+            cost_per_month
+            cta_text
+            intro_heading
+            intro_paragraph
+            lead_button
+            lead_heading
+            lead_paragraph
+            mission_heading
+            mission_paragraph
+            page_title
+            problem_description_1
+            problem_description_2
+            problem_description_3
+            problem_description_4
+            problem_footnotes
+            problem_value_1
+            problem_value_2
+            problem_value_3
+            problem_value_4
+            quote_attrib
+            quote_image
+            quote_text
+            _meta {
+              type
+            }
+          }
+        }
+      }
+    }
+  }
+`
