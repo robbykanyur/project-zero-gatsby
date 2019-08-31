@@ -36,10 +36,10 @@
 
 .logo {
   display: block;
-  /* width: 196px;
-  height: 71px; */
-  height: 124px;
-  width: 118px;
+  width: 196px;
+  height: 71px;
+  /* height: 124px;
+  width: 118px; */
   overflow: hidden;
 }
 

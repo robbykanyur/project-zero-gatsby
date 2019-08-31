@@ -139,7 +139,6 @@ class OurTeamPage extends React.Component {
                           .slice(0, 1)
                           .pop()
                           .node.body[0].fields.map(function(bio, index) {
-                            console.log(bio)
                             return (
                               <div className={teamStyles.bioItem}>
                                 <div className={teamStyles.bioPhoto}>
