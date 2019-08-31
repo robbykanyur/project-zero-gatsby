@@ -1,4 +1,4 @@
-require('dotenv').config()
+require("dotenv").config()
 module.exports = {
   siteMetadata: {
     title: `Project Zero`,
@@ -29,8 +29,8 @@ module.exports = {
       options: {
         repositoryName: `projectzero`,
         accessToken: process.env.PRISMIC,
-        path: '/preview',
-        previews: true
+        path: "/preview",
+        previews: true,
       },
     },
     `gatsby-plugin-stripe`,

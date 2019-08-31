@@ -1,7 +1,7 @@
 import React from "react"
 import { Helmet } from "react-helmet"
 
-import thankYouStyles from "../templates/thank-you.module.css"
+import thankYouStyles from "../pages/thank-you.module.css"
 
 import Layout from "../components/layout"
 import Hero from "../components/hero"
@@ -21,7 +21,7 @@ const fourOhFourPage = () => (
         <Hero title="404" photo={heroPhoto}></Hero>
         <Block>
           <div className={thankYouStyles.lead}>
-            <div>
+            <div className="is-1">
               <p className="is-centered">Sorry, that page couldn't be found.</p>
             </div>
             <Button width="167px" link="/" text="Home Page" />
