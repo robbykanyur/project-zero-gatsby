@@ -107,6 +107,9 @@ class OurTeamPage extends React.Component {
         </Helmet>
         <Layout>
           <>
+            <div id="preload">
+              <img src={heroPhoto} width="100%" alt="preload" />
+            </div>
             <Hero title={data.hero_text} photo={heroPhoto}></Hero>
             <Block>
               <div className={teamStyles.lead}>

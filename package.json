@@ -25,6 +25,7 @@
     "text-mask-addons": "^3.8.0"
   },
   "devDependencies": {
+    "gatsby-background-image": "^0.8.12",
     "prettier": "^1.18.2"
   },
   "keywords": [

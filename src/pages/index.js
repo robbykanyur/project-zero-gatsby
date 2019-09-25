@@ -32,6 +32,9 @@ const renderIndexPage = data => {
 
       <Layout>
         <>
+          <div id="preload">
+            <img src={hero} width="100%" alt="preload" />
+          </div>
           <Header logoSrc={logo} />
           <Block backgroundImage={hero}>
             <div className="animated fadeInUp">

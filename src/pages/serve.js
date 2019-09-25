@@ -105,6 +105,9 @@ class ServePage extends React.Component {
         </Helmet>
         <Layout>
           <>
+            <div id="preload">
+              <img src={heroPhoto} width="100%" alt="preload" />
+            </div>
             <Hero title={data.page_header} photo={heroPhoto}></Hero>
             <Block>
               <div className={serveStyles.lead + " is-1"}>

@@ -25,6 +25,9 @@ const renderDonatePage = data => (
     </Helmet>
     <Layout>
       <>
+        <div id="preload">
+          <img src={heroPhoto} width="100%" alt="preload" />
+        </div>
         <Hero
           title={
             data.prismic.allPage_donates.edges.slice(0, 1).pop().node

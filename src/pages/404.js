@@ -18,6 +18,9 @@ const fourOhFourPage = () => (
     </Helmet>
     <Layout>
       <>
+        <div id="preload">
+          <img src={heroPhoto} width="100%" alt="preload" />
+        </div>
         <Hero title="404" photo={heroPhoto}></Hero>
         <Block>
           <div className={thankYouStyles.lead}>

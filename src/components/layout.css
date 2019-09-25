@@ -131,6 +131,10 @@ body {
   font-size: 20px;
 }
 
+#preload {
+  display: none !important;
+}
+
 .is-1 {
   font-size: 32px;
   line-height: 1.3;

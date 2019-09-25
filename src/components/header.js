@@ -56,7 +56,12 @@ const Header = props => {
                       borderColor: props.linkColor,
                     }}
                   >
-                    <img src={props.logoSrc} width="100%" alt="Project Zero" />
+                    <img
+                      src={props.logoSrc}
+                      width="100%"
+                      alt="Project Zero"
+                      critical
+                    />
                   </Link>
                 </div>
                 <div className={headerStyles.item}>

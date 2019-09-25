@@ -115,6 +115,9 @@ class ContactPage extends Component {
         </Helmet>
         <Layout>
           <>
+            <div id="preload">
+              <img src={heroPhoto} width="100%" alt="preload" />
+            </div>
             <Hero title={data.header_text} photo={heroPhoto}></Hero>
             <Block>
               <div className={contactStyles.lead + " is-1 is-centered-text"}>

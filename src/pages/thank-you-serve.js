@@ -17,6 +17,9 @@ import heroPhoto from "../images/thank-you-hero.jpg"
 const renderThankYouPage = data => {
   return (
     <>
+      <div id="preload">
+        <img src={heroPhoto} width="100%" alt="preload" />
+      </div>
       <Helmet>
         <title>
           {
