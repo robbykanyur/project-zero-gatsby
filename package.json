@@ -22,11 +22,10 @@
     "react-helmet": "^5.2.1",
     "react-stripe-elements": "^4.0.2",
     "react-text-mask": "^5.4.3",
-    "text-mask-addons": "^3.8.0"
+    "text-mask-addons": "^3.8.0",
+    "prettier": "^1.18.2"
   },
   "devDependencies": {
-    "gatsby-background-image": "^0.8.12",
-    "prettier": "^1.18.2"
   },
   "keywords": [
     "gatsby"
