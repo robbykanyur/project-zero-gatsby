@@ -131,13 +131,13 @@ class ContactPage extends Component {
                     photo={heroPhoto}
                   ></Hero>
                   <Block>
-                    <div className={contactStyles.lead + " is-1"}>
-                      <p className="is-1 is-centered-text">
-                        {RichText.render(
-                          data.prismic.allPage_contacts.edges.slice(0, 1).pop()
-                            .node.lead_paragraph
-                        )}
-                      </p>
+                    <div
+                      className={contactStyles.lead + " is-1 is-centered-text"}
+                    >
+                      {RichText.render(
+                        data.prismic.allPage_contacts.edges.slice(0, 1).pop()
+                          .node.lead_paragraph
+                      )}
                     </div>
                     <div className={contactStyles.captureForm}>
                       <form
@@ -255,7 +255,7 @@ class ContactPage extends Component {
 
 export default ContactPage
 
-export const query = graphql`
+const query = graphql`
   {
     prismic {
       allPage_contacts {

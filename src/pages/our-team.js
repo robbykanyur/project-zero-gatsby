@@ -249,7 +249,7 @@ class OurTeamPage extends React.Component {
 
 export default OurTeamPage
 
-export const query = graphql`
+const query = graphql`
   {
     prismic {
       allPage_teams {

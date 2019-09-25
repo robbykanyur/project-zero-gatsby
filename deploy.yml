@@ -23,33 +23,56 @@
     - name: rebuild api image if necessary
       docker_image:
         name: api
-        path: /home/deploy/api
+        build:
+          path: /home/deploy/api
+        source: build
     - name: rebuild worker image if necessary
       docker_image:
         name: rq-worker
-        path: /home/deploy/rq-worker
-    - name: rebuild gatsby bundle
-      shell: /home/deploy/build
+        build:
+          path: /home/deploy/rq-worker
+        source: build
+    - name: pull git repository
+      git:
+        repo: git@github.com:robertkanyur/project-zero-gatsby.git
+        dest: /home/deploy/gatsby
+    - name: clean gatsby cache
+      command: chdir=/home/deploy/gatsby npm run clean
+    - name: build gatsby project
+      command: chdir=/home/deploy/gatsby npm run build
+    - name: remove prod directory
+      file:
+        state: absent
+        path: /home/deploy/prod
+    - name: recreate prod directory
+      file:
+        state: directory
+        path: /home/deploy/prod
+    - name: copy files to prod directory
+      copy:
+        src: /home/deploy/gatsby/public
+        dest: /home/deploy/prod
+        remote_src: yes
     - name: api containers down
-      docker_service:
+      docker_compose:
         project_src: /home/deploy/api
         state: absent
     - name: proxy containers down
-      docker_service:
+      docker_compose:
         project_src: /home/deploy/proxy
         state: absent
     - name: ensure docker network is present
       docker_network:
         name: zero_net
     - name: api containers up
-      docker_service:
+      docker_compose:
         project_src: /home/deploy/api
         state: present
     - name: wait for flask to start listening
       wait_for:
         port: 5000
     - name: proxy containers up
-      docker_service:
+      docker_compose:
         project_src: /home/deploy/proxy
     - name: check web server is responding
       uri:

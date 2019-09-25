@@ -61,7 +61,7 @@ const Footer = props => {
 
 export default Footer
 
-export const query = graphql`
+const query = graphql`
   {
     prismic {
       allComponent_headers {

@@ -65,7 +65,7 @@ export const thankYouPage = () => {
 
 export default thankYouPage
 
-export const query = graphql`
+const query = graphql`
   {
     prismic {
       allPage_thank_yous(uid: "thank-you-serve") {

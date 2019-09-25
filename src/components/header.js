@@ -101,7 +101,7 @@ const Header = props => {
 
 export default Header
 
-export const query = graphql`
+const query = graphql`
   {
     prismic {
       allComponent_headers {

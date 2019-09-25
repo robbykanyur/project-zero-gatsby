@@ -207,7 +207,7 @@ class ServePage extends React.Component {
 
 export default ServePage
 
-export const query = graphql`
+const query = graphql`
   {
     prismic {
       allServes {

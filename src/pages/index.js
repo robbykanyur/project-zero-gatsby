@@ -3,6 +3,7 @@ import { StaticQuery, graphql } from "gatsby"
 import { Helmet } from "react-helmet"
 import { RichText } from "prismic-reactjs"
 import { withPreview } from "gatsby-source-prismic-graphql"
+import { linkResolver } from "../utils/linkResolver"
 
 import indexStyles from "./index.module.css"
 
@@ -46,7 +47,8 @@ const renderIndexPage = data => {
                 >
                   {RichText.render(
                     data.prismic.allPage_homes.edges.slice(0, 1).pop().node
-                      .lead_paragraph
+                      .lead_paragraph,
+                    linkResolver
                   )}
                 </div>
                 <div className="is-centered-text">
@@ -78,7 +80,8 @@ const renderIndexPage = data => {
               >
                 {RichText.render(
                   data.prismic.allPage_homes.edges.slice(0, 1).pop().node
-                    .intro_paragraph
+                    .intro_paragraph,
+                  linkResolver
                 )}
               </div>
             </div>
@@ -103,7 +106,8 @@ const renderIndexPage = data => {
               >
                 {RichText.render(
                   data.prismic.allPage_homes.edges.slice(0, 1).pop().node
-                    .mission_paragraph
+                    .mission_paragraph,
+                  linkResolver
                 )}
               </div>
               <div className={indexStyles.polaroid}>
@@ -227,7 +231,8 @@ const renderIndexPage = data => {
               <div className={indexStyles.problemFootnotes}>
                 {RichText.render(
                   data.prismic.allPage_homes.edges.slice(0, 1).pop().node
-                    .problem_footnotes
+                    .problem_footnotes,
+                  linkResolver
                 )}
               </div>
             </div>
@@ -292,7 +297,7 @@ export const IndexPage = () => {
 
 export default IndexPage
 
-export const query = graphql`
+const query = graphql`
   {
     prismic {
       allPage_homes {

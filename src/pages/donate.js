@@ -3,6 +3,7 @@ import { Helmet } from "react-helmet"
 import { StaticQuery, graphql } from "gatsby"
 import { RichText } from "prismic-reactjs"
 import { withPreview } from "gatsby-source-prismic-graphql"
+import { linkResolver } from "../utils/linkResolver"
 
 import donateStyles from "./donate.module.css"
 
@@ -35,7 +36,8 @@ const renderDonatePage = data => (
           <div className={donateStyles.lead + " is-1 is-centered-text"}>
             {RichText.render(
               data.prismic.allPage_donates.edges.slice(0, 1).pop().node
-                .lead_paragraph
+                .lead_paragraph,
+              linkResolver
             )}
             <hr />
           </div>
@@ -72,7 +74,7 @@ export const DonatePage = () => {
 
 export default DonatePage
 
-export const query = graphql`
+const query = graphql`
   {
     prismic {
       allPage_donates {
