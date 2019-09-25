@@ -1,9 +1,8 @@
 import React from "react"
 import { Helmet } from "react-helmet"
 import MaskedInput from "react-text-mask"
-import { StaticQuery, navigate, graphql } from "gatsby"
+import { navigate, graphql } from "gatsby"
 import * as Constants from "../components/constants"
-import { withPreview } from "gatsby-source-prismic-graphql"
 import { RichText } from "prismic-reactjs"
 
 import serveStyles from "./serve.module.css"
@@ -98,116 +97,91 @@ class ServePage extends React.Component {
     const formErrors = this.state.errors.map((error, key) => (
       <li key={error.id}>{error.message}</li>
     ))
+    const data = this.props.data.prismic.allServes.edges.slice(0, 1).pop().node
     return (
-      <StaticQuery
-        query={query}
-        render={withPreview(
-          data => (
-            <>
-              <Helmet>
-                <title>
-                  {
-                    data.prismic.allServes.edges.slice(0, 1).pop().node
-                      .page_title
-                  }
-                </title>
-              </Helmet>
-              <Layout>
-                <>
-                  <Hero
-                    title={
-                      data.prismic.allServes.edges.slice(0, 1).pop().node
-                        .page_header
-                    }
-                    photo={heroPhoto}
-                  ></Hero>
-                  <Block>
-                    <div className={serveStyles.lead + " is-1"}>
-                      <p className="is-1 is-centered-text">
-                        {RichText.render(
-                          data.prismic.allServes.edges.slice(0, 1).pop().node
-                            .lead_paragraph
-                        )}
-                      </p>
-                    </div>
-                    <div className={serveStyles.captureForm}>
-                      <form
-                        className="formControl"
-                        id="teamCapture"
-                        name="teamCapture"
-                      >
-                        <div className="control">
-                          <input
-                            type="text"
-                            placeholder="Your Name"
-                            onChange={e => this.handleNameChange(e)}
-                          />
-                        </div>
-                        <div className="control">
-                          <input
-                            type="email"
-                            placeholder="Email Address"
-                            onChange={e => this.handleEmailChange(e)}
-                          />
-                        </div>
-                        <div className="control">
-                          <MaskedInput
-                            type="phone"
-                            placeholder="Phone Number"
-                            mask={mask}
-                            placeholderChar="&nbsp;"
-                            onChange={e => this.handlePhoneChange(e)}
-                          />
-                        </div>
-                        <div className="captcha">
-                          <input
-                            type="checkbox"
-                            onChange={e => this.handleCaptchaChange(e)}
-                          />{" "}
-                          Check this box if you are a human.
-                        </div>
-                        <div className="formErrors">{formErrors}</div>
-                        <div className="control">
-                          <Button
-                            link="/thank-you-serve"
-                            text="Count Me In"
-                            width="195px"
-                            onClick={e => this.handleFormSubmit(e)}
-                          />
-                        </div>
-                        <div className="captcha">
-                          <input type="checkbox" /> Check this box if you are a
-                          human.
-                        </div>
-                      </form>
-                    </div>
-                  </Block>
-                  <Cta
-                    contentWidth="400px"
-                    linkOneText="Donate"
-                    toggleModal={true}
-                    linkOneHref="/donate"
-                    displaySecondButton="none"
-                    textContent={
-                      data.prismic.allServes.edges.slice(0, 1).pop().node
-                        .cta_text
-                    }
-                  />
-                  <Footer></Footer>
-                </>
-              </Layout>
-            </>
-          ),
-          query
-        )}
-      />
+      <>
+        <Helmet>
+          <title>{data.page_title}</title>
+        </Helmet>
+        <Layout>
+          <>
+            <Hero title={data.page_header} photo={heroPhoto}></Hero>
+            <Block>
+              <div className={serveStyles.lead + " is-1"}>
+                <p className="is-1 is-centered-text">
+                  {RichText.render(data.lead_paragraph)}
+                </p>
+              </div>
+              <div className={serveStyles.captureForm}>
+                <form
+                  className="formControl"
+                  id="teamCapture"
+                  name="teamCapture"
+                >
+                  <div className="control">
+                    <input
+                      type="text"
+                      placeholder="Your Name"
+                      onChange={e => this.handleNameChange(e)}
+                    />
+                  </div>
+                  <div className="control">
+                    <input
+                      type="email"
+                      placeholder="Email Address"
+                      onChange={e => this.handleEmailChange(e)}
+                    />
+                  </div>
+                  <div className="control">
+                    <MaskedInput
+                      type="phone"
+                      placeholder="Phone Number"
+                      mask={mask}
+                      placeholderChar="&nbsp;"
+                      onChange={e => this.handlePhoneChange(e)}
+                    />
+                  </div>
+                  <div className="captcha">
+                    <input
+                      type="checkbox"
+                      onChange={e => this.handleCaptchaChange(e)}
+                    />{" "}
+                    Check this box if you are a human.
+                  </div>
+                  <div className="formErrors">{formErrors}</div>
+                  <div className="control">
+                    <Button
+                      link="/thank-you-serve"
+                      text="Count Me In"
+                      width="195px"
+                      onClick={e => this.handleFormSubmit(e)}
+                    />
+                  </div>
+                  <div className="captcha">
+                    <input type="checkbox" /> Check this box if you are a human.
+                  </div>
+                </form>
+              </div>
+            </Block>
+            <Cta
+              contentWidth="400px"
+              linkOneText="Donate"
+              toggleModal={true}
+              linkOneHref="/donate"
+              displaySecondButton="none"
+              textContent={data.cta_text}
+            />
+            <Footer></Footer>
+          </>
+        </Layout>
+      </>
     )
   }
 }
 
 export default ServePage
 
-const query = graphql`
+export const query = graphql`
   {
     prismic {
       allServes {

@@ -35,13 +35,11 @@ const renderThankYouPage = data => {
             photo={heroPhoto}
           ></Hero>
           <Block>
-            <div className={thankYouStyles.lead + " is-1"}>
-              <p className="is-1 is-centered">
-                {RichText.render(
-                  data.prismic.allPage_thank_yous.edges.slice(0, 1).pop().node
-                    .paragraph
-                )}
-              </p>
+            <div className={thankYouStyles.lead + " is-1 is-centered"}>
+              {RichText.render(
+                data.prismic.allPage_thank_yous.edges.slice(0, 1).pop().node
+                  .paragraph
+              )}
               <Button width="167px" link="/" text="Home Page" />
             </div>
           </Block>
