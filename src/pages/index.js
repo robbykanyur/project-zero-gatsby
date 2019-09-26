@@ -4,6 +4,7 @@ import { Helmet } from "react-helmet"
 import { RichText } from "prismic-reactjs"
 import { withPreview } from "gatsby-source-prismic-graphql"
 import { linkResolver } from "../utils/linkResolver"
+import Img from "gatsby-image"
 
 import indexStyles from "./index.module.css"
 
@@ -33,7 +34,7 @@ const renderIndexPage = data => {
       <Layout>
         <>
           <div id="preload">
-            <img src={hero} width="100%" alt="preload" />
+            <Img fixed={data.heroImage.childImageSharp.fixed} />
           </div>
           <Header logoSrc={logo} />
           <Block backgroundImage={hero}>
@@ -332,6 +333,13 @@ const query = graphql`
               type
             }
           }
+        }
+      }
+    }
+    heroImage: file(relativePath: { eq: "images/home-hero.jpg" }) {
+      childImageSharp {
+        fixed(width: 1200) {
+          ...GatsbyImageSharpFixed
         }
       }
     }

@@ -8,12 +8,16 @@
     "@reach/router": "^1.2.1",
     "dotenv": "^8.1.0",
     "gatsby": "^2.15.22",
+    "gatsby-image": "^2.2.21",
     "gatsby-plugin-manifest": "^2.2.18",
     "gatsby-plugin-react-helmet": "^3.1.8",
+    "gatsby-plugin-sharp": "^2.2.25",
     "gatsby-plugin-stripe": "^1.2.3",
     "gatsby-source-filesystem": "^2.1.26",
     "gatsby-source-prismic-graphql": "3.4.0-beta.2",
     "gatsby-transformer-remark": "^2.6.24",
+    "gatsby-transformer-sharp": "^2.2.17",
+    "prettier": "^1.18.2",
     "prismic-reactjs": "^1.1.1",
     "prop-types": "^15.7.2",
     "query-string": "^6.8.3",
@@ -22,11 +26,9 @@
     "react-helmet": "^5.2.1",
     "react-stripe-elements": "^4.0.2",
     "react-text-mask": "^5.4.3",
-    "text-mask-addons": "^3.8.0",
-    "prettier": "^1.18.2"
+    "text-mask-addons": "^3.8.0"
   },
-  "devDependencies": {
-  },
+  "devDependencies": {},
   "keywords": [
     "gatsby"
   ],

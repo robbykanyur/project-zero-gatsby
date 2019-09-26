@@ -36,5 +36,7 @@ module.exports = {
     `gatsby-plugin-stripe`,
     `gatsby-plugin-react-helmet`,
     `gatsby-transformer-remark`,
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`,
   ],
 }

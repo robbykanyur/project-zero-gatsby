@@ -4,6 +4,7 @@ import { StaticQuery, graphql } from "gatsby"
 import { RichText } from "prismic-reactjs"
 import { withPreview } from "gatsby-source-prismic-graphql"
 import { linkResolver } from "../utils/linkResolver"
+import Img from "gatsby-image"
 
 import donateStyles from "./donate.module.css"
 
@@ -26,7 +27,7 @@ const renderDonatePage = data => (
     <Layout>
       <>
         <div id="preload">
-          <img src={heroPhoto} width="100%" alt="preload" />
+          <Img fixed={data.heroImage.childImageSharp.fixed} />
         </div>
         <Hero
           title={
@@ -88,6 +89,13 @@ const query = graphql`
             lead_paragraph
             page_title
           }
+        }
+      }
+    }
+    heroImage: file(relativePath: { eq: "images/donation-hero.jpg" }) {
+      childImageSharp {
+        fixed(width: 1200) {
+          ...GatsbyImageSharpFixed
         }
       }
     }
