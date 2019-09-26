@@ -3,13 +3,13 @@ import blockStyles from "./block.module.css"
 
 const Block = props => (
   <div
-    className={blockStyles.container}
+    className={blockStyles.container + " " + props.customClassName}
     style={{
       backgroundColor: props.backgroundColor,
-      backgroundImage: "url(" + props.backgroundImage + ")",
       paddingTop: props.containerPaddingTop,
       paddingBottom: props.containerPaddingBottom,
       marginBottom: props.containerMarginBottom,
+      overflow: props.containerOverflow,
     }}
   >
     <div className={blockStyles.wrapper}>{props.children}</div>

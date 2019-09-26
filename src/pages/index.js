@@ -72,7 +72,10 @@ const renderIndexPage = data => {
             </Block>
           </BackgroundImage>
           <div id="about" name="about"></div>
-          <Block>
+          <Block
+            containerOverflow="visible"
+            customClassName="blockDecorationOne"
+          >
             <div className={indexStyles.everyPerson}>
               <h2 className="is-1 is-centered is-serif">
                 {
@@ -91,6 +94,9 @@ const renderIndexPage = data => {
                   linkResolver
                 )}
               </div>
+            </div>
+            <div className={indexStyles.dividerWrapper}>
+              <div className={indexStyles.divider}></div>
             </div>
           </Block>
           <Block
@@ -244,7 +250,7 @@ const renderIndexPage = data => {
               </div>
             </div>
           </Block>
-          <Block>
+          <Block customClassName="blockDecorationTwo">
             <div className={indexStyles.quote}>
               <div className={indexStyles.quoteWrapper}>
                 <div className={indexStyles.quotePhoto}>

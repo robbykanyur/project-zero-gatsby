@@ -271,5 +271,19 @@ hr {
   margin-bottom: 16px;
 }
 
+.blockDecorationOne {
+  background-image: url(../images/home-decoration-1.svg) !important;
+  background-size: cover;
+  background-position: top center;
+  background-repeat: no-repeat;
+}
+
+.blockDecorationTwo {
+  background-image: url(../images/home-decoration-2.svg) !important;
+  background-size: cover;
+  background-position: top center;
+  background-repeat: no-repeat;
+}
+
 @media only screen and (max-width: 960px) {
 }
