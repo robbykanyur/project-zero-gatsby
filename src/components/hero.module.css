@@ -1,9 +1,5 @@
 .hero {
-  background: #ffffff;
   height: 500px;
-  background-image: url(../images/placeholder.png);
-  background-size: cover;
-  background-position: center;
 }
 
 .hero h1 {

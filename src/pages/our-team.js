@@ -14,8 +14,6 @@ import Footer from "../components/footer"
 import Block from "../components/block"
 import Button from "../components/button"
 
-import heroPhoto from "../images/team-hero.jpg"
-
 class OurTeamPage extends React.Component {
   constructor(props) {
     super(props)
@@ -98,6 +96,7 @@ class OurTeamPage extends React.Component {
     const formErrors = this.state.errors.map((error, key) => (
       <li key={error.id}>{error.message}</li>
     ))
+    const query = this.props.data
     const data = this.props.data.prismic.allPage_teams.edges.slice(0, 1).pop()
       .node
     return (
@@ -107,10 +106,10 @@ class OurTeamPage extends React.Component {
         </Helmet>
         <Layout>
           <>
-            <div id="preload">
-              <img src={heroPhoto} width="100%" alt="preload" />
-            </div>
-            <Hero title={data.hero_text} photo={heroPhoto}></Hero>
+            <Hero
+              title={data.hero_text}
+              photo={query.heroImage.childImageSharp.fixed}
+            ></Hero>
             <Block>
               <div className={teamStyles.lead}>
                 <div className="is-1">
@@ -243,6 +242,13 @@ export const query = graphql`
               }
             }
           }
+        }
+      }
+    }
+    heroImage: file(relativePath: { eq: "images/team-hero.jpg" }) {
+      childImageSharp {
+        fixed(width: 1200, quality: 100) {
+          ...GatsbyImageSharpFixed
         }
       }
     }

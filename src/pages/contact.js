@@ -13,7 +13,6 @@ import Footer from "../components/footer"
 import Block from "../components/block"
 import Button from "../components/button"
 
-import heroPhoto from "../images/contact-hero.jpg"
 import squares from "../images/contact-square.png"
 
 class ContactPage extends Component {
@@ -105,6 +104,7 @@ class ContactPage extends Component {
     const formErrors = this.state.errors.map((error, key) => (
       <li key={error.id}>{error.message}</li>
     ))
+    const query = this.props.data
     const data = this.props.data.prismic.allPage_contacts.edges
       .slice(0, 1)
       .pop().node
@@ -115,10 +115,10 @@ class ContactPage extends Component {
         </Helmet>
         <Layout>
           <>
-            <div id="preload">
-              <img src={heroPhoto} width="100%" alt="preload" />
-            </div>
-            <Hero title={data.header_text} photo={heroPhoto}></Hero>
+            <Hero
+              title={data.header_text}
+              photo={query.heroImage.childImageSharp.fixed}
+            ></Hero>
             <Block>
               <div className={contactStyles.lead + " is-1 is-centered-text"}>
                 {RichText.render(data.lead_paragraph)}
@@ -232,6 +232,13 @@ export const query = graphql`
             lead_paragraph
             page_title
           }
+        }
+      }
+    }
+    heroImage: file(relativePath: { eq: "images/contact-hero.jpg" }) {
+      childImageSharp {
+        fixed(quality: 100, width: 1200) {
+          ...GatsbyImageSharpFixed
         }
       }
     }

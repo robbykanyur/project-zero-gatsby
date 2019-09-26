@@ -4,7 +4,7 @@ import { Helmet } from "react-helmet"
 import { RichText } from "prismic-reactjs"
 import { withPreview } from "gatsby-source-prismic-graphql"
 import { linkResolver } from "../utils/linkResolver"
-import Img from "gatsby-image"
+import BackgroundImage from "gatsby-background-image"
 
 import indexStyles from "./index.module.css"
 
@@ -15,7 +15,6 @@ import Button from "../components/button"
 import Cta from "../components/cta"
 import Footer from "../components/footer"
 
-import hero from "../images/home-hero.jpg"
 import zigzag from "../images/tex-zebra.png"
 import polaroid from "../images/home-polaroid.png"
 import squares from "../images/home-squares.png"
@@ -33,41 +32,45 @@ const renderIndexPage = data => {
 
       <Layout>
         <>
-          <div id="preload">
-            <Img fixed={data.heroImage.childImageSharp.fixed} />
-          </div>
           <Header logoSrc={logo} />
-          <Block backgroundImage={hero}>
-            <div className="animated fadeInUp">
-              <div className={indexStyles.hero}>
-                <h1 className="is-1 is-centered">
-                  {
-                    data.prismic.allPage_homes.edges.slice(0, 1).pop().node
-                      .lead_heading
-                  }
-                </h1>
-                <div
-                  className={indexStyles.wrapLead + " is-centered is-subtitle"}
-                >
-                  {RichText.render(
-                    data.prismic.allPage_homes.edges.slice(0, 1).pop().node
-                      .lead_paragraph,
-                    linkResolver
-                  )}
-                </div>
-                <div className="is-centered-text">
-                  <Button
-                    link="/donate"
-                    text={
+          <BackgroundImage
+            fluid={data.heroImage.childImageSharp.fixed}
+            className="index-hero"
+          >
+            <Block backgroundColor="rgba(0,0,0,0)">
+              <div className="animated fadeInUp">
+                <div className={indexStyles.hero}>
+                  <h1 className="is-1 is-centered">
+                    {
                       data.prismic.allPage_homes.edges.slice(0, 1).pop().node
-                        .lead_button
+                        .lead_heading
                     }
-                    width="193px"
-                  />
+                  </h1>
+                  <div
+                    className={
+                      indexStyles.wrapLead + " is-centered is-subtitle"
+                    }
+                  >
+                    {RichText.render(
+                      data.prismic.allPage_homes.edges.slice(0, 1).pop().node
+                        .lead_paragraph,
+                      linkResolver
+                    )}
+                  </div>
+                  <div className="is-centered-text">
+                    <Button
+                      link="/donate"
+                      text={
+                        data.prismic.allPage_homes.edges.slice(0, 1).pop().node
+                          .lead_button
+                      }
+                      width="193px"
+                    />
+                  </div>
                 </div>
               </div>
-            </div>
-          </Block>
+            </Block>
+          </BackgroundImage>
           <div id="about" name="about"></div>
           <Block>
             <div className={indexStyles.everyPerson}>

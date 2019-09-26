@@ -131,8 +131,12 @@ body {
   font-size: 20px;
 }
 
-#preload {
-  display: none !important;
+.gatsby-hero {
+  height: 500px;
+}
+
+.index-hero {
+  height: auto;
 }
 
 .is-1 {

@@ -12,14 +12,9 @@ import Footer from "../components/footer"
 import Block from "../components/block"
 import Button from "../components/button"
 
-import heroPhoto from "../images/thank-you-hero.jpg"
-
 const renderThankYouPage = data => {
   return (
     <>
-      <div id="preload">
-        <img src={heroPhoto} width="100%" alt="preload" />
-      </div>
       <Helmet>
         <title>
           {
@@ -35,7 +30,7 @@ const renderThankYouPage = data => {
               data.prismic.allPage_thank_yous.edges.slice(0, 1).pop().node
                 .header_text
             }
-            photo={heroPhoto}
+            photo={data.heroImage.childImageSharp.fixed}
           ></Hero>
           <Block>
             <div className={thankYouStyles.lead + " is-1 is-centered"}>
@@ -76,6 +71,13 @@ const query = graphql`
             page_title
             header_text
           }
+        }
+      }
+    }
+    heroImage: file(relativePath: { eq: "images/thank-you-hero.jpg" }) {
+      childImageSharp {
+        fixed(quality: 100, width: 1200) {
+          ...GatsbyImageSharpFixed
         }
       }
     }

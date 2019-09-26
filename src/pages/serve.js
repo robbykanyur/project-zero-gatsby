@@ -14,8 +14,6 @@ import Footer from "../components/footer"
 import Block from "../components/block"
 import Button from "../components/button"
 
-import heroPhoto from "../images/serve-hero.jpg"
-
 class ServePage extends React.Component {
   constructor(props) {
     super(props)
@@ -97,6 +95,7 @@ class ServePage extends React.Component {
     const formErrors = this.state.errors.map((error, key) => (
       <li key={error.id}>{error.message}</li>
     ))
+    const query = this.props.data
     const data = this.props.data.prismic.allServes.edges.slice(0, 1).pop().node
     return (
       <>
@@ -105,10 +104,10 @@ class ServePage extends React.Component {
         </Helmet>
         <Layout>
           <>
-            <div id="preload">
-              <img src={heroPhoto} width="100%" alt="preload" />
-            </div>
-            <Hero title={data.page_header} photo={heroPhoto}></Hero>
+            <Hero
+              title={data.page_header}
+              photo={query.heroImage.childImageSharp.fixed}
+            ></Hero>
             <Block>
               <div className={serveStyles.lead + " is-1"}>
                 <p className="is-1 is-centered-text">
@@ -195,6 +194,13 @@ export const query = graphql`
             page_title
             cta_text
           }
+        }
+      }
+    }
+    heroImage: file(relativePath: { eq: "images/serve-hero.jpg" }) {
+      childImageSharp {
+        fixed(quality: 100, width: 1200) {
+          ...GatsbyImageSharpFixed
         }
       }
     }
