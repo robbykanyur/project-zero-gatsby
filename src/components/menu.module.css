@@ -1,0 +1,91 @@
+.container {
+  height: 100vh;
+  width: 100vw;
+  z-index: 9999;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #617cad;
+  background-image: url(../images/menu-bg.jpg);
+  background-size: cover;
+  background-position: bottom center;
+  top: 100%;
+  height: 100%;
+  transition: all 0.3s ease-in-out;
+  pointer-events: all;
+}
+
+.active {
+  top: 50px;
+}
+
+.toggle {
+  position: relative;
+  top: -50px;
+  height: 50px;
+  background: #617cad;
+  text-align: center;
+  font-weight: 700;
+  color: white;
+  font-size: 18px;
+  letter-spacing: 6px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  pointer-events: all;
+}
+
+.toggleText {
+  padding-top: 7px;
+}
+
+.arrow {
+  margin: 0 24px;
+  padding: 9px 0 0;
+}
+
+.arrow:first-child {
+  margin-right: 28px;
+}
+
+.active .arrow {
+  transform: rotate(180deg);
+  padding: 4px 0 0;
+}
+
+.links {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: -90px;
+}
+
+.link,
+button {
+  padding: 0;
+  display: block;
+  background: 0;
+  border: 0;
+  appearance: none;
+  color: white;
+  cursor: pointer;
+  font-size: 44px;
+  margin-bottom: 22px;
+  font-family: "PTS", serif;
+  text-decoration: none;
+  font-weight: 400;
+  font-style: italic;
+  transition: all 0.1s;
+}
+
+.link:hover,
+button:hover {
+  padding-left: 10px;
+}
+
+.link:last-child {
+  margin-bottom: 0;
+}

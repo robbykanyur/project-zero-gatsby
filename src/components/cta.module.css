@@ -68,3 +68,9 @@ a.button:last-of-type {
 a.button:last-of-type:hover {
   margin-left: 22px;
 }
+
+@media only screen and (max-width: 960px) {
+  .header {
+    width: 100%;
+  }
+}

@@ -2,6 +2,7 @@ import React from "react"
 import { Link, StaticQuery, graphql } from "gatsby"
 import footerStyles from "./footer.module.css"
 import { withPreview } from "gatsby-source-prismic-graphql"
+import Menu from "./menu.js"
 
 const Footer = props => {
   return (
@@ -10,6 +11,7 @@ const Footer = props => {
       render={withPreview(
         data => (
           <>
+            <Menu />
             <div className={footerStyles.container}>
               <div className={footerStyles.wrapper}>
                 <p className={footerStyles.paragraph}>
