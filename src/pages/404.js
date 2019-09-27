@@ -24,7 +24,7 @@ const fourOhFourPage = data => {
           ></Hero>
           <Block>
             <div className={thankYouStyles.lead}>
-              <div className="is-1">
+              <div className="thankYou is-1">
                 <p className="is-centered">
                   Sorry, that page couldn't be found.
                 </p>

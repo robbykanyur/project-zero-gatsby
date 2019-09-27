@@ -325,4 +325,10 @@ hr {
   .indexProblemLineTwo {
     font-size: 48px;
   }
+  .gatsby-hero {
+    height: auto;
+  }
+  .thankYou.is-1 p {
+    font-size: 18px;
+  }
 }
