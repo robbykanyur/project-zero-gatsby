@@ -18,8 +18,11 @@ const Footer = props => {
                   {
                     data.prismic.allComponent_footers.edges.slice(0, 1).pop()
                       .node.address_line_1
-                  }{" "}
-                  &#47;&#47;{" "}
+                  }
+                  <span class="mobile-hidden"> &#47;&#47; </span>
+                  <span class="mobile-only-inline">
+                    <br />
+                  </span>
                   {
                     data.prismic.allComponent_footers.edges.slice(0, 1).pop()
                       .node.address_line_2

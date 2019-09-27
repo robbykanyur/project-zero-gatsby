@@ -176,7 +176,66 @@
 }
 
 @media only screen and (max-width: 960px) {
-  .wrapEveryPerson {
+  .hero h1,
+  .wrapLead,
+  .everyPerson h1,
+  .wrapEveryPerson,
+  .coordinated h2,
+  .wrapCoordinated,
+  .polaroidWrapper,
+  .problemRow,
+  .costWrapper,
+  .costLeft,
+  .costRight,
+  .costLine,
+  .quoteWrapper {
+    max-width: 100%;
+  }
+  .dividerWrapper {
+    bottom: -59px;
+  }
+  .polaroidContainer {
+    position: relative;
+    top: 0;
+    height: auto;
+    top: 34px;
+    margin-top: -8px;
+  }
+  .costWrapper {
+    flex-direction: column;
+    text-align: center;
+  }
+  .costLeft {
+    font-size: 24px;
+    margin-bottom: 42px;
     width: 100%;
+    max-width: 450px;
+  }
+  .problem h2 {
+    font-size: 36px;
+    line-height: 1;
+    margin-bottom: 32px;
+  }
+  .problemRow {
+    flex-direction: column;
+    margin-bottom: 0;
+  }
+  .problemItemDescription {
+    padding-bottom: 32px;
+  }
+  .quotePhoto {
+    width: 112px;
+    height: 112px;
+    margin-top: 8px;
+  }
+  .quoteText {
+    font-size: 24px;
+    max-width: 480px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .quoteAttrib {
+    font-size: 14px;
+    margin-bottom: 0;
   }
 }

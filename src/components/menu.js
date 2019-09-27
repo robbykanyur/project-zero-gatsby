@@ -39,7 +39,7 @@ class Menu extends Component {
   render() {
     return (
       <>
-        <div className={menuStyles.container}>
+        <div className={menuStyles.container + " mobile-only-block"}>
           <MenuContent
             active={this.state.active}
             handleToggleClick={this.handleToggleClick}

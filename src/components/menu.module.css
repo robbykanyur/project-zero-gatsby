@@ -60,11 +60,11 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  margin-top: -90px;
+  margin-top: -97px;
 }
 
 .link,
-button {
+.linkButton {
   padding: 0;
   display: block;
   background: 0;

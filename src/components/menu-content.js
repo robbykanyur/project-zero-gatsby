@@ -26,7 +26,7 @@ class MenuContent extends Component {
                 <>
                   <div className={menuStyles.links}>
                     <button
-                      className={menuStyles.link}
+                      className={menuStyles.link + " " + menuStyles.linkButton}
                       onClick={handleAboutClick}
                     >
                       {

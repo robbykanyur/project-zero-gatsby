@@ -131,6 +131,11 @@ body {
   font-size: 20px;
 }
 
+.mobile-only-inline,
+.mobile-only-block {
+  display: none;
+}
+
 .gatsby-hero {
   height: 500px;
 }
@@ -285,5 +290,39 @@ hr {
   background-repeat: no-repeat;
 }
 
+.indexPolaroid {
+  padding-bottom: 300px !important;
+}
+
 @media only screen and (max-width: 960px) {
+  .mobile-hidden {
+    display: none !important;
+  }
+  .mobile-only-inline {
+    display: inline;
+  }
+  .mobile-only-block {
+    display: block;
+  }
+  .is-1 {
+    font-size: 28px;
+    width: 100%;
+  }
+  .is-serif.is-1 {
+    font-size: 28px;
+  }
+  .is-subtitle p {
+    font-size: 18px;
+  }
+  .is-serif.is-2 {
+    font-size: 28px;
+    line-height: 1.4;
+  }
+  .indexPolaroid {
+    padding-bottom: 0px !important;
+    overflow: hidden !important;
+  }
+  .indexProblemLineTwo {
+    font-size: 48px;
+  }
 }

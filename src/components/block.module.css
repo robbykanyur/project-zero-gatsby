@@ -21,3 +21,14 @@
   position: absolute;
   z-index: 2000;
 }
+
+@media only screen and (max-width: 960px) {
+  .container {
+    padding: 48px 0;
+  }
+  .wrapper {
+    max-width: 85%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}

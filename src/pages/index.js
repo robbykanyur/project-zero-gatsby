@@ -103,7 +103,7 @@ const renderIndexPage = data => {
             backgroundColor="#f2f2f2"
             pattern={zigzag}
             tileOpacity="0.22"
-            containerPaddingBottom="300px"
+            customClassName="indexPolaroid"
           >
             <div className={indexStyles.coordinated}>
               <h2 className="is-2 is-centered is-serif">
@@ -148,18 +148,26 @@ const renderIndexPage = data => {
                           .cost_per_month
                       }{" "}
                       per month
-                      <br />
+                      <span class="mobile-hidden">
+                        <br />
+                      </span>
                     </span>{" "}
                     to provide{" "}
                     <span className={indexStyles.costHighlight}>
                       housing, clothing,
-                      <br /> food,
+                      <span class="mobile-hidden">
+                        <br />
+                      </span>{" "}
+                      food,
                     </span>{" "}
                     and{" "}
                     <span className={indexStyles.costHighlight}>
                       healthcare
                     </span>{" "}
-                    for a <br />
+                    for a{" "}
+                    <span class="mobile-hidden">
+                      <br />
+                    </span>
                     homeless neighbor.
                   </p>
                 </div>

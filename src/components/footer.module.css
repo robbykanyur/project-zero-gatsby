@@ -34,7 +34,25 @@
 }
 
 @media only screen and (max-width: 960px) {
+  .container {
+    padding: 40px 0 77px;
+  }
+  .paragraph {
+    margin-bottom: 32px;
+  }
+  .linksWrapper {
+    flex-direction: column;
+    justify-content: center;
+  }
+  .linksWrapper a {
+    display: block;
+    width: 100px;
+    text-align: center;
+    margin: 0 auto 16px;
+    padding-bottom: 4px;
+  }
   .wrapper {
-    max-width: 100%;
+    width: 85%;
+    text-align: center;
   }
 }
