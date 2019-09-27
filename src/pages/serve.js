@@ -166,7 +166,7 @@ class ServePage extends React.Component {
               </div>
             </Block>
             <Cta
-              contentWidth="400px"
+              contentWidth="450px"
               linkOneText="Donate"
               toggleModal={true}
               linkOneHref="/donate"

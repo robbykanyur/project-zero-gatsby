@@ -43,7 +43,7 @@ const renderDonatePage = data => (
         </Block>
         <Cta
           noDonationForm={true}
-          contentWidth="440px"
+          contentWidth="550px"
           linkOneText="Join the Team"
           linkOneHref="/serve"
           linkOneWidth="210px"

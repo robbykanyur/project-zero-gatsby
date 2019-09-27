@@ -26,12 +26,13 @@
 }
 
 .header {
-  width: 450px;
+  width: 500px;
   color: #ffffff;
-  font-size: 30px;
+  font-size: 38px;
   text-align: right;
   font-weight: 300;
   margin-bottom: 16px;
+  font-family: "PTS", serif;
 }
 
 .buttons {
