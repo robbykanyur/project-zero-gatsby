@@ -120,7 +120,11 @@ class ContactPage extends Component {
               photo={query.heroImage.childImageSharp.fixed}
             ></Hero>
             <Block>
-              <div className={contactStyles.lead + " is-1 is-centered-text"}>
+              <div
+                className={
+                  contactStyles.lead + " pageContent is-1 is-centered-text"
+                }
+              >
                 {RichText.render(data.lead_paragraph)}
               </div>
               <div className={contactStyles.captureForm}>
@@ -177,7 +181,11 @@ class ContactPage extends Component {
                 </form>
               </div>
             </Block>
-            <Block containerPaddingTop="0" containerPaddingBottom="0">
+            <Block
+              containerPaddingTop="0"
+              containerPaddingBottom="0"
+              customClassName="contactDetails"
+            >
               <div className={contactStyles.detailsContainer}>
                 <div className={contactStyles.detailsWrapper}>
                   <div className={contactStyles.detailsLeft}>

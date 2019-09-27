@@ -33,7 +33,9 @@ const renderThankYouPage = data => {
             photo={data.heroImage.childImageSharp.fixed}
           ></Hero>
           <Block>
-            <div className={thankYouStyles.lead + " thankYou is-1 is-centered"}>
+            <div
+              className={thankYouStyles.lead + " pageContent is-1 is-centered"}
+            >
               {RichText.render(
                 data.prismic.allPage_thank_yous.edges.slice(0, 1).pop().node
                   .paragraph
