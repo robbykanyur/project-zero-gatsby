@@ -1,7 +1,7 @@
 import React from "react"
 import Helmet from "react-helmet"
 
-import openGraph from "../images/open-graph.jpg"
+import openGraph from "../images/open-graph-v2.jpg"
 
 import "./layout.css"
 import "./fonts.css"
