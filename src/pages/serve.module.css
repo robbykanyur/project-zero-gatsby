@@ -6,3 +6,13 @@
 .captureForm {
   margin-top: 44px;
 }
+
+@media only screen and (max-width: 960px) {
+  .lead {
+    width: 100%;
+    max-width: 450px;
+  }
+  .captureForm {
+    margin-top: 36px;
+  }
+}

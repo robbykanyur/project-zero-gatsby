@@ -110,7 +110,7 @@ class ServePage extends React.Component {
             ></Hero>
             <Block>
               <div className={serveStyles.lead + " is-1"}>
-                <p className="is-1 is-centered-text">
+                <p className="is-1 pageContent is-centered-text">
                   {RichText.render(data.lead_paragraph)}
                 </p>
               </div>
