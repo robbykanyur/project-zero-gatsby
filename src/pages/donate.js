@@ -31,7 +31,9 @@ const renderDonatePage = data => (
           photo={data.heroImage.childImageSharp.fixed}
         ></Hero>
         <Block>
-          <div className={donateStyles.lead + " is-1 is-centered-text"}>
+          <div
+            className={donateStyles.lead + " is-1 pageContent is-centered-text"}
+          >
             {RichText.render(
               data.prismic.allPage_donates.edges.slice(0, 1).pop().node
                 .lead_paragraph,

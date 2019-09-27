@@ -36,6 +36,8 @@ class Cta extends Component {
   }
 
   render() {
+    const singleButtonDiv =
+      this.props.displaySecondButton === "none" ? ctaStyles.singleButton : ""
     return (
       <>
         <div className={ctaStyles.container}>
@@ -48,7 +50,7 @@ class Cta extends Component {
               >
                 {this.props.textContent}
               </h2>
-              <div className={ctaStyles.buttons}>
+              <div className={ctaStyles.buttons + " " + singleButtonDiv}>
                 <Link
                   to={this.props.linkOneHref}
                   className={ctaStyles.button}
