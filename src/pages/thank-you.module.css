@@ -3,6 +3,6 @@
   margin: 0 auto;
 }
 
-.lead p:last-child {
-  margin-bottom: 16px;
+.lead p {
+  margin-bottom: 28px;
 }
