@@ -328,7 +328,8 @@ hr {
   .gatsby-hero {
     height: auto;
   }
-  .pageContent.is-1 p {
+  .pageContent.is-1 p,
+  .pageContent.is-2 p {
     font-size: 18px;
   }
   form.formControl {

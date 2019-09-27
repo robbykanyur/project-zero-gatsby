@@ -153,7 +153,7 @@ class OurTeamPage extends React.Component {
                   <h2 className="is-serif is-1 is-centered">
                     {data.form_header}
                   </h2>
-                  <p className="is-2 is-centered">
+                  <p className="is-2 is-centered pageContent">
                     {RichText.render(data.form_paragraph)}
                   </p>
                   <div className={teamStyles.captureForm}>
