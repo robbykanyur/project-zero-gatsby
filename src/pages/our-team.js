@@ -112,12 +112,17 @@ class OurTeamPage extends React.Component {
             ></Hero>
             <Block>
               <div className={teamStyles.lead}>
-                <div className="is-1">
+                <div className="is-1 pageContent">
                   {RichText.render(data.lead_paragraph)}
                 </div>
               </div>
             </Block>
-            <Block containerPaddingTop="0" containerPaddingBottom="0">
+            <Block
+              containerPaddingTop="0"
+              containerPaddingBottom="0"
+              customClassName="teamBios"
+              mobileFullWidth="true"
+            >
               <div className={teamStyles.biosContainer}>
                 <div className={teamStyles.biosWrapper}>
                   {data.body[0].fields.map(function(bio, index) {

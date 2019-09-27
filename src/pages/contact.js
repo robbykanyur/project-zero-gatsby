@@ -184,7 +184,7 @@ class ContactPage extends Component {
             <Block
               containerPaddingTop="0"
               containerPaddingBottom="0"
-              customClassName="contactDetails"
+              mobileFullWidth="true"
             >
               <div className={contactStyles.detailsContainer}>
                 <div className={contactStyles.detailsWrapper}>

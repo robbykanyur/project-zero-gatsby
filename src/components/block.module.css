@@ -31,4 +31,7 @@
     margin-left: auto;
     margin-right: auto;
   }
+  .wrapperFullWidth {
+    max-width: 100% !important;
+  }
 }

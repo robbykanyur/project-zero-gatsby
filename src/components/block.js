@@ -12,7 +12,15 @@ const Block = props => (
       overflow: props.containerOverflow,
     }}
   >
-    <div className={blockStyles.wrapper}>{props.children}</div>
+    <div
+      className={
+        blockStyles.wrapper +
+        " " +
+        (props.mobileFullWidth === "true" ? blockStyles.wrapperFullWidth : "")
+      }
+    >
+      {props.children}
+    </div>
     <div
       className={blockStyles.tile}
       style={{
