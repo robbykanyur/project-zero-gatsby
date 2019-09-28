@@ -18,12 +18,15 @@ class ResultCard extends React.Component {
     if (this.props.paymentSuccessful === true) {
       return (
         <>
-          <div className={donationStyles.innerCard + " " + this.props.active}>
+          <div
+            id="donationResultCard"
+            className={donationStyles.innerCard + " " + this.props.active}
+          >
             <div className={donationStyles.socialShare + " is-centered"}>
-              <h2 className="is-serif is-1">
+              <h2 id="donationSerifH1" className="is-serif is-1">
                 Thank you for your contribution!
               </h2>
-              <p className="is-2">
+              <p id="donationSansP2" className="is-2">
                 A receipt will be emailed to{" "}
                 <strong>{this.props.paymentEmail}</strong>.
               </p>

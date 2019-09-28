@@ -73,7 +73,7 @@ class StripeCard extends React.Component {
         fontWeight: "600",
         letterSpacing: "2px",
         textTransform: "uppercase",
-        fontSize: "16px",
+        fontSize: "14px",
         fontFamily: "'Courier New', monospace",
         color: "#5dae8c",
         "::placeholder": {
@@ -91,47 +91,50 @@ class StripeCard extends React.Component {
 
     return (
       <>
-        <form
-          id="paymentInformationForm"
-          className="formControl"
-          onKeyPress={this.handleKeyPress}
-        >
-          <div className="control">
-            <input
-              ref={el => (this.nameInput = el)}
-              type="text"
-              placeholder="Your name"
-              onChange={e => this.props.handlePaymentNameChange(e)}
-            />
-          </div>
-          <div className="control">
-            <input
-              ref={el => (this.emailInput = el)}
-              type="text"
-              placeholder="Email address"
-              onChange={e => this.props.handlePaymentEmailChange(e)}
-            />
-          </div>
-          <div className={"control " + donationStyles.stripeControl}>
-            <CardElement
-              style={checkoutStyles}
-              onChange={e => this.handleCardChange(e)}
-            />
-          </div>
-        </form>
-        <div className="formErrors">{formErrors}</div>
-        <div className={donationStyles.controlNext}>
-          <a
-            href="/"
-            className={
-              donationStyles.button + " " + donationStyles.confirmButton
-            }
-            onClick={e => this.handleSubmit(e)}
+        <div id="donationControl">
+          <form
+            id="paymentInformationForm"
+            className="formControl"
+            onKeyPress={this.handleKeyPress}
           >
-            Confirm $
-            {parseFloat(Math.round(this.props.amount) / 100).toFixed(2)}{" "}
-            {this.props.recurring ? "Subscription" : "Payment"}
-          </a>
+            <div className="control">
+              <input
+                id="creditCardInputName"
+                ref={el => (this.nameInput = el)}
+                type="text"
+                placeholder="Your name"
+                onChange={e => this.props.handlePaymentNameChange(e)}
+              />
+            </div>
+            <div className="control">
+              <input
+                ref={el => (this.emailInput = el)}
+                type="text"
+                placeholder="Email address"
+                onChange={e => this.props.handlePaymentEmailChange(e)}
+              />
+            </div>
+            <div className={"control " + donationStyles.stripeControl}>
+              <CardElement
+                style={checkoutStyles}
+                onChange={e => this.handleCardChange(e)}
+              />
+            </div>
+          </form>
+          <div className="formErrors">{formErrors}</div>
+          <div className={donationStyles.controlNext}>
+            <a
+              href="/"
+              className={
+                donationStyles.button + " " + donationStyles.confirmButton
+              }
+              onClick={e => this.handleSubmit(e)}
+            >
+              Confirm $
+              {parseFloat(Math.round(this.props.amount) / 100).toFixed(2)}{" "}
+              {this.props.recurring ? "Subscription" : "Payment"}
+            </a>
+          </div>
         </div>
       </>
     )

@@ -350,4 +350,46 @@ hr {
     width: 100%;
     margin: 0;
   }
+  #donationSerifH2 {
+    font-size: 26px;
+    padding: 0 20px;
+  }
+  #donationSerifH1 {
+    font-size: 26px;
+  }
+  #donationSansP2 {
+    font-size: 16px;
+    width: 85%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  #donationControl {
+    width: 85%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  #donationControl .control input {
+    font-size: 14px;
+  }
+  #donationControl .control input:first-of-type {
+    font-size: 14px;
+  }
+  #donationControl .control input::placeholder {
+    font-size: 14px;
+  }
+  #donationCustomAmountCard {
+    margin-top: -26px;
+  }
+  #donationCreditCardCard {
+    margin-top: -26px;
+  }
+  #donationLoadingCard {
+    margin-top: -22px;
+  }
+  #donationResultCard {
+    margin-top: -27px;
+  }
+  #creditCardInputName {
+    margin-bottom: 18px;
+  }
 }

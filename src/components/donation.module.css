@@ -113,6 +113,7 @@
 
 .confirmButton,
 .shareButton a {
+  display: inline-block;
   width: auto;
   padding-left: 30px;
   padding-right: 30px;
@@ -185,6 +186,7 @@
 
 .controlNext {
   margin: 0 auto;
+  text-align: center;
 }
 
 .stripeControl {
@@ -196,4 +198,67 @@
 
 .shareButton {
   margin-top: 22px;
+}
+
+@media only screen and (max-width: 960px) {
+  .card {
+    display: block;
+    width: 272px;
+    height: 505px;
+    position: relative;
+    box-shadow: none;
+    padding: 16px 0;
+  }
+  .interaction {
+    width: 100%;
+    max-width: 300px;
+  }
+  .monthlySelector {
+    flex-direction: column;
+    height: 112px;
+  }
+  .selection,
+  .selectionRight {
+    width: 100%;
+  }
+  .selection::before {
+    clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0% 100%);
+    transition: all 0.3s ease-in-out;
+  }
+  .selectionRight::before {
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+    transition: all 0.3s ease-in-out;
+  }
+  .selectorActive::before,
+  .selectorActiveRight::before {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+    transition: all 0.3s ease-in-out;
+  }
+  .amountRow {
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 0;
+  }
+  .amountButton {
+    align-self: center;
+    margin-bottom: 20px;
+    height: 55px;
+    width: 225px;
+    padding-top: 17px;
+    font-size: 18px;
+  }
+  .bigNumber .control {
+    border: 3px solid #000;
+  }
+  .bigNumber input,
+  .bigNumber input::placeholder {
+    font-size: 28px;
+  }
+  .detailLink {
+    font-size: 16px;
+    margin-top: 32px;
+  }
+  .progressIndicator {
+    transition: width 0.5s ease-in-out;
+  }
 }

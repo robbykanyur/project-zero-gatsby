@@ -37,6 +37,7 @@ class CustomAmountCard extends Component {
 
     return (
       <div
+        id="donationCustomAmountCard"
         className={
           donationStyles.innerCard +
           " " +
@@ -46,12 +47,12 @@ class CustomAmountCard extends Component {
         }
       >
         <div className={donationStyles.title}>
-          <p className="is-2 is-serif is-centered">
+          <p id="donationSerifH2" className="is-2 is-serif is-centered">
             Please enter your donation amount:
           </p>
         </div>
         <div className={donationStyles.bigNumber}>
-          <div className="control">
+          <div id="donationControl" className="control">
             <form id="customAmountForm">
               <MaskedInput
                 ref={i => {

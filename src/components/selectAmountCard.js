@@ -14,7 +14,7 @@ class SelectAmountCard extends Component {
         }
       >
         <div className={donationStyles.title}>
-          <p className="is-2 is-serif is-centered">
+          <p id="donationSerifH2" className="is-2 is-serif is-centered">
             Will you make your donation monthly?
           </p>
         </div>
@@ -47,21 +47,30 @@ class SelectAmountCard extends Component {
             <div className={donationStyles.amountRow}>
               <a
                 href="/"
-                className={donationStyles.button}
+                className={
+                  donationStyles.button + " " + donationStyles.amountButton
+                }
                 onClick={e => this.props.setAmount(e, 1000)}
               >
                 Donate $10
               </a>
               <a
                 href="/"
-                className={donationStyles.button}
+                className={
+                  donationStyles.button +
+                  " " +
+                  donationStyles.amountButton +
+                  " mobile-hidden"
+                }
                 onClick={e => this.props.setAmount(e, 2500)}
               >
                 Donate $25
               </a>
               <a
                 href="/"
-                className={donationStyles.button}
+                className={
+                  donationStyles.button + " " + donationStyles.amountButton
+                }
                 onClick={e => this.props.setAmount(e, 5000)}
               >
                 Donate $50
@@ -70,21 +79,28 @@ class SelectAmountCard extends Component {
             <div className={donationStyles.amountRow}>
               <a
                 href="/"
-                className={donationStyles.button}
+                className={donationStyles.button + " mobile-hidden"}
                 onClick={e => this.props.setAmount(e, 7500)}
               >
                 Donate $75
               </a>
               <a
                 href="/"
-                className={donationStyles.button}
+                className={
+                  donationStyles.button +
+                  " " +
+                  donationStyles.amountButton +
+                  " mobile-hidden"
+                }
                 onClick={e => this.props.setAmount(e, 10000)}
               >
                 Donate $100
               </a>
               <a
                 href="/"
-                className={donationStyles.button}
+                className={
+                  donationStyles.button + " " + donationStyles.amountButton
+                }
                 onClick={e => this.props.handleCustom(e)}
               >
                 Enter Amount

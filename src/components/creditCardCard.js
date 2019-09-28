@@ -30,6 +30,7 @@ class CreditCardCard extends Component {
   render() {
     return (
       <div
+        id="donationCreditCardCard"
         className={
           donationStyles.innerCard +
           " " +
@@ -39,7 +40,7 @@ class CreditCardCard extends Component {
         }
       >
         <div className={donationStyles.title}>
-          <p className="is-2 is-serif is-centered">
+          <p id="donationSerifH2" className="is-2 is-serif  is-centered">
             Please enter your payment information:
           </p>
         </div>

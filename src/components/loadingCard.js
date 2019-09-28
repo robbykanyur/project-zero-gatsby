@@ -7,6 +7,7 @@ class LoadingCard extends Component {
     return (
       <>
         <div
+          id="donationLoadingCard"
           className={
             donationStyles.innerCard +
             " " +
