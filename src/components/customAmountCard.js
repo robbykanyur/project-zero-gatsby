@@ -8,6 +8,7 @@ class CustomAmountCard extends Component {
     super(props)
     this.state = {
       inputAmount: 0,
+      hasErrors: false,
     }
     this.handleAmountChange = this.handleAmountChange.bind(this)
     this.handleKeyPress = this.handleKeyPress.bind(this)
@@ -34,6 +35,13 @@ class CustomAmountCard extends Component {
     const formErrors = this.props.errors.map((error, key) => (
       <li key={error.id}>{error.message}</li>
     ))
+
+    if (this.props.errors.length > 0) {
+      this.state.hasErrors = true
+    }
+
+    const hasErrorsButton =
+      this.state.hasErrors === true ? donationStyles.hasErrorsButton : ""
 
     return (
       <div
@@ -75,7 +83,7 @@ class CustomAmountCard extends Component {
         <div className={donationStyles.controlNext}>
           <a
             href="/"
-            className={donationStyles.button}
+            className={donationStyles.button + " " + hasErrorsButton}
             onClick={e =>
               this.props.handleCustomAmountSubmit(e, this.state.inputAmount)
             }

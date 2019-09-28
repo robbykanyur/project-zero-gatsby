@@ -8,6 +8,7 @@ class StripeCard extends React.Component {
     super(props)
     this.state = {
       errors: [],
+      hasErrors: false,
       cardModified: false,
     }
   }
@@ -55,9 +56,10 @@ class StripeCard extends React.Component {
 
   handleValidateResponse(response, body) {
     if (response.ok) {
+      this.state.hasErrors = false
       this.submitToStripe()
     } else {
-      this.setState({ errors: body.errors })
+      this.setState({ errors: body.errors, hasErrors: true })
     }
   }
 
@@ -85,9 +87,41 @@ class StripeCard extends React.Component {
       },
     }
 
+    let nameHasErrors = false
+    for (let i = 0; i < this.state.errors.length; i++) {
+      if (this.state.errors[i]["message"].includes("name")) {
+        nameHasErrors = true
+        break
+      }
+    }
+
+    let emailHasErrors = false
+    for (let i = 0; i < this.state.errors.length; i++) {
+      if (this.state.errors[i]["message"].includes("email")) {
+        emailHasErrors = true
+        break
+      }
+    }
+
+    let cardHasErrors = false
+    for (let i = 0; i < this.state.errors.length; i++) {
+      if (this.state.errors[i]["message"].includes("card")) {
+        cardHasErrors = true
+        break
+      }
+    }
+
     const formErrors = this.state.errors.map((error, key) => (
       <li key={error.id}>{error.message}</li>
     ))
+    const hasErrorsButton =
+      this.state.hasErrors === true ? donationStyles.hasErrorsButton : ""
+    const errorNameHighlight =
+      nameHasErrors === true ? donationStyles.highlightInputError : ""
+    const errorEmailHighlight =
+      emailHasErrors === true ? donationStyles.highlightInputError : ""
+    const errorCardHighlight =
+      cardHasErrors === true ? donationStyles.backgroundInputError : ""
 
     return (
       <>
@@ -126,7 +160,11 @@ class StripeCard extends React.Component {
             <a
               href="/"
               className={
-                donationStyles.button + " " + donationStyles.confirmButton
+                donationStyles.button +
+                " " +
+                donationStyles.confirmButton +
+                " " +
+                hasErrorsButton
               }
               onClick={e => this.handleSubmit(e)}
             >

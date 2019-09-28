@@ -388,4 +388,7 @@ hr {
   #donationCreditCardCard {
     margin-top: -10px;
   }
+  .formErrors {
+    display: none;
+  }
 }
