@@ -41,7 +41,7 @@ class CreditCardCard extends Component {
       >
         <div className={donationStyles.title}>
           <p id="donationSerifH2" className="is-2 is-serif  is-centered">
-            Please enter your payment information:
+            Please enter your card information:
           </p>
         </div>
         <StripeProvider stripe={this.state.stripe}>

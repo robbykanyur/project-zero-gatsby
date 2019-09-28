@@ -294,6 +294,11 @@ hr {
   padding-bottom: 300px !important;
 }
 
+#donationControl .control input,
+#donationControl .control::placeholder {
+  font-size: 14px;
+}
+
 @media only screen and (max-width: 960px) {
   .mobile-hidden {
     display: none !important;
@@ -377,19 +382,10 @@ hr {
   #donationControl .control input::placeholder {
     font-size: 14px;
   }
-  #donationCustomAmountCard {
-    margin-top: -26px;
+  #creditCardInputName {
+    margin-bottom: 16px;
   }
   #donationCreditCardCard {
-    margin-top: -26px;
-  }
-  #donationLoadingCard {
-    margin-top: -22px;
-  }
-  #donationResultCard {
-    margin-top: -27px;
-  }
-  #creditCardInputName {
-    margin-bottom: 18px;
+    margin-top: -10px;
   }
 }

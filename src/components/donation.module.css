@@ -152,7 +152,7 @@
   color: #b7b7b7;
   font-family: "PTS", serif;
   font-size: 14px;
-  margin: 4px auto 0;
+  margin: 8px auto 0;
 }
 
 .detailLink:hover {
@@ -204,10 +204,14 @@
   .card {
     display: block;
     width: 272px;
-    height: 505px;
+    height: 440px;
     position: relative;
     box-shadow: none;
-    padding: 16px 0;
+    padding: 8px 0;
+    margin-bottom: 50px;
+  }
+  .chooseAmount {
+    padding: 18px 0;
   }
   .interaction {
     width: 100%;
@@ -242,9 +246,9 @@
   .amountButton {
     align-self: center;
     margin-bottom: 20px;
-    height: 55px;
-    width: 225px;
-    padding-top: 17px;
+    height: 45px;
+    width: 200px;
+    padding-top: 12px;
     font-size: 18px;
   }
   .bigNumber .control {
@@ -256,7 +260,7 @@
   }
   .detailLink {
     font-size: 16px;
-    margin-top: 32px;
+    margin-top: 18px;
   }
   .progressIndicator {
     transition: width 0.5s ease-in-out;
