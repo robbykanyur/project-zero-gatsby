@@ -56,7 +56,7 @@ class StripeCard extends React.Component {
 
   handleValidateResponse(response, body) {
     if (response.ok) {
-      this.state.hasErrors = false
+      this.setState({ hasErrors: false })
       this.submitToStripe()
     } else {
       this.setState({ errors: body.errors, hasErrors: true })
@@ -87,6 +87,7 @@ class StripeCard extends React.Component {
       },
     }
 
+    /* 
     let nameHasErrors = false
     for (let i = 0; i < this.state.errors.length; i++) {
       if (this.state.errors[i]["message"].includes("name")) {
@@ -110,18 +111,21 @@ class StripeCard extends React.Component {
         break
       }
     }
+    */
 
     const formErrors = this.state.errors.map((error, key) => (
       <li key={error.id}>{error.message}</li>
     ))
     const hasErrorsButton =
       this.state.hasErrors === true ? donationStyles.hasErrorsButton : ""
-    const errorNameHighlight =
+    /*
+      const errorNameHighlight =
       nameHasErrors === true ? donationStyles.highlightInputError : ""
     const errorEmailHighlight =
       emailHasErrors === true ? donationStyles.highlightInputError : ""
     const errorCardHighlight =
       cardHasErrors === true ? donationStyles.backgroundInputError : ""
+    */
 
     return (
       <>
