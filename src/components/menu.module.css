@@ -82,7 +82,7 @@
 }
 
 .link:hover,
-button:hover {
+.linkButton:hover {
   padding-left: 10px;
 }
 
