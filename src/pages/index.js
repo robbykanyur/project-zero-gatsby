@@ -21,7 +21,7 @@ import squares from "../images/home-squares.png"
 import paint from "../images/tex-wall.png"
 import logo from "../images/base-logo.png"
 
-const renderIndexPage = data => {
+const renderIndexPage = (data) => {
   return (
     <>
       <Helmet>

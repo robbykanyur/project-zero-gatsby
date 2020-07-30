@@ -38,7 +38,7 @@ class CustomAmountCard extends Component {
 
     if (this.props.errors.length > 0) {
       this.setState({
-        hasErrors: true;
+        hasErrors: true
       })
     }
 

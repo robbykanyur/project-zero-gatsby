@@ -12,7 +12,7 @@ import Footer from "../components/footer"
 import Block from "../components/block"
 import Button from "../components/button"
 
-const renderThankYouPage = data => {
+const renderThankYouPage = (data) => {
   return (
     <>
       <Helmet>

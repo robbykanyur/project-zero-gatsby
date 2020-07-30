@@ -125,7 +125,7 @@ class OurTeamPage extends React.Component {
             >
               <div className={teamStyles.biosContainer}>
                 <div className={teamStyles.biosWrapper}>
-                  {data.body[0].fields.map(function(bio, index) {
+                  {data.body[0].fields.map(function (bio, index) {
                     return (
                       <div className={teamStyles.bioItem}>
                         <div className={teamStyles.bioPhoto}>
@@ -166,14 +166,14 @@ class OurTeamPage extends React.Component {
                         <input
                           type="text"
                           placeholder="Your Name"
-                          onChange={e => this.handleNameChange(e)}
+                          onChange={(e) => this.handleNameChange(e)}
                         />
                       </div>
                       <div className="control">
                         <input
                           type="email"
                           placeholder="Email Address"
-                          onChange={e => this.handleEmailChange(e)}
+                          onChange={(e) => this.handleEmailChange(e)}
                         />
                       </div>
                       <div className="control">
@@ -182,13 +182,13 @@ class OurTeamPage extends React.Component {
                           placeholder="Phone Number"
                           mask={mask}
                           placeholderChar="&nbsp;"
-                          onChange={e => this.handlePhoneChange(e)}
+                          onChange={(e) => this.handlePhoneChange(e)}
                         />
                       </div>
                       <div className="captcha">
                         <input
                           type="checkbox"
-                          onChange={e => this.handleCaptchaChange(e)}
+                          onChange={(e) => this.handleCaptchaChange(e)}
                         />{" "}
                         Check this box if you are a human.
                       </div>
@@ -198,7 +198,7 @@ class OurTeamPage extends React.Component {
                           link="/thank-you-serve"
                           text="Yes, I'm In"
                           width="155px"
-                          onClick={e => this.handleFormSubmit(e)}
+                          onClick={(e) => this.handleFormSubmit(e)}
                         />
                       </div>
                     </form>

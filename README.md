@@ -1,3 +1,6 @@
 # project-zero-gatsby
 
-a gatsby website for project zero.
+A marketing website for a non-profit in Virginia. Built with Gatsby and React.
+
+![](demo/demo.gif)
+

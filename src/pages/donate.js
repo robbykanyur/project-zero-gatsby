@@ -14,7 +14,7 @@ import Footer from "../components/footer"
 import Block from "../components/block"
 import Donation from "../components/donation"
 
-const renderDonatePage = data => (
+const renderDonatePage = (data) => (
   <>
     <Helmet>
       <title>
