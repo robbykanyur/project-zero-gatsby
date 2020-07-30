@@ -37,7 +37,9 @@ class CustomAmountCard extends Component {
     ))
 
     if (this.props.errors.length > 0) {
-      this.state.hasErrors = true
+      this.setState({
+        hasErrors: true;
+      })
     }
 
     const hasErrorsButton =
